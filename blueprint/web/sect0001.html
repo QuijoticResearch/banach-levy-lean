@@ -167,7 +167,7 @@
         </div>
   </div>
   <div class="defn_thmcontent">
-  <p>  The symmetric \(\gamma \)-stable Lévy measure density is \(\nu _\gamma (dz) = c_\gamma |z|^{-1-\gamma }\, dz\) on \(\mathbb {R} \setminus \{ 0\} \), where \(c_\gamma {\gt} 0\) and \(\gamma \in (1,2)\). The singularity at the origin is strong enough that \(\int |z|^2\, \nu _\gamma (dz) = \infty \), forcing the energy space to be Banach rather than Hilbert. </p>
+  <p>  The symmetric \(\gamma \)-stable Lévy measure density is \(\nu _\gamma (dz) = c_\gamma |z|^{-1-\gamma }\, dz\) on \(\mathbb {R} \setminus \{ 0\} \), where \(c_\gamma {\gt} 0\) and \(\gamma \in (1,2)\). The singularity at the origin is strong enough that \(\int |z|^2\, \nu _\gamma (dz) = \infty \), forcing the energy space to be Banach rather than Hilbert. This density is the starting point for the entire Lévy–Itô construction and all moment estimates that follow. </p>
 
   </div>
 </div>
@@ -234,7 +234,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(\nu _\gamma (-z) = \nu _\gamma (z)\) for all \(z \neq 0\), from the absolute value in \(c_\gamma |z|^{-1-\gamma }\). Symmetry of \(\nu _\gamma \) implies \(L \stackrel{d}{=} -L\), the key ingredient in the even-annihilation argument. </p>
+  <p>   \(\nu _\gamma (-z) = \nu _\gamma (z)\) for all \(z \neq 0\), from the absolute value in \(c_\gamma |z|^{-1-\gamma }\). Symmetry of \(\nu _\gamma \) implies \(L \stackrel{d}{=} -L\), the key ingredient in the even-annihilation argument. Without this property, the obstruction witness could not be shown to lie outside \(\mathrm{im}(\delta _L)\). </p>
 
   </div>
 </div>
@@ -313,7 +313,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(c_\gamma |z|^{-1-\gamma } {\gt} 0\) for \(z \neq 0\) when \(c_\gamma {\gt} 0\), ensuring \(\nu _\gamma \) is a valid Lévy measure. </p>
+  <p>   \(c_\gamma |z|^{-1-\gamma } {\gt} 0\) for \(z \neq 0\) when \(c_\gamma {\gt} 0\), ensuring \(\nu _\gamma \) is a valid Lévy measure. Nonnegativity is required for the measure-theoretic construction of compound Poisson integrals. </p>
 
   </div>
 </div>
@@ -373,7 +373,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>  \(\lambda = \nu _\gamma (\{ |z| {\gt} 1\} ) = 2c_\gamma /\gamma {\gt} 0\). Positivity ensures the Poisson parameter \(\lambda T {\gt} 0\), giving positive variance for the large-jump count witness. </p>
+  <p>  \(\lambda = \nu _\gamma (\{ |z| {\gt} 1\} ) = 2c_\gamma /\gamma {\gt} 0\). Positivity ensures the Poisson parameter \(\lambda T {\gt} 0\), giving positive variance for the large-jump count witness. This rate controls the intensity of the compound Poisson component in the Lévy–Itô decomposition. </p>
 
   </div>
 </div>
@@ -432,7 +432,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>  For \(\alpha {\gt} \gamma \): \(\int _{|z|\leq 1} |z|^\alpha \, \nu _\gamma (dz) = 2c_\gamma /(\alpha - \gamma ) {\lt} \infty \). In particular, the second moment (\(\alpha = 2 {\gt} \gamma \)) is finite, enabling the \(L^2\) isometry for truncated compensated integrals. </p>
+  <p>  For \(\alpha {\gt} \gamma \): \(\int _{|z|\leq 1} |z|^\alpha \, \nu _\gamma (dz) = 2c_\gamma /(\alpha - \gamma ) {\lt} \infty \). In particular, the second moment (\(\alpha = 2 {\gt} \gamma \)) is finite, enabling the \(L^2\) isometry for truncated compensated integrals. This finiteness is what makes the compensated integral well-defined in \(L^2\). </p>
 
   </div>
 </div>
@@ -491,7 +491,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>  For \(\alpha {\lt} \gamma \): \(\int _{|z|\leq 1} |z|^\alpha \, \nu _\gamma (dz) = \infty \). This divergence forces the integrand space \(H_L = L^p\) with \(p {\lt} \gamma {\lt} 2\) into the Banach setting. </p>
+  <p>  For \(\alpha {\lt} \gamma \): \(\int _{|z|\leq 1} |z|^\alpha \, \nu _\gamma (dz) = \infty \). This divergence forces the integrand space \(H_L = L^p\) with \(p {\lt} \gamma {\lt} 2\) into the Banach setting, ruling out the standard Hilbert-space energy framework. </p>
 
   </div>
 </div>
@@ -615,7 +615,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(\sum _{n=0}^{\infty } n \cdot P_r(n) = r\). Used in the variance computation and centering of the obstruction witness. </p>
+  <p>   \(\sum _{n=0}^{\infty } n \cdot P_r(n) = r\). Used in the variance computation and centering of the obstruction witness. This classical identity is derived here from the recurrence to keep the development self-contained. </p>
 
   </div>
 </div>
@@ -694,7 +694,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(\sum n(n-1) P_r(n) = r^2\), proved by applying the recurrence twice. Combined with the mean, this yields \(\mathrm{Var} = r^2 + r - r^2 = r\). </p>
+  <p>   \(\sum n(n-1) P_r(n) = r^2\), proved by applying the recurrence twice. Combined with the mean, this yields \(\mathrm{Var} = r^2 + r - r^2 = r\), completing the variance calculation. </p>
 
   </div>
 </div>
@@ -775,7 +775,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(\mathrm{Var}(\mathrm{Poisson}(r)) = r\). Positive variance \(\lambda T {\gt} 0\) implies the centered witness is nonzero. </p>
+  <p>   \(\mathrm{Var}(\mathrm{Poisson}(r)) = r\). Positive variance \(\lambda T {\gt} 0\) implies the centered witness is nonzero, which is essential for the representability obstruction. </p>
 
   </div>
 </div>
@@ -835,7 +835,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>  \((V + Kz)^2 - V^2 - 2V(Kz) = (Kz)^2\): the Taylor remainder for \(f(x) = x^2\) is exact. Serves as the prototype for the jump defect. </p>
+  <p>  \((V + Kz)^2 - V^2 - 2V(Kz) = (Kz)^2\): the Taylor remainder for \(f(x) = x^2\) is exact. Serves as the prototype for the jump defect that drives the Leibniz failure in the Banach setting. </p>
 
   </div>
 </div>
@@ -914,7 +914,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(|g_f(V,K,z)| = (Kz)^2\) for \(f(x) = x^2\): the Taylor bound is achieved with equality. </p>
+  <p>   \(|g_f(V,K,z)| = (Kz)^2\) for \(f(x) = x^2\): the Taylor bound is achieved with equality. This sharpness shows that the defect estimate cannot be improved for quadratic nonlinearities. </p>
 
   </div>
 </div>
@@ -991,7 +991,7 @@
         </div>
   </div>
   <div class="defn_thmcontent">
-  <p>   Constructs the canonical Poisson space \((\mathbb {N}, \mathrm{poissonMeasure}(\lambda T))\) with \(G_0(n) = n\) as the large-jump count. Provides an explicit probability space for the obstruction witness. </p>
+  <p>   Constructs the canonical Poisson space \((\mathbb {N}, \mathrm{poissonMeasure}(\lambda T))\) with \(G_0(n) = n\) as the large-jump count. Provides an explicit probability space for the obstruction witness, bridging abstract existence to concrete computation. </p>
 
   </div>
 </div>
@@ -1058,7 +1058,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(\mathrm{Measure.map}\; G_0\; \mu = \mathrm{poissonMeasure}(\lambda T)\), trivially by \(\mathrm{Measure.map\_ id}\) since \(G_0 = \mathrm{id}\). </p>
+  <p>   \(\mathrm{Measure.map}\; G_0\; \mu = \mathrm{poissonMeasure}(\lambda T)\), trivially by \(\mathrm{Measure.map\_ id}\) since \(G_0 = \mathrm{id}\). This confirms that the concrete construction realizes the desired Poisson distribution. </p>
 
   </div>
 </div>

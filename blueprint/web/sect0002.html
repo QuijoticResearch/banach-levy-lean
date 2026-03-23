@@ -234,7 +234,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(\int _{|z|\leq M} z^2\, \nu _\gamma (dz) = 2c_\gamma M^{2-\gamma }/(2-\gamma ) {\gt} 0\). Provides the nondegenerate isometry constant for \(\delta _L^M\). </p>
+  <p>   \(\int _{|z|\leq M} z^2\, \nu _\gamma (dz) = 2c_\gamma M^{2-\gamma }/(2-\gamma ) {\gt} 0\). Provides the nondegenerate isometry constant for \(\delta _L^M\), ensuring that the compensated integral norm is strictly positive. </p>
 
   </div>
 </div>
@@ -294,7 +294,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>  \(f(y_n) - f(y_0) = \sum _{i=0}^{n-1} [f(y_{i+1}) - f(y_i)]\). Replaces stochastic integration in the compound Poisson setting. </p>
+  <p>  \(f(y_n) - f(y_0) = \sum _{i=0}^{n-1} [f(y_{i+1}) - f(y_i)]\). Replaces stochastic integration in the compound Poisson setting, reducing path-level identities to algebraic sums. </p>
 
   </div>
 </div>
@@ -353,7 +353,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>  \(f(v+z) - f(v) = f'(v)z + [f(v+z) - f(v) - f'(v)z]\): the linear part (odd in \(z\), detectable by \(D_L\)) plus the nonlinear remainder (contributing to \(\Gamma _L\)). </p>
+  <p>  \(f(v+z) - f(v) = f'(v)z + [f(v+z) - f(v) - f'(v)z]\): the linear part (odd in \(z\), detectable by \(D_L\)) plus the nonlinear remainder (contributing to \(\Gamma _L\)). This decomposition underpins both the product rule and the chaos characterization. </p>
 
   </div>
 </div>
@@ -432,7 +432,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   Telescoping for \(h = ab\) gives the compound Poisson product rule: a Leibniz part plus a defect \([a(y_{i+1}) - a(y_i)][b(y_{i+1}) - b(y_i)]\). </p>
+  <p>   Telescoping for \(h = ab\) gives the compound Poisson product rule: a Leibniz part plus a defect \([a(y_{i+1}) - a(y_i)][b(y_{i+1}) - b(y_i)]\). The defect term is the discrete analogue of the carré du champ operator. </p>
 
   </div>
 </div>
@@ -489,7 +489,7 @@
         </div>
   </div>
   <div class="defn_thmcontent">
-  <p>  The finite random sum \(\sum _{i=1}^{N} h(s_i, z_i) - \mathrm{compensator}\), well-defined pointwise since \(\nu _\gamma ^M\) has finite total mass. </p>
+  <p>  The finite random sum \(\sum _{i=1}^{N} h(s_i, z_i) - \mathrm{compensator}\), well-defined pointwise since \(\nu _\gamma ^M\) has finite total mass. Finiteness of the sum avoids the convergence issues that arise for the full Lévy integral. </p>
 
   </div>
 </div>
@@ -556,7 +556,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(\sum (ch_1 + h_2) = c\sum h_1 + \sum h_2\), from linearity of finite sums. </p>
+  <p>   \(\sum (ch_1 + h_2) = c\sum h_1 + \sum h_2\), from linearity of finite sums. This ensures that the compound Poisson integral inherits linearity from ordinary summation. </p>
 
   </div>
 </div>
@@ -633,7 +633,7 @@
         </div>
   </div>
   <div class="defn_thmcontent">
-  <p>   \(I_1^M(h) = \lim _{\varepsilon \to 0} I_1^{\varepsilon ,M}(h)\) in \(L^2\), constructed from compound Poisson finite sums. Centering and isometry are derived via <span class="ttfamily">tendsto_nhds_unique</span>. </p>
+  <p>   \(I_1^M(h) = \lim _{\varepsilon \to 0} I_1^{\varepsilon ,M}(h)\) in \(L^2\), constructed from compound Poisson finite sums. Centering and isometry are derived via <span class="ttfamily">tendsto_nhds_unique</span>, transferring properties from the approximations to the limit. </p>
 
   </div>
 </div>
@@ -700,7 +700,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(\mathbb {E}[I_1^M(h)] = 0\): each approximation is centered, and centering passes to the \(L^2\) limit. </p>
+  <p>   \(\mathbb {E}[I_1^M(h)] = 0\): each approximation is centered, and centering passes to the \(L^2\) limit. This zero-mean property is inherited by all divergence operators built from \(I_1\). </p>
 
   </div>
 </div>
@@ -779,7 +779,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(\mathbb {E}[|I_1^M(h)|^2] = \| h\| _{L^2(\nu _\gamma ^M \otimes dt)}^2\): the isometry of finite-sum approximations is preserved in the limit. </p>
+  <p>   \(\mathbb {E}[|I_1^M(h)|^2] = \| h\| _{L^2(\nu _\gamma ^M \otimes dt)}^2\): the isometry of finite-sum approximations is preserved in the limit. This identity is the analogue of the classical Itô isometry for the compensated Poisson setting. </p>
 
   </div>
 </div>
@@ -857,7 +857,7 @@
         </div>
   </div>
   <div class="defn_thmcontent">
-  <p>   Packages the constructed integral into the axiomatic interface for <span class="ttfamily">LevyItoDecomposition</span>, converting proved properties into structure fields. </p>
+  <p>   Packages the constructed integral into the axiomatic interface for <span class="ttfamily">LevyItoDecomposition</span>, converting proved properties into structure fields. This bridge allows downstream results to use the abstract API without depending on construction details. </p>
 
   </div>
 </div>
@@ -922,7 +922,7 @@
         </div>
   </div>
   <div class="defn_thmcontent">
-  <p>   \(L_T = X_T^{\mathrm{small}} + Y_T^{\mathrm{large}}\): compensated small jumps plus compound Poisson large jumps. </p>
+  <p>   \(L_T = X_T^{\mathrm{small}} + Y_T^{\mathrm{large}}\): compensated small jumps plus compound Poisson large jumps. This canonical splitting separates the martingale and finite-variation components of the process. </p>
 
   </div>
 </div>
@@ -989,7 +989,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(\mathbb {E}[F \cdot \delta ^M(u)] \to \mathbb {E}[F \cdot \delta (u)]\) as \(M \to \infty \). Essential for the chaos characterization (Theorem&#160;C). </p>
+  <p>   \(\mathbb {E}[F \cdot \delta ^M(u)] \to \mathbb {E}[F \cdot \delta (u)]\) as \(M \to \infty \). Essential for the chaos characterization (Theorem&#160;C), since it allows passage from truncated to full divergence. </p>
 
   </div>
 </div>
@@ -1068,7 +1068,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(\mathbb {E}[\delta ^M(u)] = 0\), inherited from centering of \(I_1^M\). </p>
+  <p>   \(\mathbb {E}[\delta ^M(u)] = 0\), inherited from centering of \(I_1^M\). Centering of the truncated divergence is a prerequisite for the even-annihilation argument at each truncation level. </p>
 
   </div>
 </div>
@@ -1147,7 +1147,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   If \(\Phi _M \equiv 0\), then \(\mathbb {E}[F \cdot \delta ^M(u)] = 0\) for all deterministic \(u\). Even kernels have \(\Phi _M = 0\) since \(f_1 \cdot z\) is odd and \(\nu _\gamma \) is symmetric. </p>
+  <p>   If \(\Phi _M \equiv 0\), then \(\mathbb {E}[F \cdot \delta ^M(u)] = 0\) for all deterministic \(u\). Even kernels have \(\Phi _M = 0\) since \(f_1 \cdot z\) is odd and \(\nu _\gamma \) is symmetric, connecting measure symmetry to chaos structure. </p>
 
   </div>
 </div>
@@ -1226,7 +1226,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(\mathbb {E}[(cF) \cdot \delta ^M(u)] = c \cdot \mathbb {E}[F \cdot \delta ^M(u)]\). </p>
+  <p>   \(\mathbb {E}[(cF) \cdot \delta ^M(u)] = c \cdot \mathbb {E}[F \cdot \delta ^M(u)]\). This scalar-linearity property ensures that \(D_L\) extends to a module map over predictable scalars. </p>
 
   </div>
 </div>
@@ -1283,7 +1283,7 @@
         </div>
   </div>
   <div class="defn_thmcontent">
-  <p>  \(\langle f, g \rangle _r = \sum _n f(n)\, g(n)\, P_r(n)\): the \(L^2\) inner product on \((\mathbb {N}, \mathrm{poissonMeasure}(r))\). </p>
+  <p>  \(\langle f, g \rangle _r = \sum _n f(n)\, g(n)\, P_r(n)\): the \(L^2\) inner product on \((\mathbb {N}, \mathrm{poissonMeasure}(r))\). This discrete inner product underlies the Fourier–Charlier expansion that decomposes \(L^2\) into chaos subspaces. </p>
 
   </div>
 </div>
@@ -1327,7 +1327,7 @@
         </div>
   </div>
   <div class="defn_thmcontent">
-  <p>  \(\chi (n) = n - r\): the first-chaos generator. The centered witness \(G_0 - \mathbb {E}[G_0]\) is \(\chi \) with \(r = \lambda T\). </p>
+  <p>  \(\chi (n) = n - r\): the first-chaos generator. The centered witness \(G_0 - \mathbb {E}[G_0]\) is \(\chi \) with \(r = \lambda T\). As the simplest nonconstant orthogonal polynomial, \(\chi \) spans the first Poisson chaos. </p>
 
   </div>
 </div>
@@ -1396,7 +1396,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(\mathbb {E}[\chi ] = r - r = 0\), from the Poisson mean identity. </p>
+  <p>   \(\mathbb {E}[\chi ] = r - r = 0\), from the Poisson mean identity. Centering is one of the three hypotheses required by the representability obstruction. </p>
 
   </div>
 </div>
@@ -1477,7 +1477,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(\| \chi \| ^2 = \mathrm{Var}(N) = r {\gt} 0\). Implies \(\chi \neq 0\) in \(L^2\). </p>
+  <p>   \(\| \chi \| ^2 = \mathrm{Var}(N) = r {\gt} 0\). Implies \(\chi \neq 0\) in \(L^2\), which is the nonzero condition needed for the obstruction. </p>
 
   </div>
 </div>
@@ -1558,7 +1558,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(\langle f, \chi \rangle = 0 \Rightarrow \langle f, a\chi \rangle = 0\) for all \(a\). Orthogonality to \(\chi \) implies orthogonality to \(\mathrm{span}(\chi )\). </p>
+  <p>   \(\langle f, \chi \rangle = 0 \Rightarrow \langle f, a\chi \rangle = 0\) for all \(a\). Orthogonality to \(\chi \) implies orthogonality to \(\mathrm{span}(\chi )\), reflecting the module structure of the first chaos. </p>
 
   </div>
 </div>
@@ -1637,7 +1637,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   Zero first-chaos coefficient implies orthogonality to \(\mathrm{span}(\chi )\). </p>
+  <p>   Zero first-chaos coefficient implies orthogonality to \(\mathrm{span}(\chi )\). This is the concrete form of chaos orthogonality used in the Poisson witness argument. </p>
 
   </div>
 </div>
@@ -1697,7 +1697,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>  \(2c_\gamma \varepsilon ^{2-\gamma }/(2-\gamma ) \to 0\) as \(\varepsilon \to 0^+\). Proves the approximations are \(L^2\)-Cauchy, guaranteeing convergence to \(I_1^M(h)\). </p>
+  <p>  \(2c_\gamma \varepsilon ^{2-\gamma }/(2-\gamma ) \to 0\) as \(\varepsilon \to 0^+\). Proves the approximations are \(L^2\)-Cauchy, guaranteeing convergence to \(I_1^M(h)\). This estimate is the analytic core of the compensated integral construction. </p>
 
   </div>
 </div>
@@ -1756,7 +1756,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>  \(\varepsilon ^\alpha \to 0\) as \(\varepsilon \to 0^+\) for \(\alpha {\gt} 0\). </p>
+  <p>  \(\varepsilon ^\alpha \to 0\) as \(\varepsilon \to 0^+\) for \(\alpha {\gt} 0\). This basic real-analysis fact is used in the \(L^2\) Cauchy estimate to control the truncation error. </p>
 
   </div>
 </div>
@@ -1815,7 +1815,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>  \(2c_\gamma M^{2-\gamma }/(2-\gamma ) {\gt} 0\) for fixed \(M\): the isometry constant for \(\delta _L^M\) is positive and finite. </p>
+  <p>  \(2c_\gamma M^{2-\gamma }/(2-\gamma ) {\gt} 0\) for fixed \(M\): the isometry constant for \(\delta _L^M\) is positive and finite. Finiteness at each truncation level is what makes the compound Poisson approximation scheme viable. </p>
 
   </div>
 </div>
@@ -1892,7 +1892,7 @@
         </div>
   </div>
   <div class="defn_thmcontent">
-  <p>   \(Y_t = \sum _{s_i \leq t} z_i\): a pure-jump càdlàg path defined as a deterministic function of the jump data. </p>
+  <p>   \(Y_t = \sum _{s_i \leq t} z_i\): a pure-jump càdlàg path defined as a deterministic function of the jump data. This explicit path representation avoids the need for general semimartingale theory. </p>
 
   </div>
 </div>
@@ -1956,7 +1956,7 @@
         </div>
   </div>
   <div class="defn_thmcontent">
-  <p>   Compound Poisson path restricted to \(|z_i| {\gt} 1\). The jump count \(N_T \sim \mathrm{Poisson}(\lambda T)\), and the centered version \(N_T - \mathbb {E}[N_T]\) is the obstruction witness. </p>
+  <p>   Compound Poisson path restricted to \(|z_i| {\gt} 1\). The jump count \(N_T \sim \mathrm{Poisson}(\lambda T)\), and the centered version \(N_T - \mathbb {E}[N_T]\) is the obstruction witness that drives the main theorem. </p>
 
   </div>
 </div>
@@ -2023,7 +2023,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(Y_0 = 0\): the sum over an empty index set vanishes. </p>
+  <p>   \(Y_0 = 0\): the sum over an empty index set vanishes. This initial condition anchors the telescoping identity used in the Itô formula. </p>
 
   </div>
 </div>
@@ -2102,7 +2102,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(Y_T = \sum _i z_i\), since all jump times satisfy \(s_i \leq T\). </p>
+  <p>   \(Y_T = \sum _i z_i\), since all jump times satisfy \(s_i \leq T\). At the terminal time, the path accumulates all jumps, recovering the full random sum. </p>
 
   </div>
 </div>
