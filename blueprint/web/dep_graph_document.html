@@ -105,7 +105,7 @@
       Definition
       </span>
       <span class="defn_thmlabel">22</span><span class="defn_thmtitle">Constructed compensated integral</span></div>
-    <div class="thm_thmcontent"><p>   \(I_1^M(h) = \lim _{\varepsilon \to 0} I_1^{\varepsilon ,M}(h)\) in \(L^2\), constructed from compound Poisson finite sums. The \(L^2\) Cauchy estimate \(\varepsilon ^{2-\gamma }/(2-\gamma ) \to 0\) guarantees convergence. Centering and isometry are <em>derived</em> via <span class="ttfamily">tendsto_nhds_unique</span>. </p>
+    <div class="thm_thmcontent"><p>   \(I_1^M(h) = \lim _{\varepsilon \to 0} I_1^{\varepsilon ,M}(h)\) in \(L^2\), constructed from compound Poisson finite sums. Centering and isometry are derived via <span class="ttfamily">tendsto_nhds_unique</span>. </p>
 </div>
 
     <a class="latex_link" href="sect0002.html#def:cci">LaTeX</a>
@@ -135,7 +135,7 @@
       Definition
       </span>
       <span class="defn_thmlabel">45</span><span class="defn_thmtitle">Centering</span></div>
-    <div class="thm_thmcontent"><p>   \(\mathrm{center}(G_0) = G_0 - \mathrm{const}(\mathbb {E}[G_0])\): removes the mean, preserving variance, symmetry, and higher chaos structure. Applied to \(G_0\) to produce the centered witness for the representability obstruction. </p>
+    <div class="thm_thmcontent"><p>   \(\mathrm{center}(G_0) = G_0 - \mathrm{const}(\mathbb {E}[G_0])\): removes the mean, preserving variance and symmetry. </p>
 </div>
 
     <a class="latex_link" href="sect0003.html#def:center">LaTeX</a>
@@ -165,7 +165,7 @@
       Definition
       </span>
       <span class="defn_thmlabel">13</span><span class="defn_thmtitle">Concrete stable jump count</span></div>
-    <div class="thm_thmcontent"><p>   Constructs the canonical Poisson space \((\mathbb {N}, \mathrm{poissonMeasure}(\lambda T))\) with \(G_0(n) = n\) as the large-jump count. This provides an explicit probability space for the obstruction witness, avoiding abstract existence arguments. </p>
+    <div class="thm_thmcontent"><p>   Constructs the canonical Poisson space \((\mathbb {N}, \mathrm{poissonMeasure}(\lambda T))\) with \(G_0(n) = n\) as the large-jump count. Provides an explicit probability space for the obstruction witness. </p>
 </div>
 
     <a class="latex_link" href="sect0001.html#def:concrete_jump">LaTeX</a>
@@ -225,7 +225,7 @@
       Definition
       </span>
       <span class="defn_thmlabel">20</span><span class="defn_thmtitle">Compound Poisson integral</span></div>
-    <div class="thm_thmcontent"><p>  The finite random sum \(\sum _{i=1}^{N} h(s_i, z_i) - \mathrm{compensator}\), well-defined pointwise since \(\nu _\gamma ^M\) has finite total mass. Serves as the \(\varepsilon \)-level approximation in the compensated integral construction. </p>
+    <div class="thm_thmcontent"><p>  The finite random sum \(\sum _{i=1}^{N} h(s_i, z_i) - \mathrm{compensator}\), well-defined pointwise since \(\nu _\gamma ^M\) has finite total mass. </p>
 </div>
 
     <a class="latex_link" href="sect0002.html#def:cpi">LaTeX</a>
@@ -255,7 +255,7 @@
       Definition
       </span>
       <span class="defn_thmlabel">47</span><span class="defn_thmtitle">Operator-covariant derivative</span></div>
-    <div class="thm_thmcontent"><p>   <em>Constructed</em> as \(D(F) := \mathrm{mk\_ dual}(u \mapsto \mathbb {E}[F \cdot \delta (u)])\). The map \(u \mapsto \mathbb {E}[F \cdot \delta (u)]\) is bounded linear on \(H_X\) by Hölder, so \(D(F) \in H_X^*\). The defining identity \(\langle DF, u\rangle = \mathbb {E}[F \cdot \delta (u)]\) is a theorem, not a definition. </p>
+    <div class="thm_thmcontent"><p>   Constructed as \(D(F) := \mathrm{mk\_ dual}(u \mapsto \mathbb {E}[F \cdot \delta (u)])\). Bounded linearity on \(H_X\) follows from Hölder, so \(D(F) \in H_X^*\). </p>
 </div>
 
     <a class="latex_link" href="sect0003.html#def:D">LaTeX</a>
@@ -285,7 +285,7 @@
       Definition
       </span>
       <span class="defn_thmlabel">54</span><span class="defn_thmtitle">Distributional symmetry</span></div>
-    <div class="thm_thmcontent"><p>   \(L \stackrel{d}{=} -L\): the negation map preserves even functionals (depending on \(|\Delta L_s|\)) while flipping the sign of \(\delta _L(u)\). This parity mismatch drives the even annihilation lemma. </p>
+    <div class="thm_thmcontent"><p>   \(L \stackrel{d}{=} -L\): the negation map preserves even functionals while flipping \(\delta _L(u)\). </p>
 </div>
 
     <a class="latex_link" href="sect0003.html#def:dist_sym">LaTeX</a>
@@ -315,7 +315,7 @@
       Definition
       </span>
       <span class="defn_thmlabel">57</span><span class="defn_thmtitle">Leibniz defect</span></div>
-    <div class="thm_thmcontent"><p>   \(\Gamma (F,G) := D(FG) - F \cdot DG - G \cdot DF \in H_X^*\): measures failure of the product rule. \(\Gamma = 0\) in the Hilbert (Brownian) case; \(\Gamma \neq 0\) captures the jump correction for stable processes. </p>
+    <div class="thm_thmcontent"><p>   \(\Gamma (F,G) := D(FG) - F \cdot DG - G \cdot DF \in H_X^*\): measures failure of the product rule. \(\Gamma = 0\) iff \(D\) is a derivation. </p>
 </div>
 
     <a class="latex_link" href="sect0003.html#def:leibniz">LaTeX</a>
@@ -345,7 +345,7 @@
       Definition
       </span>
       <span class="defn_thmlabel">26</span><span class="defn_thmtitle">Lévy–Itô decomposition</span></div>
-    <div class="thm_thmcontent"><p>   \(L_T = X_T^{\mathrm{small}} + Y_T^{\mathrm{large}}\): compensated small jumps plus compound Poisson large jumps. Packages the constructed integral with its derived properties into the interface consumed by the Banach framework. </p>
+    <div class="thm_thmcontent"><p>   \(L_T = X_T^{\mathrm{small}} + Y_T^{\mathrm{large}}\): compensated small jumps plus compound Poisson large jumps. </p>
 </div>
 
     <a class="latex_link" href="sect0002.html#def:levy_ito">LaTeX</a>
@@ -375,7 +375,7 @@
       Definition
       </span>
       <span class="defn_thmlabel">32</span><span class="defn_thmtitle">Centered Poisson variable</span></div>
-    <div class="thm_thmcontent"><p>  \(\chi (n) = n - r\): the first-chaos generator on the Poisson space. The centered witness \(G_0 - \mathbb {E}[G_0]\) is \(\chi \) with \(r = \lambda T\). </p>
+    <div class="thm_thmcontent"><p>  \(\chi (n) = n - r\): the first-chaos generator. The centered witness \(G_0 - \mathbb {E}[G_0]\) is \(\chi \) with \(r = \lambda T\). </p>
 </div>
 
     <a class="latex_link" href="sect0002.html#def:poisson_chi">LaTeX</a>
@@ -495,7 +495,7 @@
       Definition
       </span>
       <span class="defn_thmlabel">61</span><span class="defn_thmtitle">Stable noise data</span></div>
-    <div class="thm_thmcontent"><p>   Packages \(\gamma \in (1,2)\), distributional symmetry, jump count \(G_0\), rate \(\lambda {\gt} 0\), and terminal time \(T {\gt} 0\). The key properties—\(G_0\) factors through \(|\Delta L_s|\) (making \(\mathrm{center}(G_0)\) even) and \(\lambda T {\gt} 0\) (making it nonzero)—feed the abstract obstruction theorem. </p>
+    <div class="thm_thmcontent"><p>   Packages \(\gamma \in (1,2)\), distributional symmetry, jump count \(G_0\), rate \(\lambda {\gt} 0\), and terminal time \(T {\gt} 0\). </p>
 </div>
 
     <a class="latex_link" href="sect0003.html#def:stable_noise">LaTeX</a>
@@ -645,7 +645,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">60</span><span class="theorem_thmtitle">Chaos kernel characterization</span></div>
-    <div class="thm_thmcontent"><p>   <b class="bfseries">Theorem&#160;C.</b> \(D_L F = 0\) on deterministic integrands iff the truncated chaos kernel \(\Phi _M \to 0\) as \(M \to \infty \). The vanishing holds for even kernels (odd integrand annihilated by symmetric \(\nu _\gamma \)) and all higher chaoses, making \(\ker (D_L)\) infinite-dimensional. </p>
+    <div class="thm_thmcontent"><p>   <b class="bfseries">Theorem&#160;C.</b> \(D_L F = 0\) on deterministic integrands iff \(\Phi _M \to 0\) as \(M \to \infty \). Even kernels and higher chaoses satisfy the vanishing condition, making \(\ker (D_L)\) infinite-dimensional. </p>
 </div>
 
     <a class="latex_link" href="sect0003.html#thm:chaos_char">LaTeX</a>
@@ -675,7 +675,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">36</span><span class="theorem_thmtitle">Chaos orthogonality concrete</span></div>
-    <div class="thm_thmcontent"><p>   Zero first-chaos coefficient implies orthogonality to \(\mathrm{span}(\chi )\): the concrete Poisson-space realization of abstract chaos orthogonality. </p>
+    <div class="thm_thmcontent"><p>   Zero first-chaos coefficient implies orthogonality to \(\mathrm{span}(\chi )\). </p>
 </div>
 
     <a class="latex_link" href="sect0002.html#thm:chaos_concrete">LaTeX</a>
@@ -705,7 +705,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">29</span><span class="theorem_thmtitle">Chaos orthogonality</span></div>
-    <div class="thm_thmcontent"><p>   If the first-chaos kernel \(\Phi _M \equiv 0\), then \(\mathbb {E}[F \cdot \delta ^M(u)] = 0\) for all deterministic \(u\). The vanishing holds for even kernels (the integrand \(f_1 \cdot z\) is odd and \(\nu _\gamma \) is symmetric), explaining why even functionals are invisible to \(D_L\). </p>
+    <div class="thm_thmcontent"><p>   If \(\Phi _M \equiv 0\), then \(\mathbb {E}[F \cdot \delta ^M(u)] = 0\) for all deterministic \(u\). Even kernels have \(\Phi _M = 0\) since \(f_1 \cdot z\) is odd and \(\nu _\gamma \) is symmetric. </p>
 </div>
 
     <a class="latex_link" href="sect0002.html#thm:chaos_orth">LaTeX</a>
@@ -765,7 +765,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">34</span><span class="theorem_thmtitle">\(\chi \) norm squared</span></div>
-    <div class="thm_thmcontent"><p>   \(\| \chi \| ^2 = \mathrm{Var}(N) = r {\gt} 0\), from the Poisson variance identity. Implies \(\chi \neq 0\) in \(L^2\). </p>
+    <div class="thm_thmcontent"><p>   \(\| \chi \| ^2 = \mathrm{Var}(N) = r {\gt} 0\). Implies \(\chi \neq 0\) in \(L^2\). </p>
 </div>
 
     <a class="latex_link" href="sect0002.html#thm:chi_norm">LaTeX</a>
@@ -795,7 +795,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">50</span><span class="theorem_thmtitle">\(D\) on constants</span></div>
-    <div class="thm_thmcontent"><p>   \(D(\mathrm{const}(c)) = 0\), since \(\mathbb {E}[c \cdot \delta (u)] = c \cdot \mathbb {E}[\delta (u)] = 0\) by (H1). Thus \(D\) depends only on the fluctuation \(F - \mathbb {E}[F]\). </p>
+    <div class="thm_thmcontent"><p>   \(D(\mathrm{const}(c)) = 0\), since \(\mathbb {E}[c \cdot \delta (u)] = c \cdot 0 = 0\) by (H1). </p>
 </div>
 
     <a class="latex_link" href="sect0003.html#thm:D_const">LaTeX</a>
@@ -825,7 +825,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">48</span><span class="theorem_thmtitle">\(D\) defining identity</span></div>
-    <div class="thm_thmcontent"><p>   \(\langle DF, u \rangle = \mathbb {E}[F \cdot \delta (u)]\), proved from <span class="ttfamily">mk_dual_spec</span>. All downstream results (linearity, kernel characterization, Leibniz defect) follow from this identity. </p>
+    <div class="thm_thmcontent"><p>   \(\langle DF, u \rangle = \mathbb {E}[F \cdot \delta (u)]\). All downstream results follow from this single identity. </p>
 </div>
 
     <a class="latex_link" href="sect0003.html#thm:D_def">LaTeX</a>
@@ -855,7 +855,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">49</span><span class="theorem_thmtitle">\(D\) linear</span></div>
-    <div class="thm_thmcontent"><p>   \(D(\alpha F + G) = \alpha DF + DG\), by evaluating both sides on test integrands via the defining identity. </p>
+    <div class="thm_thmcontent"><p>   \(D(\alpha F + G) = \alpha DF + DG\). </p>
 </div>
 
     <a class="latex_link" href="sect0003.html#thm:D_linear">LaTeX</a>
@@ -885,7 +885,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">59</span><span class="theorem_thmtitle">Defect vanishes without jumps</span></div>
-    <div class="thm_thmcontent"><p>   No jumps \(\Rightarrow \) \(\Gamma = 0\): the classical product rule holds for continuous processes. The Leibniz defect is a pure jump phenomenon. </p>
+    <div class="thm_thmcontent"><p>   No jumps \(\Rightarrow \) \(\Gamma = 0\): the classical product rule for continuous processes. </p>
 </div>
 
     <a class="latex_link" href="sect0003.html#thm:defect_vanishes">LaTeX</a>
@@ -1005,7 +1005,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">53</span><span class="theorem_thmtitle">Duality recovery</span></div>
-    <div class="thm_thmcontent"><p>   \(\langle DF, u \rangle = \mathbb {E}[\delta (v) \cdot \delta (u)]\) where \(v = \delta ^{-1}(F - \mathbb {E}[F])\): the derivative recovers the representing integrand. </p>
+    <div class="thm_thmcontent"><p>   \(\langle DF, u \rangle = \mathbb {E}[\delta (v) \cdot \delta (u)]\) where \(v = \delta ^{-1}(F - \mathbb {E}[F])\). </p>
 </div>
 
     <a class="latex_link" href="sect0003.html#thm:duality_recovery">LaTeX</a>
@@ -1035,7 +1035,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">55</span><span class="theorem_thmtitle">Even annihilates \(\mathrm{im}(\delta )\)</span></div>
-    <div class="thm_thmcontent"><p>   If \(G\) is even, then \(\mathbb {E}[G \cdot \delta (u)] = 0\) for all \(u\): under \(L \mapsto -L\), \(G\) is invariant while \(\delta (u)\) flips sign, forcing \(\mathbb {E}[G \cdot \delta (u)] = -\mathbb {E}[G \cdot \delta (u)] = 0\). </p>
+    <div class="thm_thmcontent"><p>   If \(G\) is even, then \(\mathbb {E}[G \cdot \delta (u)] = 0\) for all \(u\). </p>
 </div>
 
     <a class="latex_link" href="sect0003.html#thm:even_annihilates">LaTeX</a>
@@ -1065,7 +1065,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">52</span><span class="theorem_thmtitle">Fluctuation factorization</span></div>
-    <div class="thm_thmcontent"><p>   <b class="bfseries">Theorem&#160;A.</b> Under (H3): \(F - \mathbb {E}[F] = \delta (\delta ^{-1}(F - \mathbb {E}[F]))\). For stable processes, (H3) fails globally but the factorization holds on \(\mathrm{im}(\delta _L) \subsetneq L^p_0(\Omega )\). </p>
+    <div class="thm_thmcontent"><p>   <b class="bfseries">Theorem&#160;A.</b> Under (H3): \(F - \mathbb {E}[F] = \delta (\delta ^{-1}(F - \mathbb {E}[F]))\). </p>
 </div>
 
     <a class="latex_link" href="sect0003.html#thm:factorization">LaTeX</a>
@@ -1095,7 +1095,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">35</span><span class="theorem_thmtitle">First chaos orthogonal</span></div>
-    <div class="thm_thmcontent"><p>   \(\langle f, \chi \rangle = 0 \Rightarrow \langle f, a\chi \rangle = 0\) for all \(a\), by bilinearity (<span class="ttfamily">tsum_mul_left</span>). Orthogonality to \(\chi \) implies orthogonality to the entire first chaos \(\mathrm{span}(\chi )\). </p>
+    <div class="thm_thmcontent"><p>   \(\langle f, \chi \rangle = 0 \Rightarrow \langle f, a\chi \rangle = 0\) for all \(a\). Orthogonality to \(\chi \) implies orthogonality to \(\mathrm{span}(\chi )\). </p>
 </div>
 
     <a class="latex_link" href="sect0002.html#thm:first_chaos">LaTeX</a>
@@ -1185,7 +1185,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">23</span><span class="theorem_thmtitle">\(I_1\) centering from approximation</span></div>
-    <div class="thm_thmcontent"><p>   \(\mathbb {E}[I_1^M(h)] = 0\): each approximation is centered (compensated sum), and centering passes to the \(L^2\) limit. Feeds into hypothesis (H1). </p>
+    <div class="thm_thmcontent"><p>   \(\mathbb {E}[I_1^M(h)] = 0\): each approximation is centered, and centering passes to the \(L^2\) limit. </p>
 </div>
 
     <a class="latex_link" href="sect0002.html#thm:I1_centered">LaTeX</a>
@@ -1215,7 +1215,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">24</span><span class="theorem_thmtitle">\(I_1\) isometry from approximation</span></div>
-    <div class="thm_thmcontent"><p>   \(\mathbb {E}[|I_1^M(h)|^2] = \| h\| _{L^2(\nu _\gamma ^M \otimes dt)}^2\): the \(L^2\) isometry of finite-sum approximations is preserved in the limit. </p>
+    <div class="thm_thmcontent"><p>   \(\mathbb {E}[|I_1^M(h)|^2] = \| h\| _{L^2(\nu _\gamma ^M \otimes dt)}^2\): the isometry of finite-sum approximations is preserved in the limit. </p>
 </div>
 
     <a class="latex_link" href="sect0002.html#thm:I1_isometry">LaTeX</a>
@@ -1275,7 +1275,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">51</span><span class="theorem_thmtitle">\(\ker (D)\) characterization</span></div>
-    <div class="thm_thmcontent"><p>   \(DF = 0\) iff \(\mathbb {E}[F \cdot \delta (u)] = 0\) for all \(u\): the kernel is the annihilator of \(\mathrm{im}(\delta )\). For stable processes, \(\ker (D_L)\) is large (all even functionals and higher chaoses), sourcing the representability obstruction. </p>
+    <div class="thm_thmcontent"><p>   \(DF = 0\) iff \(\mathbb {E}[F \cdot \delta (u)] = 0\) for all \(u\): the kernel is the annihilator of \(\mathrm{im}(\delta )\). </p>
 </div>
 
     <a class="latex_link" href="sect0003.html#thm:ker_D">LaTeX</a>
@@ -1305,7 +1305,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">37</span><span class="theorem_thmtitle">\(L^2\) Cauchy estimate</span></div>
-    <div class="thm_thmcontent"><p>  \(2c_\gamma \varepsilon ^{2-\gamma }/(2-\gamma ) \to 0\) as \(\varepsilon \to 0^+\), since \(2 - \gamma {\gt} 0\). This bound on the \(L^2\) difference of truncated integrals proves the approximations are Cauchy, guaranteeing convergence to \(I_1^M(h)\). </p>
+    <div class="thm_thmcontent"><p>  \(2c_\gamma \varepsilon ^{2-\gamma }/(2-\gamma ) \to 0\) as \(\varepsilon \to 0^+\). Proves the approximations are \(L^2\)-Cauchy, guaranteeing convergence to \(I_1^M(h)\). </p>
 </div>
 
     <a class="latex_link" href="sect0002.html#thm:l2_cauchy">LaTeX</a>
@@ -1365,7 +1365,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">56</span><span class="theorem_thmtitle">Representability obstruction</span></div>
-    <div class="thm_thmcontent"><p>   <b class="bfseries">Proposition 5.1.</b> Centered, even, nonzero \(G \Rightarrow G \notin \mathrm{im}(\delta _L)\). By contradiction: \(G = \delta (u)\) gives \(\| G\| _2^2 = \mathbb {E}[G \cdot \delta (u)] = 0\) by even annihilation, so \(G = 0\). This proves \(\mathrm{im}(\delta _L) \subsetneq L^p_0(\Omega )\). </p>
+    <div class="thm_thmcontent"><p>   <b class="bfseries">Proposition 5.1.</b> Centered, even, nonzero \(G \Rightarrow G \notin \mathrm{im}(\delta _L)\). </p>
 </div>
 
     <a class="latex_link" href="sect0003.html#thm:obstruction">LaTeX</a>
@@ -1455,7 +1455,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">8</span><span class="theorem_thmtitle">Poisson mean</span></div>
-    <div class="thm_thmcontent"><p>   \(\sum _{n=0}^{\infty } n \cdot P_r(n) = r\). Proved via recurrence reindexing and <span class="ttfamily">HasSum</span> manipulation, reducing to PMF normalization \(\sum P_r(n) = 1\). Used in the variance computation and centering of the obstruction witness. </p>
+    <div class="thm_thmcontent"><p>   \(\sum _{n=0}^{\infty } n \cdot P_r(n) = r\). Used in the variance computation and centering of the obstruction witness. </p>
 </div>
 
     <a class="latex_link" href="sect0001.html#thm:poisson_mean">LaTeX</a>
@@ -1515,7 +1515,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">10</span><span class="theorem_thmtitle">Poisson variance</span></div>
-    <div class="thm_thmcontent"><p>   \(\mathrm{Var}(\mathrm{Poisson}(r)) = r\), proved by combining three independent <span class="ttfamily">HasSum</span> instances via <span class="ttfamily">HasSum.add</span>. Positive variance \(\lambda T {\gt} 0\) implies the centered witness is nonzero. </p>
+    <div class="thm_thmcontent"><p>   \(\mathrm{Var}(\mathrm{Poisson}(r)) = r\). Positive variance \(\lambda T {\gt} 0\) implies the centered witness is nonzero. </p>
 </div>
 
     <a class="latex_link" href="sect0001.html#thm:poisson_variance">LaTeX</a>
@@ -1545,7 +1545,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">30</span><span class="theorem_thmtitle">Predictable module</span></div>
-    <div class="thm_thmcontent"><p>   \(\mathbb {E}[(cF) \cdot \delta ^M(u)] = c \cdot \mathbb {E}[F \cdot \delta ^M(u)]\), ensuring \(D_L(cF) = c \cdot D_L(F)\). </p>
+    <div class="thm_thmcontent"><p>   \(\mathbb {E}[(cF) \cdot \delta ^M(u)] = c \cdot \mathbb {E}[F \cdot \delta ^M(u)]\). </p>
 </div>
 
     <a class="latex_link" href="sect0002.html#thm:pred_module">LaTeX</a>
@@ -1575,7 +1575,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">58</span><span class="theorem_thmtitle">Product rule with jump defect</span></div>
-    <div class="thm_thmcontent"><p>   <b class="bfseries">Theorem&#160;B.</b> \(\langle \Gamma (F,G), u \rangle = \mathbb {E}[\sum _s \Delta _s(f,g) \cdot \delta (u)]\), where \(\Delta _s(f,g)\) is the product jump defect. The proof applies the Lévy–Itô formula to \(fg\) and identifies the non-Leibniz part with the jump residual. </p>
+    <div class="thm_thmcontent"><p>   <b class="bfseries">Theorem&#160;B.</b> \(\langle \Gamma (F,G), u \rangle = \mathbb {E}[\sum _s \Delta _s(f,g) \cdot \delta (u)]\). </p>
 </div>
 
     <a class="latex_link" href="sect0003.html#thm:product_rule">LaTeX</a>
@@ -1605,7 +1605,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">19</span><span class="theorem_thmtitle">Product telescope</span></div>
-    <div class="thm_thmcontent"><p>   Telescoping for \(h = ab\) gives the compound Poisson product rule: a Leibniz part plus a defect \([a(y_{i+1}) - a(y_i)][b(y_{i+1}) - b(y_i)]\). This is the finite-dimensional prototype of the Leibniz defect formula. </p>
+    <div class="thm_thmcontent"><p>   Telescoping for \(h = ab\) gives the compound Poisson product rule: a Leibniz part plus a defect \([a(y_{i+1}) - a(y_i)][b(y_{i+1}) - b(y_i)]\). </p>
 </div>
 
     <a class="latex_link" href="sect0002.html#thm:product_telescope">LaTeX</a>
@@ -1635,7 +1635,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">11</span><span class="theorem_thmtitle">Quadratic defect exact</span></div>
-    <div class="thm_thmcontent"><p>  \((V + Kz)^2 - V^2 - 2V(Kz) = (Kz)^2\): the Taylor remainder for \(f(x) = x^2\) is exact. This serves as the prototype for the jump defect in the compound Poisson Itô formula. </p>
+    <div class="thm_thmcontent"><p>  \((V + Kz)^2 - V^2 - 2V(Kz) = (Kz)^2\): the Taylor remainder for \(f(x) = x^2\) is exact. Serves as the prototype for the jump defect. </p>
 </div>
 
     <a class="latex_link" href="sect0001.html#thm:quad_exact">LaTeX</a>
@@ -1665,7 +1665,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">12</span><span class="theorem_thmtitle">Quadratic defect sharp</span></div>
-    <div class="thm_thmcontent"><p>   \(|g_f(V,K,z)| = (Kz)^2\) for \(f(x) = x^2\): the Taylor bound is achieved with equality. The Leibniz defect for quadratic functionals is governed by the quadratic variation \(\sum (\Delta L_s)^2\), which is a.s. infinite for stable processes. </p>
+    <div class="thm_thmcontent"><p>   \(|g_f(V,K,z)| = (Kz)^2\) for \(f(x) = x^2\): the Taylor bound is achieved with equality. </p>
 </div>
 
     <a class="latex_link" href="sect0001.html#thm:quad_sharp">LaTeX</a>
@@ -1695,7 +1695,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">21</span><span class="theorem_thmtitle">Random sum linear</span></div>
-    <div class="thm_thmcontent"><p>   \(\sum (ch_1 + h_2) = c\sum h_1 + \sum h_2\), from linearity of finite sums. The constructed integral \(I_1^M\) inherits linearity from these approximations. </p>
+    <div class="thm_thmcontent"><p>   \(\sum (ch_1 + h_2) = c\sum h_1 + \sum h_2\), from linearity of finite sums. </p>
 </div>
 
     <a class="latex_link" href="sect0002.html#thm:random_sum_linear">LaTeX</a>
@@ -1725,7 +1725,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">38</span><span class="theorem_thmtitle">rpow tends to zero</span></div>
-    <div class="thm_thmcontent"><p>  \(\varepsilon ^\alpha \to 0\) as \(\varepsilon \to 0^+\) for \(\alpha {\gt} 0\), proved via Mathlib’s <span class="ttfamily">continuous_rpow_const</span> and <span class="ttfamily">zero_rpow</span>. </p>
+    <div class="thm_thmcontent"><p>  \(\varepsilon ^\alpha \to 0\) as \(\varepsilon \to 0^+\) for \(\alpha {\gt} 0\). </p>
 </div>
 
     <a class="latex_link" href="sect0002.html#thm:rpow_zero">LaTeX</a>
@@ -1815,7 +1815,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">65</span><span class="theorem_thmtitle">Stable obstruction</span></div>
-    <div class="thm_thmcontent"><p>   \(G_0 - \mathbb {E}[G_0] \notin \mathrm{im}(\delta _L)\): the paper’s central result. Assembles centering, evenness, and nonzeroness to trigger the abstract obstruction, proving that (H3) fails for symmetric \(\gamma \)-stable processes. </p>
+    <div class="thm_thmcontent"><p>   \(G_0 - \mathbb {E}[G_0] \notin \mathrm{im}(\delta _L)\): the paper’s central result. </p>
 </div>
 
     <a class="latex_link" href="sect0003.html#thm:stable_obstruction">LaTeX</a>
@@ -1845,7 +1845,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">17</span><span class="theorem_thmtitle">Finite telescope</span></div>
-    <div class="thm_thmcontent"><p>  \(f(y_n) - f(y_0) = \sum _{i=0}^{n-1} [f(y_{i+1}) - f(y_i)]\), proved via <span class="ttfamily">Finset.sum_range_sub</span>. This replaces stochastic integration in the compound Poisson setting, where finitely many jumps make the Itô formula a finite sum. </p>
+    <div class="thm_thmcontent"><p>  \(f(y_n) - f(y_0) = \sum _{i=0}^{n-1} [f(y_{i+1}) - f(y_i)]\). Replaces stochastic integration in the compound Poisson setting. </p>
 </div>
 
     <a class="latex_link" href="sect0002.html#thm:telescope">LaTeX</a>
@@ -1905,7 +1905,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">27</span><span class="theorem_thmtitle">Truncation convergence</span></div>
-    <div class="thm_thmcontent"><p>   \(\mathbb {E}[F \cdot \delta ^M(u)] \to \mathbb {E}[F \cdot \delta (u)]\) as \(M \to \infty \), derived from \(I_1\)-convergence. Essential for the chaos characterization (Theorem&#160;C). </p>
+    <div class="thm_thmcontent"><p>   \(\mathbb {E}[F \cdot \delta ^M(u)] \to \mathbb {E}[F \cdot \delta (u)]\) as \(M \to \infty \). Essential for the chaos characterization (Theorem&#160;C). </p>
 </div>
 
     <a class="latex_link" href="sect0002.html#thm:trunc_conv">LaTeX</a>
@@ -1935,7 +1935,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">16</span><span class="theorem_thmtitle">Truncated second moment positive</span></div>
-    <div class="thm_thmcontent"><p>   \(\int _{|z|\leq M} z^2\, \nu _\gamma (dz) = 2c_\gamma M^{2-\gamma }/(2-\gamma ) {\gt} 0\), since \(c_\gamma {\gt} 0\) and \(2 - \gamma {\gt} 0\). Provides the nondegenerate isometry constant for the truncated compensated integral. </p>
+    <div class="thm_thmcontent"><p>   \(\int _{|z|\leq M} z^2\, \nu _\gamma (dz) = 2c_\gamma M^{2-\gamma }/(2-\gamma ) {\gt} 0\). Provides the nondegenerate isometry constant for \(\delta _L^M\). </p>
 </div>
 
     <a class="latex_link" href="sect0002.html#thm:trunc_second">LaTeX</a>
@@ -1965,7 +1965,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">62</span><span class="theorem_thmtitle">Variance positive</span></div>
-    <div class="thm_thmcontent"><p>   \(\mathrm{Var}(G_0) = \lambda T {\gt} 0\), by <span class="ttfamily">mul_pos</span> from \(\lambda {\gt} 0\) and \(T {\gt} 0\). </p>
+    <div class="thm_thmcontent"><p>   \(\mathrm{Var}(G_0) = \lambda T {\gt} 0\). </p>
 </div>
 
     <a class="latex_link" href="sect0003.html#thm:var_pos">LaTeX</a>
@@ -1995,7 +1995,7 @@
       Theorem
       </span>
       <span class="theorem_thmlabel">63</span><span class="theorem_thmtitle">Centered witness even</span></div>
-    <div class="thm_thmcontent"><p>   \(\mathrm{center}(G_0)\) is even: \(G_0\) depends on \(|\Delta L_s|\) (invariant under \(L \mapsto -L\)), and centering preserves evenness since \(\mathbb {E}[G_0]\) is constant. </p>
+    <div class="thm_thmcontent"><p>   \(\mathrm{center}(G_0)\) is even: \(G_0\) depends on \(|\Delta L_s|\) (invariant under \(L \mapsto -L\)), and centering preserves evenness. </p>
 </div>
 
     <a class="latex_link" href="sect0003.html#thm:witness_even">LaTeX</a>
@@ -2059,7 +2059,7 @@ graphContainer.graphviz({useWorker: true})
     .width(width)
     .height(height)
     .fit(true)
-    .renderDot(`digraph {  rankdir=TB;  node [style=filled];  "def:poisson_chi" [label="poisson_chi", shape="ellipse", style="", color="green"];  "def:center" [label="center", shape="ellipse", style="", color="green"];  "thm:density_sym" [label="density_sym", shape="ellipse", style="", color="green"];  "thm:I1_isometry" [label="I1_isometry", shape="ellipse", style="", color="green"];  "thm:path_zero" [label="path_zero", shape="ellipse", style="", color="green"];  "thm:duality_recovery" [label="duality_recovery", shape="ellipse", style="", color="green"];  "thm:defect_vanishes" [label="defect_vanishes", shape="ellipse", style="", color="green"];  "lem:poisson_recurrence" [label="poisson_recurrence", shape="ellipse", style="", color="green"];  "def:poisson_inner" [label="poisson_inner", shape="ellipse", style="", color="green"];  "def:D" [label="D", shape="ellipse", style="", color="green"];  "def:stable_noise" [label="stable_noise", shape="ellipse", style="", color="green"];  "thm:density_nonneg" [label="density_nonneg", shape="ellipse", style="", color="green"];  "thm:quad_exact" [label="quad_exact", shape="ellipse", style="", color="green"];  "thm:trunc_second" [label="trunc_second", shape="ellipse", style="", color="green"];  "thm:chi_centered" [label="chi_centered", shape="ellipse", style="", color="green"];  "thm:first_chaos" [label="first_chaos", shape="ellipse", style="", color="green"];  "thm:even_annihilates" [label="even_annihilates", shape="ellipse", style="", color="green"];  "thm:hilbert_bridge" [label="hilbert_bridge", shape="ellipse", style="", color="green"];  "def:levy_ito" [label="levy_ito", shape="ellipse", style="", color="green"];  "def:leibniz" [label="leibniz", shape="ellipse", style="", color="green"];  "thm:I1_centered" [label="I1_centered", shape="ellipse", style="", color="green"];  "thm:trunc_conv" [label="trunc_conv", shape="ellipse", style="", color="green"];  "thm:l2_cauchy" [label="l2_cauchy", shape="ellipse", style="", color="green"];  "thm:trunc_bounded" [label="trunc_bounded", shape="ellipse", style="", color="green"];  "def:stable_density" [label="stable_density", shape="ellipse", style="", color="green"];  "def:banach_space" [label="banach_space", shape="ellipse", style="", color="green"];  "thm:small_jump_finite" [label="small_jump_finite", shape="ellipse", style="", color="green"];  "thm:jump_decomp" [label="jump_decomp", shape="ellipse", style="", color="green"];  "thm:random_sum_linear" [label="random_sum_linear", shape="ellipse", style="", color="green"];  "thm:D_const" [label="D_const", shape="ellipse", style="", color="green"];  "thm:ker_D" [label="ker_D", shape="ellipse", style="", color="green"];  "thm:chaos_char" [label="chaos_char", shape="ellipse", style="", color="green"];  "def:concrete_jump" [label="concrete_jump", shape="ellipse", style="", color="green"];  "def:sljp" [label="sljp", shape="ellipse", style="", color="green"];  "thm:factorization" [label="factorization", shape="ellipse", style="", color="green"];  "def:cpi" [label="cpi", shape="ellipse", style="", color="green"];  "def:toAxioms" [label="toAxioms", shape="ellipse", style="", color="green"];  "thm:small_jump_diverges" [label="small_jump_diverges", shape="ellipse", style="", color="green"];  "thm:quad_sharp" [label="quad_sharp", shape="ellipse", style="", color="green"];  "thm:delta_centered" [label="delta_centered", shape="ellipse", style="", color="green"];  "thm:rpow_zero" [label="rpow_zero", shape="ellipse", style="", color="green"];  "thm:D_def" [label="D_def", shape="ellipse", style="", color="green"];  "thm:D_linear" [label="D_linear", shape="ellipse", style="", color="green"];  "thm:witness_even" [label="witness_even", shape="ellipse", style="", color="green"];  "thm:witness_nonzero" [label="witness_nonzero", shape="ellipse", style="", color="green"];  "def:trunc_measure" [label="trunc_measure", shape="ellipse", style="", color="green"];  "def:cci" [label="cci", shape="ellipse", style="", color="green"];  "thm:poisson_mean" [label="poisson_mean", shape="ellipse", style="", color="green"];  "thm:poisson_variance" [label="poisson_variance", shape="ellipse", style="", color="green"];  "thm:G0_poisson" [label="G0_poisson", shape="ellipse", style="", color="green"];  "thm:telescope" [label="telescope", shape="ellipse", style="", color="green"];  "thm:chaos_orth" [label="chaos_orth", shape="ellipse", style="", color="green"];  "thm:chi_norm" [label="chi_norm", shape="ellipse", style="", color="green"];  "thm:chaos_concrete" [label="chaos_concrete", shape="ellipse", style="", color="green"];  "thm:product_rule" [label="product_rule", shape="ellipse", style="", color="green"];  "thm:var_pos" [label="var_pos", shape="ellipse", style="", color="green"];  "def:cp_path" [label="cp_path", shape="ellipse", style="", color="green"];  "def:dist_sym" [label="dist_sym", shape="ellipse", style="", color="green"];  "thm:large_jump_rate" [label="large_jump_rate", shape="ellipse", style="", color="green"];  "thm:poisson_second_fact" [label="poisson_second_fact", shape="ellipse", style="", color="green"];  "thm:product_telescope" [label="product_telescope", shape="ellipse", style="", color="green"];  "thm:pred_module" [label="pred_module", shape="ellipse", style="", color="green"];  "thm:path_terminal" [label="path_terminal", shape="ellipse", style="", color="green"];  "thm:center_centered" [label="center_centered", shape="ellipse", style="", color="green"];  "thm:obstruction" [label="obstruction", shape="ellipse", style="", color="green"];  "thm:stable_obstruction" [label="stable_obstruction", shape="ellipse", style="", color="green"];  "def:cci" -> "thm:I1_centered" [style="dashed"];  "def:banach_space" -> "def:dist_sym" [style="dashed"];  "def:levy_ito" -> "thm:trunc_conv" [style="dashed"];  "def:cci" -> "thm:I1_isometry" [style="dashed"];  "def:cpi" -> "thm:random_sum_linear" [style="dashed"];  "def:banach_space" -> "thm:factorization" [style="dashed"];  "lem:poisson_recurrence" -> "thm:poisson_second_fact" [style="dashed"];  "thm:I1_isometry" -> "def:toAxioms" [style="dashed"];  "def:levy_ito" -> "thm:pred_module" [style="dashed"];  "def:poisson_inner" -> "thm:first_chaos" [style="dashed"];  "thm:first_chaos" -> "thm:chaos_concrete" [style="dashed"];  "def:trunc_measure" -> "thm:trunc_second" [style="dashed"];  "thm:large_jump_rate" -> "def:concrete_jump" [style="dashed"];  "def:D" -> "thm:D_def" [style="dashed"];  "thm:D_def" -> "thm:D_linear" [style="dashed"];  "thm:factorization" -> "thm:duality_recovery" [style="dashed"];  "thm:D_def" -> "thm:chaos_char" [style="dashed"];  "def:stable_density" -> "thm:density_sym" [style="dashed"];  "thm:witness_nonzero" -> "thm:stable_obstruction" [style="dashed"];  "def:banach_space" -> "def:stable_noise" [style="dashed"];  "thm:center_centered" -> "thm:stable_obstruction" [style="dashed"];  "thm:obstruction" -> "thm:stable_obstruction" [style="dashed"];  "thm:even_annihilates" -> "thm:obstruction" [style="dashed"];  "thm:poisson_variance" -> "thm:chi_norm" [style="dashed"];  "def:leibniz" -> "thm:defect_vanishes" [style="dashed"];  "def:stable_noise" -> "thm:var_pos" [style="dashed"];  "thm:I1_centered" -> "def:toAxioms" [style="dashed"];  "def:D" -> "def:leibniz" [style="dashed"];  "lem:poisson_recurrence" -> "thm:poisson_mean" [style="dashed"];  "thm:D_def" -> "thm:ker_D" [style="dashed"];  "def:poisson_chi" -> "thm:chi_norm" [style="dashed"];  "def:leibniz" -> "thm:product_rule" [style="dashed"];  "thm:D_def" -> "thm:D_const" [style="dashed"];  "def:cp_path" -> "thm:path_terminal" [style="dashed"];  "def:concrete_jump" -> "thm:G0_poisson" [style="dashed"];  "thm:witness_even" -> "thm:stable_obstruction" [style="dashed"];  "def:dist_sym" -> "thm:even_annihilates" [style="dashed"];  "def:toAxioms" -> "def:levy_ito" [style="dashed"];  "thm:quad_exact" -> "thm:quad_sharp" [style="dashed"];  "def:levy_ito" -> "thm:chaos_orth" [style="dashed"];  "def:cp_path" -> "thm:path_zero" [style="dashed"];  "def:cpi" -> "def:cci" [style="dashed"];  "def:cpi" -> "def:sljp" [style="dashed"];  "def:stable_density" -> "thm:density_nonneg" [style="dashed"];  "thm:D_def" -> "thm:duality_recovery" [style="dashed"];  "thm:D_def" -> "thm:even_annihilates" [style="dashed"];  "def:stable_noise" -> "thm:witness_even" [style="dashed"];  "thm:poisson_mean" -> "thm:poisson_variance" [style="dashed"];  "def:center" -> "thm:center_centered" [style="dashed"];  "thm:poisson_second_fact" -> "thm:poisson_variance" [style="dashed"];  "def:poisson_chi" -> "thm:chi_centered" [style="dashed"];  "thm:center_centered" -> "thm:obstruction" [style="dashed"];  "def:banach_space" -> "def:D" [style="dashed"];  "def:levy_ito" -> "thm:delta_centered" [style="dashed"];  "thm:poisson_mean" -> "thm:chi_centered" [style="dashed"];  "def:cpi" -> "def:cp_path" [style="dashed"];  "def:poisson_chi" -> "thm:first_chaos" [style="dashed"];  "def:D" -> "thm:factorization" [style="dashed"];  "thm:center_centered" -> "thm:witness_even" [style="dashed"];  "thm:var_pos" -> "thm:witness_nonzero" [style="dashed"];  "def:leibniz" -> "thm:hilbert_bridge" [style="dashed"];  "def:dist_sym" -> "def:stable_noise" [style="dashed"];  "def:banach_space" -> "def:center" [style="dashed"];  "thm:telescope" -> "thm:product_telescope" [style="dashed"];}`)
+    .renderDot(`digraph {  rankdir=TB;  node [style=filled];  "def:cp_path" [label="cp_path", shape="ellipse", style="", color="green"];  "thm:density_sym" [label="density_sym", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:poisson_mean" [label="poisson_mean", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:chaos_orth" [label="chaos_orth", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:pred_module" [label="pred_module", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:chaos_concrete" [label="chaos_concrete", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:rpow_zero" [label="rpow_zero", shape="ellipse", style="filled", color="green", fillcolor="#1CAC78"];  "lem:poisson_recurrence" [label="poisson_recurrence", shape="ellipse", style="", color="green"];  "def:cci" [label="cci", shape="ellipse", style="", color="green"];  "def:toAxioms" [label="toAxioms", shape="ellipse", style="", color="green"];  "def:levy_ito" [label="levy_ito", shape="ellipse", style="", color="green"];  "thm:poisson_second_fact" [label="poisson_second_fact", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:poisson_variance" [label="poisson_variance", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:quad_exact" [label="quad_exact", shape="ellipse", style="filled", color="green", fillcolor="#1CAC78"];  "thm:jump_decomp" [label="jump_decomp", shape="ellipse", style="filled", color="green", fillcolor="#1CAC78"];  "thm:center_centered" [label="center_centered", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:witness_even" [label="witness_even", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:witness_nonzero" [label="witness_nonzero", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:var_pos" [label="var_pos", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "def:sljp" [label="sljp", shape="ellipse", style="", color="green"];  "thm:G0_poisson" [label="G0_poisson", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:trunc_second" [label="trunc_second", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:random_sum_linear" [label="random_sum_linear", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:delta_centered" [label="delta_centered", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:chi_centered" [label="chi_centered", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:defect_vanishes" [label="defect_vanishes", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:stable_obstruction" [label="stable_obstruction", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "def:stable_density" [label="stable_density", shape="ellipse", style="", color="green"];  "def:D" [label="D", shape="ellipse", style="", color="green"];  "thm:large_jump_rate" [label="large_jump_rate", shape="ellipse", style="filled", color="green", fillcolor="#1CAC78"];  "thm:small_jump_finite" [label="small_jump_finite", shape="ellipse", style="filled", color="green", fillcolor="#1CAC78"];  "thm:first_chaos" [label="first_chaos", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:l2_cauchy" [label="l2_cauchy", shape="ellipse", style="filled", color="green", fillcolor="#1CAC78"];  "thm:trunc_bounded" [label="trunc_bounded", shape="ellipse", style="filled", color="green", fillcolor="#1CAC78"];  "thm:ker_D" [label="ker_D", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:even_annihilates" [label="even_annihilates", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:obstruction" [label="obstruction", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:factorization" [label="factorization", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "def:concrete_jump" [label="concrete_jump", shape="ellipse", style="", color="green"];  "def:poisson_chi" [label="poisson_chi", shape="ellipse", style="", color="green"];  "def:leibniz" [label="leibniz", shape="ellipse", style="", color="green"];  "thm:telescope" [label="telescope", shape="ellipse", style="filled", color="green", fillcolor="#1CAC78"];  "thm:product_telescope" [label="product_telescope", shape="ellipse", style="filled", color="green", fillcolor="#1CAC78"];  "thm:product_rule" [label="product_rule", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:chaos_char" [label="chaos_char", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "def:stable_noise" [label="stable_noise", shape="ellipse", style="", color="green"];  "def:cpi" [label="cpi", shape="ellipse", style="", color="green"];  "def:poisson_inner" [label="poisson_inner", shape="ellipse", style="", color="green"];  "def:banach_space" [label="banach_space", shape="ellipse", style="", color="green"];  "thm:density_nonneg" [label="density_nonneg", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:small_jump_diverges" [label="small_jump_diverges", shape="ellipse", style="filled", color="green", fillcolor="#1CAC78"];  "thm:quad_sharp" [label="quad_sharp", shape="ellipse", style="filled", color="green", fillcolor="#1CAC78"];  "thm:path_terminal" [label="path_terminal", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:D_def" [label="D_def", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:D_linear" [label="D_linear", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:hilbert_bridge" [label="hilbert_bridge", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "def:center" [label="center", shape="ellipse", style="", color="green"];  "thm:trunc_conv" [label="trunc_conv", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:chi_norm" [label="chi_norm", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "def:trunc_measure" [label="trunc_measure", shape="ellipse", style="", color="green"];  "def:dist_sym" [label="dist_sym", shape="ellipse", style="", color="green"];  "thm:I1_centered" [label="I1_centered", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:I1_isometry" [label="I1_isometry", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:path_zero" [label="path_zero", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:D_const" [label="D_const", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "thm:duality_recovery" [label="duality_recovery", shape="ellipse", style="filled", color="green", fillcolor="#9CEC8B"];  "def:banach_space" -> "def:stable_noise" [style="dashed"];  "def:stable_density" -> "thm:density_sym" [style="dashed"];  "lem:poisson_recurrence" -> "thm:poisson_mean" [style="dashed"];  "def:poisson_inner" -> "thm:first_chaos" [style="dashed"];  "def:banach_space" -> "def:D" [style="dashed"];  "thm:factorization" -> "thm:duality_recovery" [style="dashed"];  "def:cci" -> "thm:I1_isometry" [style="dashed"];  "thm:I1_isometry" -> "def:toAxioms" [style="dashed"];  "def:cci" -> "thm:I1_centered" [style="dashed"];  "def:banach_space" -> "thm:factorization" [style="dashed"];  "def:levy_ito" -> "thm:delta_centered" [style="dashed"];  "thm:I1_centered" -> "def:toAxioms" [style="dashed"];  "def:concrete_jump" -> "thm:G0_poisson" [style="dashed"];  "def:poisson_chi" -> "thm:chi_norm" [style="dashed"];  "thm:poisson_variance" -> "thm:chi_norm" [style="dashed"];  "thm:D_def" -> "thm:even_annihilates" [style="dashed"];  "thm:witness_nonzero" -> "thm:stable_obstruction" [style="dashed"];  "def:cpi" -> "thm:random_sum_linear" [style="dashed"];  "def:leibniz" -> "thm:product_rule" [style="dashed"];  "thm:center_centered" -> "thm:obstruction" [style="dashed"];  "def:stable_density" -> "thm:density_nonneg" [style="dashed"];  "def:levy_ito" -> "thm:trunc_conv" [style="dashed"];  "def:leibniz" -> "thm:defect_vanishes" [style="dashed"];  "def:dist_sym" -> "thm:even_annihilates" [style="dashed"];  "thm:poisson_mean" -> "thm:chi_centered" [style="dashed"];  "def:cpi" -> "def:sljp" [style="dashed"];  "def:banach_space" -> "def:dist_sym" [style="dashed"];  "thm:poisson_second_fact" -> "thm:poisson_variance" [style="dashed"];  "thm:D_def" -> "thm:D_linear" [style="dashed"];  "def:stable_noise" -> "thm:witness_even" [style="dashed"];  "thm:first_chaos" -> "thm:chaos_concrete" [style="dashed"];  "thm:telescope" -> "thm:product_telescope" [style="dashed"];  "thm:D_def" -> "thm:duality_recovery" [style="dashed"];  "def:cpi" -> "def:cp_path" [style="dashed"];  "def:cpi" -> "def:cci" [style="dashed"];  "def:leibniz" -> "thm:hilbert_bridge" [style="dashed"];  "def:toAxioms" -> "def:levy_ito" [style="dashed"];  "thm:D_def" -> "thm:chaos_char" [style="dashed"];  "thm:center_centered" -> "thm:witness_even" [style="dashed"];  "def:D" -> "def:leibniz" [style="dashed"];  "def:center" -> "thm:center_centered" [style="dashed"];  "thm:even_annihilates" -> "thm:obstruction" [style="dashed"];  "def:stable_noise" -> "thm:var_pos" [style="dashed"];  "def:dist_sym" -> "def:stable_noise" [style="dashed"];  "thm:quad_exact" -> "thm:quad_sharp" [style="dashed"];  "def:levy_ito" -> "thm:pred_module" [style="dashed"];  "thm:D_def" -> "thm:D_const" [style="dashed"];  "def:banach_space" -> "def:center" [style="dashed"];  "def:levy_ito" -> "thm:chaos_orth" [style="dashed"];  "def:D" -> "thm:D_def" [style="dashed"];  "thm:poisson_mean" -> "thm:poisson_variance" [style="dashed"];  "def:trunc_measure" -> "thm:trunc_second" [style="dashed"];  "thm:center_centered" -> "thm:stable_obstruction" [style="dashed"];  "def:cp_path" -> "thm:path_zero" [style="dashed"];  "thm:large_jump_rate" -> "def:concrete_jump" [style="dashed"];  "thm:obstruction" -> "thm:stable_obstruction" [style="dashed"];  "def:poisson_chi" -> "thm:first_chaos" [style="dashed"];  "def:poisson_chi" -> "thm:chi_centered" [style="dashed"];  "def:cp_path" -> "thm:path_terminal" [style="dashed"];  "thm:witness_even" -> "thm:stable_obstruction" [style="dashed"];  "lem:poisson_recurrence" -> "thm:poisson_second_fact" [style="dashed"];  "def:D" -> "thm:factorization" [style="dashed"];  "thm:var_pos" -> "thm:witness_nonzero" [style="dashed"];  "thm:D_def" -> "thm:ker_D" [style="dashed"];}`)
     .on("end", interactive);
 
 latexLabelEscaper = function(label) {

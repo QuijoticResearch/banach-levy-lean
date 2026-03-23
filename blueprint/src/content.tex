@@ -19,6 +19,7 @@ $\int |z|^2\,\nu_\gamma(dz) = \infty$, forcing the energy space to be Banach rat
 $\nu_\gamma(-z) = \nu_\gamma(z)$ for all $z \neq 0$, from the absolute value in $c_\gamma |z|^{-1-\gamma}$.
 Symmetry of $\nu_\gamma$ implies $L \stackrel{d}{=} -L$, the key ingredient in the even-annihilation argument.
 \end{theorem}
+\begin{proof}\leanok Unfold the definition and use $|-z| = |z|$. Closed by \texttt{simp [abs\_neg]}.\end{proof}
 
 \begin{theorem}[Density nonnegativity]\label{thm:density_nonneg}
 \lean{stableLevyDensity_nonneg}
@@ -26,6 +27,7 @@ Symmetry of $\nu_\gamma$ implies $L \stackrel{d}{=} -L$, the key ingredient in t
 \uses{def:stable_density}
 $c_\gamma |z|^{-1-\gamma} > 0$ for $z \neq 0$ when $c_\gamma > 0$, ensuring $\nu_\gamma$ is a valid Lévy measure.
 \end{theorem}
+\begin{proof}\leanok Product of nonneg factors: $c_\gamma \geq 0$ by hypothesis and $|z|^{-1-\gamma} \geq 0$ by \texttt{rpow\_nonneg}.\end{proof}
 
 \section{Moment Computations}
 
@@ -36,6 +38,7 @@ $\lambda = \nu_\gamma(\{|z| > 1\}) = 2c_\gamma/\gamma > 0$.
 Positivity ensures the Poisson parameter $\lambda T > 0$, giving positive variance
 for the large-jump count witness.
 \end{theorem}
+\begin{proof}\leanok Apply \texttt{div\_pos} to $2c_\gamma > 0$ (from \texttt{mul\_pos two\_pos hc}) and $\gamma > 0$ (from $\gamma > 1$).\end{proof}
 
 \begin{theorem}[Small jump moment finite]\label{thm:small_jump_finite}
 \lean{stable_small_jump_moment_finite}
@@ -44,6 +47,7 @@ For $\alpha > \gamma$: $\int_{|z|\leq 1} |z|^\alpha\,\nu_\gamma(dz) = 2c_\gamma/
 In particular, the second moment ($\alpha = 2 > \gamma$) is finite, enabling the $L^2$ isometry
 for truncated compensated integrals.
 \end{theorem}
+\begin{proof}\leanok Apply \texttt{div\_pos} to $2c_\gamma > 0$ and $\alpha - \gamma > 0$ (from \texttt{linarith}).\end{proof}
 
 \begin{theorem}[Small jump moment diverges]\label{thm:small_jump_diverges}
 \lean{stable_small_jump_moment_diverges}
@@ -51,6 +55,7 @@ for truncated compensated integrals.
 For $\alpha < \gamma$: $\int_{|z|\leq 1} |z|^\alpha\,\nu_\gamma(dz) = \infty$.
 This divergence forces the integrand space $H_L = L^p$ with $p < \gamma < 2$ into the Banach setting.
 \end{theorem}
+\begin{proof}\leanok The exponent $\alpha - \gamma < 0$ by \texttt{linarith}.\end{proof}
 
 \section{Poisson Identities}
 
@@ -67,10 +72,14 @@ and is the key tool for proving both the mean and second factorial moment.
 \leanok
 \uses{lem:poisson_recurrence}
 $\sum_{n=0}^{\infty} n \cdot P_r(n) = r$.
-Proved via recurrence reindexing and \texttt{HasSum} manipulation, reducing
-to PMF normalization $\sum P_r(n) = 1$. Used in the variance computation
-and centering of the obstruction witness.
+Used in the variance computation and centering of the obstruction witness.
 \end{theorem}
+\begin{proof}\leanok
+Use the recurrence to show $\texttt{HasSum}(\lambda k.\; (k+1)P_r(k+1), r)$
+via \texttt{simp\_rw [poissonPMFReal\_succ\_mul]}. Shift the index to get
+$\texttt{HasSum}(\lambda n.\; n \cdot P_r(n), r)$ via \texttt{comp\_nat\_add},
+split off the $n=0$ term (which is zero), and conclude with \texttt{tsum\_eq}.
+\end{proof}
 
 \begin{theorem}[Poisson second factorial moment]\label{thm:poisson_second_fact}
 \lean{poisson_second_factorial_hassum}
@@ -79,15 +88,25 @@ and centering of the obstruction witness.
 $\sum n(n-1) P_r(n) = r^2$, proved by applying the recurrence twice.
 Combined with the mean, this yields $\mathrm{Var} = r^2 + r - r^2 = r$.
 \end{theorem}
+\begin{proof}\leanok
+Apply the double recurrence $(k+2)(k+1)P_r(k+2) = r^2 P_r(k)$ to get
+$\texttt{HasSum}(\lambda k.\; r^2 P_r(k), r^2)$, then shift by 2 and note
+that the $n=0$ and $n=1$ terms vanish.
+\end{proof}
 
 \begin{theorem}[Poisson variance]\label{thm:poisson_variance}
 \lean{poisson_variance_identity}
 \leanok
 \uses{thm:poisson_mean, thm:poisson_second_fact}
-$\mathrm{Var}(\mathrm{Poisson}(r)) = r$, proved by combining three independent
-\texttt{HasSum} instances via \texttt{HasSum.add}.
+$\mathrm{Var}(\mathrm{Poisson}(r)) = r$.
 Positive variance $\lambda T > 0$ implies the centered witness is nonzero.
 \end{theorem}
+\begin{proof}\leanok
+Decompose $(n-r)^2 P_r(n) = n(n-1)P_r(n) + (1-2r)\cdot nP_r(n) + r^2 P_r(n)$
+pointwise (by \texttt{ring}). Combine three \texttt{HasSum} instances via
+\texttt{HasSum.add}: the values sum to $r^2 + (1-2r)r + r^2 = r$ (by \texttt{ring}).
+Use \texttt{convert} with \texttt{ext n; ring} for the summand and \texttt{ring} for the value.
+\end{proof}
 
 \section{Quadratic Defect}
 
@@ -95,17 +114,17 @@ Positive variance $\lambda T > 0$ implies the centered witness is nonzero.
 \lean{quadratic_defect_exact}
 \leanok
 $(V + Kz)^2 - V^2 - 2V(Kz) = (Kz)^2$: the Taylor remainder for $f(x) = x^2$
-is exact. This serves as the prototype for the jump defect in the compound Poisson Itô formula.
+is exact. Serves as the prototype for the jump defect.
 \end{theorem}
+\begin{proof}\leanok Expand and cancel. Closed by \texttt{ring}.\end{proof}
 
 \begin{theorem}[Quadratic defect sharp]\label{thm:quad_sharp}
 \lean{quadratic_defect_sharp}
 \leanok
 \uses{thm:quad_exact}
 $|g_f(V,K,z)| = (Kz)^2$ for $f(x) = x^2$: the Taylor bound is achieved with equality.
-The Leibniz defect for quadratic functionals is governed by the quadratic variation
-$\sum (\Delta L_s)^2$, which is a.s.\ infinite for stable processes.
 \end{theorem}
+\begin{proof}\leanok Rewrite via \texttt{quadratic\_defect\_exact}, then apply \texttt{abs\_of\_nonneg (sq\_nonneg \_)}.\end{proof}
 
 \section{Canonical Poisson Construction}
 
@@ -114,8 +133,8 @@ $\sum (\Delta L_s)^2$, which is a.s.\ infinite for stable processes.
 \leanok
 \uses{thm:large_jump_rate}
 Constructs the canonical Poisson space $(\mathbb{N}, \mathrm{poissonMeasure}(\lambda T))$
-with $G_0(n) = n$ as the large-jump count. This provides an explicit probability space
-for the obstruction witness, avoiding abstract existence arguments.
+with $G_0(n) = n$ as the large-jump count. Provides an explicit probability space
+for the obstruction witness.
 \end{defn}
 
 \begin{theorem}[$G_0$ has Poisson distribution]\label{thm:G0_poisson}
@@ -125,6 +144,7 @@ for the obstruction witness, avoiding abstract existence arguments.
 $\mathrm{Measure.map}\;G_0\;\mu = \mathrm{poissonMeasure}(\lambda T)$,
 trivially by $\mathrm{Measure.map\_id}$ since $G_0 = \mathrm{id}$.
 \end{theorem}
+\begin{proof}\leanok Unfold $G_0 = \mathrm{id}$ and $P = \mathrm{poissonMeasure}(\lambda T)$; apply \texttt{Measure.map\_id}.\end{proof}
 
 
 \chapter{Lévy--Itô Framework}
@@ -143,20 +163,20 @@ reduces to a finite telescoping sum, and the full integral is recovered as $M \t
 \lean{TruncatedStableMeasure.second_moment_pos}
 \leanok
 \uses{def:trunc_measure}
-$\int_{|z|\leq M} z^2\,\nu_\gamma(dz) = 2c_\gamma M^{2-\gamma}/(2-\gamma) > 0$,
-since $c_\gamma > 0$ and $2 - \gamma > 0$. Provides the nondegenerate isometry constant
-for the truncated compensated integral.
+$\int_{|z|\leq M} z^2\,\nu_\gamma(dz) = 2c_\gamma M^{2-\gamma}/(2-\gamma) > 0$.
+Provides the nondegenerate isometry constant for $\delta_L^M$.
 \end{theorem}
+\begin{proof}\leanok Apply \texttt{div\_pos} to the product $2c_\gamma \cdot M^{2-\gamma} > 0$ (from \texttt{mul\_pos} and \texttt{rpow\_pos\_of\_pos}) and the denominator $2 - \gamma > 0$ (from \texttt{linarith}).\end{proof}
 
 \section{Finite Telescoping}
 
 \begin{theorem}[Finite telescope]\label{thm:telescope}
 \lean{finite_telescope}
 \leanok
-$f(y_n) - f(y_0) = \sum_{i=0}^{n-1} [f(y_{i+1}) - f(y_i)]$, proved via
-\texttt{Finset.sum\_range\_sub}. This replaces stochastic integration in the compound
-Poisson setting, where finitely many jumps make the Itô formula a finite sum.
+$f(y_n) - f(y_0) = \sum_{i=0}^{n-1} [f(y_{i+1}) - f(y_i)]$.
+Replaces stochastic integration in the compound Poisson setting.
 \end{theorem}
+\begin{proof}\leanok Direct application of \texttt{(Finset.sum\_range\_sub (f $\circ$ y) n).symm}.\end{proof}
 
 \begin{theorem}[Jump linear plus remainder]\label{thm:jump_decomp}
 \lean{jump_linear_plus_remainder}
@@ -164,15 +184,16 @@ Poisson setting, where finitely many jumps make the Itô formula a finite sum.
 $f(v+z) - f(v) = f'(v)z + [f(v+z) - f(v) - f'(v)z]$: the linear part (odd in $z$,
 detectable by $D_L$) plus the nonlinear remainder (contributing to $\Gamma_L$).
 \end{theorem}
+\begin{proof}\leanok Closed by \texttt{ring}.\end{proof}
 
 \begin{theorem}[Product telescope]\label{thm:product_telescope}
 \lean{product_telescope}
 \leanok
 \uses{thm:telescope}
 Telescoping for $h = ab$ gives the compound Poisson product rule: a Leibniz part
-plus a defect $[a(y_{i+1}) - a(y_i)][b(y_{i+1}) - b(y_i)]$. This is the
-finite-dimensional prototype of the Leibniz defect formula.
+plus a defect $[a(y_{i+1}) - a(y_i)][b(y_{i+1}) - b(y_i)]$.
 \end{theorem}
+\begin{proof}\leanok Apply \texttt{finite\_telescope} to $h(x) = a(x) \cdot b(x)$.\end{proof}
 
 \section{Compound Poisson Integral}
 
@@ -181,7 +202,6 @@ finite-dimensional prototype of the Leibniz defect formula.
 \leanok
 The finite random sum $\sum_{i=1}^{N} h(s_i, z_i) - \mathrm{compensator}$,
 well-defined pointwise since $\nu_\gamma^M$ has finite total mass.
-Serves as the $\varepsilon$-level approximation in the compensated integral construction.
 \end{defn}
 
 \begin{theorem}[Random sum linear]\label{thm:random_sum_linear}
@@ -189,8 +209,8 @@ Serves as the $\varepsilon$-level approximation in the compensated integral cons
 \leanok
 \uses{def:cpi}
 $\sum(ch_1 + h_2) = c\sum h_1 + \sum h_2$, from linearity of finite sums.
-The constructed integral $I_1^M$ inherits linearity from these approximations.
 \end{theorem}
+\begin{proof}\leanok Unfold \texttt{random\_sum}, apply \texttt{Finset.sum\_add\_distrib} and \texttt{Finset.mul\_sum}.\end{proof}
 
 \section{Compensated Integral Construction}
 
@@ -199,26 +219,32 @@ The constructed integral $I_1^M$ inherits linearity from these approximations.
 \leanok
 \uses{def:cpi}
 $I_1^M(h) = \lim_{\varepsilon \to 0} I_1^{\varepsilon,M}(h)$ in $L^2$,
-constructed from compound Poisson finite sums. The $L^2$ Cauchy estimate
-$\varepsilon^{2-\gamma}/(2-\gamma) \to 0$ guarantees convergence.
-Centering and isometry are \emph{derived} via \texttt{tendsto\_nhds\_unique}.
+constructed from compound Poisson finite sums. Centering and isometry are
+derived via \texttt{tendsto\_nhds\_unique}.
 \end{defn}
 
 \begin{theorem}[$I_1$ centering from approximation]\label{thm:I1_centered}
 \lean{ConstructedCompensatedIntegral.I₁_centered_from_approx}
 \leanok
 \uses{def:cci}
-$\mathbb{E}[I_1^M(h)] = 0$: each approximation is centered (compensated sum),
-and centering passes to the $L^2$ limit. Feeds into hypothesis (H1).
+$\mathbb{E}[I_1^M(h)] = 0$: each approximation is centered,
+and centering passes to the $L^2$ limit.
 \end{theorem}
+\begin{proof}\leanok
+Each $\mathbb{E}[I_1^{\varepsilon,M}(h)] = 0$ (compensated sum). The constant
+sequence $0$ tends to $\mathbb{E}[I_1^M(h)]$ by \texttt{approx\_converges}.
+By \texttt{tendsto\_nhds\_unique}, $\mathbb{E}[I_1^M(h)] = 0$.
+\end{proof}
 
 \begin{theorem}[$I_1$ isometry from approximation]\label{thm:I1_isometry}
 \lean{ConstructedCompensatedIntegral.I₁_isometry_from_approx}
 \leanok
 \uses{def:cci}
 $\mathbb{E}[|I_1^M(h)|^2] = \|h\|_{L^2(\nu_\gamma^M \otimes dt)}^2$:
-the $L^2$ isometry of finite-sum approximations is preserved in the limit.
+the isometry of finite-sum approximations is preserved in the limit.
 \end{theorem}
+\begin{proof}\leanok Same pattern as centering: each approximation satisfies the isometry exactly,
+so the constant sequence converges to the limit isometry by \texttt{tendsto\_nhds\_unique}.\end{proof}
 
 \begin{defn}[Bridge: construction to axioms]\label{def:toAxioms}
 \lean{ConstructedCompensatedIntegral.toAxioms}
@@ -235,17 +261,17 @@ Packages the constructed integral into the axiomatic interface for
 \leanok
 \uses{def:toAxioms}
 $L_T = X_T^{\mathrm{small}} + Y_T^{\mathrm{large}}$: compensated small jumps
-plus compound Poisson large jumps. Packages the constructed integral with
-its derived properties into the interface consumed by the Banach framework.
+plus compound Poisson large jumps.
 \end{defn}
 
 \begin{theorem}[Truncation convergence]\label{thm:trunc_conv}
 \lean{LevyItoDecomposition.trunc_convergence}
 \leanok
 \uses{def:levy_ito}
-$\mathbb{E}[F \cdot \delta^M(u)] \to \mathbb{E}[F \cdot \delta(u)]$ as $M \to \infty$,
-derived from $I_1$-convergence. Essential for the chaos characterization (Theorem~C).
+$\mathbb{E}[F \cdot \delta^M(u)] \to \mathbb{E}[F \cdot \delta(u)]$ as $M \to \infty$.
+Essential for the chaos characterization (Theorem~C).
 \end{theorem}
+\begin{proof}\leanok Rewrite $\delta^M(u) = I_1^M(u \cdot z)$ via \texttt{$\delta$\_trunc\_eq}, then apply \texttt{I$_1$\_convergence}.\end{proof}
 
 \begin{theorem}[$\delta^M$ centered]\label{thm:delta_centered}
 \lean{LevyItoDecomposition.δ_trunc_centered}
@@ -253,23 +279,25 @@ derived from $I_1$-convergence. Essential for the chaos characterization (Theore
 \uses{def:levy_ito}
 $\mathbb{E}[\delta^M(u)] = 0$, inherited from centering of $I_1^M$.
 \end{theorem}
+\begin{proof}\leanok Rewrite via \texttt{$\delta$\_trunc\_eq} and apply \texttt{I$_1$\_centered}.\end{proof}
 
 \begin{theorem}[Chaos orthogonality]\label{thm:chaos_orth}
 \lean{LevyItoDecomposition.chaos_orthogonality_from_kernel_vanishing}
 \leanok
 \uses{def:levy_ito}
-If the first-chaos kernel $\Phi_M \equiv 0$, then $\mathbb{E}[F \cdot \delta^M(u)] = 0$
-for all deterministic $u$. The vanishing holds for even kernels (the integrand $f_1 \cdot z$
-is odd and $\nu_\gamma$ is symmetric), explaining why even functionals are invisible to $D_L$.
+If $\Phi_M \equiv 0$, then $\mathbb{E}[F \cdot \delta^M(u)] = 0$
+for all deterministic $u$. Even kernels have $\Phi_M = 0$ since $f_1 \cdot z$
+is odd and $\nu_\gamma$ is symmetric.
 \end{theorem}
+\begin{proof}\leanok Apply \texttt{chaos\_identity} with pointwise vanishing $\Phi_M(s) \cdot u(s) = 0$ from \texttt{zero\_mul}.\end{proof}
 
 \begin{theorem}[Predictable module]\label{thm:pred_module}
 \lean{LevyItoDecomposition.predictable_module_from_linearity}
 \leanok
 \uses{def:levy_ito}
-$\mathbb{E}[(cF) \cdot \delta^M(u)] = c \cdot \mathbb{E}[F \cdot \delta^M(u)]$,
-ensuring $D_L(cF) = c \cdot D_L(F)$.
+$\mathbb{E}[(cF) \cdot \delta^M(u)] = c \cdot \mathbb{E}[F \cdot \delta^M(u)]$.
 \end{theorem}
+\begin{proof}\leanok Rewrite $cF \cdot \delta = c(F \cdot \delta) + 0$ pointwise (by \texttt{ext; simp; ring}), then apply \texttt{$\mathbb{E}$\_linear} and \texttt{$\mathbb{E}$\_const}.\end{proof}
 
 \section{Poisson Chaos}
 
@@ -283,7 +311,7 @@ on $(\mathbb{N}, \mathrm{poissonMeasure}(r))$.
 \begin{defn}[Centered Poisson variable]\label{def:poisson_chi}
 \lean{poisson_chi}
 \leanok
-$\chi(n) = n - r$: the first-chaos generator on the Poisson space. The centered
+$\chi(n) = n - r$: the first-chaos generator. The centered
 witness $G_0 - \mathbb{E}[G_0]$ is $\chi$ with $r = \lambda T$.
 \end{defn}
 
@@ -293,48 +321,54 @@ witness $G_0 - \mathbb{E}[G_0]$ is $\chi$ with $r = \lambda T$.
 \uses{def:poisson_chi, thm:poisson_mean}
 $\mathbb{E}[\chi] = r - r = 0$, from the Poisson mean identity.
 \end{theorem}
+\begin{proof}\leanok
+Write $(n-r)P_r(n) = nP_r(n) - rP_r(n)$. Apply \texttt{HasSum.sub} to the
+mean $\texttt{HasSum}(\ldots, r)$ and $r \cdot \texttt{HasSum}(\ldots, 1)$.
+The difference is $r - r \cdot 1 = 0$ by \texttt{ring}.
+\end{proof}
 
 \begin{theorem}[$\chi$ norm squared]\label{thm:chi_norm}
 \lean{poisson_chi_norm_sq}
 \leanok
 \uses{def:poisson_chi, thm:poisson_variance}
-$\|\chi\|^2 = \mathrm{Var}(N) = r > 0$, from the Poisson variance identity.
+$\|\chi\|^2 = \mathrm{Var}(N) = r > 0$.
 Implies $\chi \neq 0$ in $L^2$.
 \end{theorem}
+\begin{proof}\leanok Unfold definitions; the sum $\sum (n-r)^2 P_r(n)$ is exactly \texttt{poisson\_variance\_identity}.\end{proof}
 
 \begin{theorem}[First chaos orthogonal]\label{thm:first_chaos}
 \lean{first_chaos_orthogonal}
 \leanok
 \uses{def:poisson_inner, def:poisson_chi}
-$\langle f, \chi \rangle = 0 \Rightarrow \langle f, a\chi \rangle = 0$ for all $a$,
-by bilinearity (\texttt{tsum\_mul\_left}). Orthogonality to $\chi$ implies
-orthogonality to the entire first chaos $\mathrm{span}(\chi)$.
+$\langle f, \chi \rangle = 0 \Rightarrow \langle f, a\chi \rangle = 0$ for all $a$.
+Orthogonality to $\chi$ implies orthogonality to $\mathrm{span}(\chi)$.
 \end{theorem}
+\begin{proof}\leanok Rewrite $f(n)(a\chi(n))P_r(n) = a \cdot f(n)\chi(n)P_r(n)$ by \texttt{ring}, factor out $a$ via \texttt{tsum\_mul\_left}, and multiply by zero.\end{proof}
 
 \begin{theorem}[Chaos orthogonality concrete]\label{thm:chaos_concrete}
 \lean{chaos_orthogonality_concrete}
 \leanok
 \uses{thm:first_chaos}
-Zero first-chaos coefficient implies orthogonality to $\mathrm{span}(\chi)$:
-the concrete Poisson-space realization of abstract chaos orthogonality.
+Zero first-chaos coefficient implies orthogonality to $\mathrm{span}(\chi)$.
 \end{theorem}
+\begin{proof}\leanok Extract $\langle f, \chi \rangle = 0$ from the coefficient via \texttt{div\_eq\_zero\_iff}, then apply \texttt{first\_chaos\_orthogonal}.\end{proof}
 
 \section{$L^2$ Estimates}
 
 \begin{theorem}[$L^2$ Cauchy estimate]\label{thm:l2_cauchy}
 \lean{l2_cauchy_vanishes}
 \leanok
-$2c_\gamma \varepsilon^{2-\gamma}/(2-\gamma) \to 0$ as $\varepsilon \to 0^+$,
-since $2 - \gamma > 0$. This bound on the $L^2$ difference of truncated integrals
-proves the approximations are Cauchy, guaranteeing convergence to $I_1^M(h)$.
+$2c_\gamma \varepsilon^{2-\gamma}/(2-\gamma) \to 0$ as $\varepsilon \to 0^+$.
+Proves the approximations are $L^2$-Cauchy, guaranteeing convergence to $I_1^M(h)$.
 \end{theorem}
+\begin{proof}\leanok Factor as $(2c_\gamma/(2-\gamma)) \cdot \varepsilon^{2-\gamma}$. Apply \texttt{tendsto\_const\_nhds.mul} with \texttt{rpow\_tendsto\_zero\_at\_zero\_right}.\end{proof}
 
 \begin{theorem}[rpow tends to zero]\label{thm:rpow_zero}
 \lean{rpow_tendsto_zero_at_zero_right}
 \leanok
-$\varepsilon^\alpha \to 0$ as $\varepsilon \to 0^+$ for $\alpha > 0$,
-proved via Mathlib's \texttt{continuous\_rpow\_const} and \texttt{zero\_rpow}.
+$\varepsilon^\alpha \to 0$ as $\varepsilon \to 0^+$ for $\alpha > 0$.
 \end{theorem}
+\begin{proof}\leanok Use \texttt{continuous\_rpow\_const} for continuity of $x \mapsto x^\alpha$ at $0$, and \texttt{zero\_rpow} for $0^\alpha = 0$.\end{proof}
 
 \begin{theorem}[Truncated moment bounded]\label{thm:trunc_bounded}
 \lean{truncated_moment_bounded}
@@ -342,6 +376,7 @@ proved via Mathlib's \texttt{continuous\_rpow\_const} and \texttt{zero\_rpow}.
 $2c_\gamma M^{2-\gamma}/(2-\gamma) > 0$ for fixed $M$: the isometry constant
 for $\delta_L^M$ is positive and finite.
 \end{theorem}
+\begin{proof}\leanok Same as \texttt{second\_moment\_pos}: \texttt{div\_pos} applied to positive numerator and positive denominator.\end{proof}
 
 \section{Compound Poisson Path}
 
@@ -368,6 +403,7 @@ is the obstruction witness.
 \uses{def:cp_path}
 $Y_0 = 0$: the sum over an empty index set vanishes.
 \end{theorem}
+\begin{proof}\leanok All jump times satisfy $s_i > 0$, so each indicator $\mathbf{1}_{s_i \leq 0} = 0$. Apply \texttt{Finset.sum\_eq\_zero}.\end{proof}
 
 \begin{theorem}[Path terminal value]\label{thm:path_terminal}
 \lean{StableLargeJumpPath.path_terminal}
@@ -375,6 +411,7 @@ $Y_0 = 0$: the sum over an empty index set vanishes.
 \uses{def:cp_path}
 $Y_T = \sum_i z_i$, since all jump times satisfy $s_i \leq T$.
 \end{theorem}
+\begin{proof}\leanok All indicators are $1$ by \texttt{if\_pos}. Apply \texttt{Finset.sum\_congr}.\end{proof}
 
 
 \chapter{Banach Energy Space Framework}
@@ -394,8 +431,7 @@ Unlike the Hilbert framework, no Riesz identification $H_X^* \cong H_X$ is assum
 \leanok
 \uses{def:banach_space}
 $\mathrm{center}(G_0) = G_0 - \mathrm{const}(\mathbb{E}[G_0])$: removes the mean,
-preserving variance, symmetry, and higher chaos structure. Applied to $G_0$ to produce
-the centered witness for the representability obstruction.
+preserving variance and symmetry.
 \end{defn}
 
 \begin{theorem}[Center is centered]\label{thm:center_centered}
@@ -405,6 +441,7 @@ the centered witness for the representability obstruction.
 $\mathbb{E}[\mathrm{center}(G_0)] = 0$, by linearity of expectation.
 One of the three hypotheses of the representability obstruction.
 \end{theorem}
+\begin{proof}\leanok Expand $\mathbb{E}[G_0 - \mathrm{const}(\mathbb{E}[G_0])]$ using linearity (\texttt{expect\_sub}) and $\mathbb{E}[\mathrm{const}(c)] = c$ (\texttt{expect\_const}), giving $\mathbb{E}[G_0] - \mathbb{E}[G_0] = 0$.\end{proof}
 
 \section{The Derivative $D$}
 
@@ -412,43 +449,43 @@ One of the three hypotheses of the representability obstruction.
 \lean{BanachEnergySpace.D}
 \leanok
 \uses{def:banach_space}
-\emph{Constructed} as $D(F) := \mathrm{mk\_dual}(u \mapsto \mathbb{E}[F \cdot \delta(u)])$.
-The map $u \mapsto \mathbb{E}[F \cdot \delta(u)]$ is bounded linear on $H_X$ by Hölder,
-so $D(F) \in H_X^*$. The defining identity $\langle DF, u\rangle = \mathbb{E}[F \cdot \delta(u)]$
-is a theorem, not a definition.
+Constructed as $D(F) := \mathrm{mk\_dual}(u \mapsto \mathbb{E}[F \cdot \delta(u)])$.
+Bounded linearity on $H_X$ follows from Hölder, so $D(F) \in H_X^*$.
 \end{defn}
 
 \begin{theorem}[$D$ defining identity]\label{thm:D_def}
 \lean{BanachEnergySpace.D_def}
 \leanok
 \uses{def:D}
-$\langle DF, u \rangle = \mathbb{E}[F \cdot \delta(u)]$, proved from \texttt{mk\_dual\_spec}.
-All downstream results (linearity, kernel characterization, Leibniz defect) follow from this identity.
+$\langle DF, u \rangle = \mathbb{E}[F \cdot \delta(u)]$.
+All downstream results follow from this single identity.
 \end{theorem}
+\begin{proof}\leanok Unfold $D$ and apply \texttt{mk\_dual\_spec}.\end{proof}
 
 \begin{theorem}[$D$ linear]\label{thm:D_linear}
 \lean{BanachEnergySpace.D_linear}
 \leanok
 \uses{thm:D_def}
-$D(\alpha F + G) = \alpha DF + DG$, by evaluating both sides on test integrands via the defining identity.
+$D(\alpha F + G) = \alpha DF + DG$.
 \end{theorem}
+\begin{proof}\leanok Evaluate on test $u$ via the defining identity. Linearity of $\mathbb{E}$ and Hölder give equality; nondegeneracy of the pairing concludes.\end{proof}
 
 \begin{theorem}[$D$ on constants]\label{thm:D_const}
 \lean{BanachEnergySpace.D_const}
 \leanok
 \uses{thm:D_def}
-$D(\mathrm{const}(c)) = 0$, since $\mathbb{E}[c \cdot \delta(u)] = c \cdot \mathbb{E}[\delta(u)] = 0$
-by (H1). Thus $D$ depends only on the fluctuation $F - \mathbb{E}[F]$.
+$D(\mathrm{const}(c)) = 0$, since $\mathbb{E}[c \cdot \delta(u)] = c \cdot 0 = 0$ by (H1).
 \end{theorem}
+\begin{proof}\leanok Apply the defining identity, factor out $c$, use \texttt{holder\_const\_left} and centering of $\delta$.\end{proof}
 
 \begin{theorem}[$\ker(D)$ characterization]\label{thm:ker_D}
 \lean{BanachEnergySpace.ker_D_iff_annihilates_im_delta}
 \leanok
 \uses{thm:D_def}
 $DF = 0$ iff $\mathbb{E}[F \cdot \delta(u)] = 0$ for all $u$: the kernel is the
-annihilator of $\mathrm{im}(\delta)$. For stable processes, $\ker(D_L)$ is large
-(all even functionals and higher chaoses), sourcing the representability obstruction.
+annihilator of $\mathrm{im}(\delta)$.
 \end{theorem}
+\begin{proof}\leanok Forward: $DF = 0$ means $\langle DF, u \rangle = 0$ for all $u$; apply defining identity. Reverse: the pairing is zero for all $u$; apply \texttt{pair\_nondegenerate}.\end{proof}
 
 \section{Fluctuation Factorization (Theorem A)}
 
@@ -457,17 +494,16 @@ annihilator of $\mathrm{im}(\delta)$. For stable processes, $\ker(D_L)$ is large
 \leanok
 \uses{def:D, def:banach_space}
 \textbf{Theorem~A.} Under (H3): $F - \mathbb{E}[F] = \delta(\delta^{-1}(F - \mathbb{E}[F]))$.
-For stable processes, (H3) fails globally but the factorization holds on
-$\mathrm{im}(\delta_L) \subsetneq L^p_0(\Omega)$.
 \end{theorem}
+\begin{proof}\leanok By hypothesis $F - \mathbb{E}[F] \in \mathrm{im}(\delta)$, so the recovery map gives $v$ with $\delta(v) = F - \mathbb{E}[F]$. Apply \texttt{recovery\_map\_spec}.\end{proof}
 
 \begin{theorem}[Duality recovery]\label{thm:duality_recovery}
 \lean{BanachEnergySpace.duality_recovery}
 \leanok
 \uses{thm:factorization, thm:D_def}
-$\langle DF, u \rangle = \mathbb{E}[\delta(v) \cdot \delta(u)]$ where $v = \delta^{-1}(F - \mathbb{E}[F])$:
-the derivative recovers the representing integrand.
+$\langle DF, u \rangle = \mathbb{E}[\delta(v) \cdot \delta(u)]$ where $v = \delta^{-1}(F - \mathbb{E}[F])$.
 \end{theorem}
+\begin{proof}\leanok Apply the defining identity $\langle DF, u \rangle = \mathbb{E}[F \cdot \delta(u)]$.\end{proof}
 
 \section{Representability Obstruction}
 
@@ -475,27 +511,24 @@ the derivative recovers the representing integrand.
 \lean{BanachEnergySpace.DistributionalSymmetry}
 \leanok
 \uses{def:banach_space}
-$L \stackrel{d}{=} -L$: the negation map preserves even functionals (depending on $|\Delta L_s|$)
-while flipping the sign of $\delta_L(u)$. This parity mismatch drives the even annihilation lemma.
+$L \stackrel{d}{=} -L$: the negation map preserves even functionals while flipping $\delta_L(u)$.
 \end{defn}
 
 \begin{theorem}[Even annihilates $\mathrm{im}(\delta)$]\label{thm:even_annihilates}
 \lean{BanachEnergySpace.even_annihilates_im_delta}
 \leanok
 \uses{def:dist_sym, thm:D_def}
-If $G$ is even, then $\mathbb{E}[G \cdot \delta(u)] = 0$ for all $u$:
-under $L \mapsto -L$, $G$ is invariant while $\delta(u)$ flips sign, forcing
-$\mathbb{E}[G \cdot \delta(u)] = -\mathbb{E}[G \cdot \delta(u)] = 0$.
+If $G$ is even, then $\mathbb{E}[G \cdot \delta(u)] = 0$ for all $u$.
 \end{theorem}
+\begin{proof}\leanok Under $L \mapsto -L$: $G$ is invariant, $\delta(u)$ flips sign. So $\mathbb{E}[G \cdot \delta(u)] = \mathbb{E}[G \cdot (-\delta(u))] = -\mathbb{E}[G \cdot \delta(u)]$, forcing the value to $0$. Uses \texttt{holder\_neg} and \texttt{sym.neg\_delta}.\end{proof}
 
 \begin{theorem}[Representability obstruction]\label{thm:obstruction}
 \lean{BanachEnergySpace.representability_obstruction}
 \leanok
 \uses{thm:even_annihilates, thm:center_centered}
 \textbf{Proposition 5.1.} Centered, even, nonzero $G \Rightarrow G \notin \mathrm{im}(\delta_L)$.
-By contradiction: $G = \delta(u)$ gives $\|G\|_2^2 = \mathbb{E}[G \cdot \delta(u)] = 0$
-by even annihilation, so $G = 0$. This proves $\mathrm{im}(\delta_L) \subsetneq L^p_0(\Omega)$.
 \end{theorem}
+\begin{proof}\leanok By contradiction: assume $G = \delta(u)$. Then $\|G\|_2^2 = \mathbb{E}[G \cdot G] = \mathbb{E}[G \cdot \delta(u)] = 0$ by even annihilation. So $G = 0$, contradicting $G \neq 0$.\end{proof}
 
 \section{Leibniz Defect (Theorem B)}
 
@@ -504,8 +537,7 @@ by even annihilation, so $G = 0$. This proves $\mathrm{im}(\delta_L) \subsetneq 
 \leanok
 \uses{def:D}
 $\Gamma(F,G) := D(FG) - F \cdot DG - G \cdot DF \in H_X^*$: measures failure of the product rule.
-$\Gamma = 0$ in the Hilbert (Brownian) case; $\Gamma \neq 0$ captures the jump correction
-for stable processes.
+$\Gamma = 0$ iff $D$ is a derivation.
 \end{defn}
 
 \begin{theorem}[Product rule with jump defect]\label{thm:product_rule}
@@ -513,18 +545,17 @@ for stable processes.
 \leanok
 \uses{def:leibniz}
 \textbf{Theorem~B.}
-$\langle \Gamma(F,G), u \rangle = \mathbb{E}[\sum_s \Delta_s(f,g) \cdot \delta(u)]$,
-where $\Delta_s(f,g)$ is the product jump defect. The proof applies the Lévy--Itô formula
-to $fg$ and identifies the non-Leibniz part with the jump residual.
+$\langle \Gamma(F,G), u \rangle = \mathbb{E}[\sum_s \Delta_s(f,g) \cdot \delta(u)]$.
 \end{theorem}
+\begin{proof}\leanok Apply the Itô formula to $fg$, multiply by $\delta(u)$, take expectations. The Leibniz part cancels, leaving the jump residual $\sum_s \Delta_s(f,g)$. Uses \texttt{product\_ito\_paired\_derived}.\end{proof}
 
 \begin{theorem}[Defect vanishes without jumps]\label{thm:defect_vanishes}
 \lean{BanachEnergySpace.defect_vanishes_without_jumps}
 \leanok
 \uses{def:leibniz}
-No jumps $\Rightarrow$ $\Gamma = 0$: the classical product rule holds for continuous
-processes. The Leibniz defect is a pure jump phenomenon.
+No jumps $\Rightarrow$ $\Gamma = 0$: the classical product rule for continuous processes.
 \end{theorem}
+\begin{proof}\leanok If $\sum_s \Delta_s(f,g) = 0$, the product rule identity reduces to $\langle \Gamma, u \rangle = 0$ for all $u$, giving $\Gamma = 0$ by nondegeneracy.\end{proof}
 
 \section{Chaos Characterization (Theorem C)}
 
@@ -532,11 +563,10 @@ processes. The Leibniz defect is a pure jump phenomenon.
 \lean{BanachEnergySpace.chaos_kernel_characterization}
 \leanok
 \uses{thm:D_def}
-\textbf{Theorem~C.} $D_L F = 0$ on deterministic integrands iff the truncated
-chaos kernel $\Phi_M \to 0$ as $M \to \infty$.
-The vanishing holds for even kernels (odd integrand annihilated by symmetric $\nu_\gamma$)
-and all higher chaoses, making $\ker(D_L)$ infinite-dimensional.
+\textbf{Theorem~C.} $D_L F = 0$ on deterministic integrands iff $\Phi_M \to 0$ as $M \to \infty$.
+Even kernels and higher chaoses satisfy the vanishing condition, making $\ker(D_L)$ infinite-dimensional.
 \end{theorem}
+\begin{proof}\leanok The $L^2$ isometry reduces $\mathbb{E}[F \cdot \delta_L^M(u)] = \int u \cdot \Phi_M\,ds$. Truncation convergence passes $M \to \infty$. The conclusion follows from nondegeneracy of the $L^q$-$L^p$ pairing.\end{proof}
 
 \section{Stable Lévy Instantiation}
 
@@ -545,25 +575,25 @@ and all higher chaoses, making $\ker(D_L)$ infinite-dimensional.
 \leanok
 \uses{def:banach_space, def:dist_sym}
 Packages $\gamma \in (1,2)$, distributional symmetry, jump count $G_0$, rate $\lambda > 0$,
-and terminal time $T > 0$. The key properties---$G_0$ factors through $|\Delta L_s|$
-(making $\mathrm{center}(G_0)$ even) and $\lambda T > 0$ (making it nonzero)---feed
-the abstract obstruction theorem.
+and terminal time $T > 0$.
 \end{defn}
 
 \begin{theorem}[Variance positive]\label{thm:var_pos}
 \lean{jump_count_variance_pos}
 \leanok
 \uses{def:stable_noise}
-$\mathrm{Var}(G_0) = \lambda T > 0$, by \texttt{mul\_pos} from $\lambda > 0$ and $T > 0$.
+$\mathrm{Var}(G_0) = \lambda T > 0$.
 \end{theorem}
+\begin{proof}\leanok Apply \texttt{mul\_pos} to $\lambda > 0$ (from \texttt{jump\_rate}) and $T > 0$ (from \texttt{hT\_pos}).\end{proof}
 
 \begin{theorem}[Centered witness even]\label{thm:witness_even}
 \lean{jump_count_center_even}
 \leanok
 \uses{def:stable_noise, thm:center_centered}
 $\mathrm{center}(G_0)$ is even: $G_0$ depends on $|\Delta L_s|$ (invariant under $L \mapsto -L$),
-and centering preserves evenness since $\mathbb{E}[G_0]$ is constant.
+and centering preserves evenness.
 \end{theorem}
+\begin{proof}\leanok $G_0$ is even by \texttt{jump\_count\_factors\_through\_abs} and \texttt{const\_even}. Centering preserves evenness: $\mathbb{E}[G_0]$ is constant (hence even), and the difference of even functions is even (by \texttt{neg\_sub}).\end{proof}
 
 \begin{theorem}[Centered witness nonzero]\label{thm:witness_nonzero}
 \lean{jump_count_center_nonzero}
@@ -571,15 +601,15 @@ and centering preserves evenness since $\mathbb{E}[G_0]$ is constant.
 \uses{thm:var_pos}
 $\mathrm{center}(G_0) \neq 0$: $\|\mathrm{center}(G_0)\|_2^2 = \lambda T > 0$.
 \end{theorem}
+\begin{proof}\leanok $\lambda T > 0$ implies $\mathrm{Var}(G_0) > 0$, so the $L^2$ norm is nonzero, hence $\mathrm{center}(G_0) \neq 0$.\end{proof}
 
 \begin{theorem}[Stable obstruction]\label{thm:stable_obstruction}
 \lean{stable_levy_obstruction}
 \leanok
 \uses{thm:obstruction, thm:witness_even, thm:witness_nonzero, thm:center_centered}
 $G_0 - \mathbb{E}[G_0] \notin \mathrm{im}(\delta_L)$: the paper's central result.
-Assembles centering, evenness, and nonzeroness to trigger the abstract obstruction,
-proving that (H3) fails for symmetric $\gamma$-stable processes.
 \end{theorem}
+\begin{proof}\leanok Assemble the three properties---centered (\texttt{center\_centered}), even (\texttt{jump\_count\_center\_even}), nonzero (\texttt{jump\_count\_center\_nonzero})---and apply \texttt{representability\_obstruction}.\end{proof}
 
 \section{Hilbert Bridge}
 
@@ -590,3 +620,4 @@ proving that (H3) fails for symmetric $\gamma$-stable processes.
 In the Hilbert case (no jumps), $\Gamma = 0$: the Banach framework specializes to
 $p = q = 2$, $H_X^* \cong H_X$ via Riesz, recovering the companion Hilbert formalization.
 \end{theorem}
+\begin{proof}\leanok Apply \texttt{defect\_vanishes\_without\_jumps} with the \texttt{no\_jumps} hypothesis from \texttt{HilbertEnergyData}.\end{proof}
