@@ -28,3 +28,8 @@ div.proof_content {
 div.thm_header_extras {
 	display: none;
 }
+
+/* Remove italic from theorem body text */
+div.theorem-style-plain div[class$='_thmcontent'] {
+	font-style: normal;
+}
