@@ -1,5 +1,13 @@
 \chapter{Poisson Infrastructure}
 
+This chapter develops the measure-theoretic foundations for symmetric $\gamma$-stable
+L\'evy processes. We define the stable L\'evy density $\nu_\gamma$, prove its symmetry
+and moment properties, and establish the Poisson identities (mean and variance) that
+underpin the obstruction argument. The chapter culminates in the canonical Poisson
+construction: an explicit probability space $(\mathbb{N}, \mathrm{poissonMeasure}(\lambda T))$
+on which the large-jump count $G_0$ is realized as a concrete random variable with
+a proved (not axiomatized) Poisson distribution.
+
 \section{Stable Lévy Measure}
 
 \begin{defn}[Stable Lévy density]\label{def:stable_density}
@@ -157,6 +165,16 @@ This confirms that the concrete construction realizes the desired Poisson distri
 
 
 \chapter{Lévy--Itô Framework}
+
+This chapter constructs the jump-side stochastic calculus from first principles.
+The strategy is to avoid axiomatizing the compensated Poisson integral: instead,
+we build it as the $L^2$ limit of compound Poisson finite sums (which require
+only elementary summation, not measure-theoretic integration). The finite
+telescoping identity replaces the It\^o formula, the $L^2$ Cauchy estimate
+$\varepsilon^{2-\gamma} \to 0$ guarantees convergence, and centering and isometry
+are derived (not assumed) via \texttt{tendsto\_nhds\_unique}. The chapter also
+develops the Poisson chaos orthogonality on the canonical space and constructs
+the compound Poisson path as an explicit c\`adl\`ag function.
 
 \section{Truncated Measures}
 
@@ -444,6 +462,20 @@ At the terminal time, the path accumulates all jumps, recovering the full random
 
 
 \chapter{Banach Energy Space Framework}
+
+This chapter formalizes the abstract operator factorization theory from [1].
+The derivative $D = \delta^*$ is constructed (not axiomatized) via the Banach
+dual pairing $\langle DF, u \rangle = \mathbb{E}[F \cdot \delta(u)]$, and
+its properties---linearity, vanishing on constants, kernel characterization---are
+all proved from this single identity. The main results are:
+Theorem~A (fluctuation factorization on $\mathrm{im}(\delta)$),
+the representability obstruction (centered even functionals cannot lie in
+$\mathrm{im}(\delta_L)$, proved by the even-annihilation/self-pairing argument),
+Theorem~B (the product rule with jump defect $\Gamma$), and
+Theorem~C (chaos kernel characterization of $\ker(D_L)$).
+The chapter concludes by instantiating the abstract framework for symmetric
+$\gamma$-stable processes and verifying backward compatibility with the
+Hilbert formalization via the Hilbert bridge.
 
 \section{Abstract Framework}
 
