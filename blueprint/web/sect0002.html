@@ -165,7 +165,7 @@
         </div>
   </div>
   <div class="defn_thmcontent">
-  <p>  The truncated stable measure is the restriction of \(\nu _\gamma \) to \(\{ |z| \leq M\} \) for a fixed truncation level \(M {\gt} 0\). This truncation removes the large-jump tail of the Lévy measure, producing a finite measure \(\nu _\gamma ^M := \nu _\gamma |_{\{ |z|\leq M\} }\) with finite moments of all orders. The truncated measure is the key technical device that enables compound Poisson approximation: the process with Lévy measure \(\nu _\gamma ^M\) is a compound Poisson process (finite activity), for which the Itô formula reduces to a finite telescoping sum. The full stable integral is recovered by sending \(M \to \infty \). </p>
+  <p>  \(\nu _\gamma ^M := \nu _\gamma |_{\{ |z|\leq M\} }\), the restriction to \(\{ |z| \leq M\} \). This finite measure enables compound Poisson approximation: the Itô formula reduces to a finite telescoping sum, and the full integral is recovered as \(M \to \infty \). </p>
 
   </div>
 </div>
@@ -229,7 +229,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   The truncated second moment \(\int _{|z|\leq M} z^2\, \nu _\gamma (dz) {\gt} 0\) is strictly positive for any \(M {\gt} 0\). This follows from the explicit computation \(\int _{|z|\leq M} z^2\, \nu _\gamma (dz) = 2c_\gamma M^{2-\gamma }/(2-\gamma )\) with \(c_\gamma {\gt} 0\) and \(2 - \gamma {\gt} 0\) (since \(\gamma {\lt} 2\)). Positivity of this moment is needed for the \(L^2\) isometry of the truncated compensated integral \(\delta _L^M\): the isometry constant involves \(\int z^2\, \nu _\gamma ^M(dz)\), which must be nonzero to give a genuine norm. </p>
+  <p>   \(\int _{|z|\leq M} z^2\, \nu _\gamma (dz) = 2c_\gamma M^{2-\gamma }/(2-\gamma ) {\gt} 0\), since \(c_\gamma {\gt} 0\) and \(2 - \gamma {\gt} 0\). Provides the nondegenerate isometry constant for the truncated compensated integral. </p>
 
   </div>
 </div>
@@ -274,7 +274,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>  The finite telescoping identity states that \(f(y_n) - f(y_0) = \sum _{i=0}^{n-1} [f(y_{i+1}) - f(y_i)]\) for any function \(f\) and finite sequence \(y_0, \ldots , y_n\). The proof uses Mathlib’s <span class="ttfamily">Finset.sum_range_sub</span>, which formalizes telescoping for finitely many terms. This identity replaces stochastic integration in the compound Poisson setting: since a compound Poisson process has finitely many jumps in \([0,T]\), the Itô formula reduces to a finite sum of jump increments, requiring no measure-theoretic integration theory. This makes the compound Poisson Itô formula fully formalizable with elementary Lean machinery. </p>
+  <p>  \(f(y_n) - f(y_0) = \sum _{i=0}^{n-1} [f(y_{i+1}) - f(y_i)]\), proved via <span class="ttfamily">Finset.sum_range_sub</span>. This replaces stochastic integration in the compound Poisson setting, where finitely many jumps make the Itô formula a finite sum. </p>
 
   </div>
 </div>
@@ -318,7 +318,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>  Each jump increment decomposes as \(f(v+z) - f(v) = f'(v)z + [f(v+z) - f(v) - f'(v)z]\): a linear part \(f'(v)z\) (which contributes to the stochastic integral \(\int f'(L_{t-})\, dL_t\)) plus a nonlinear remainder (the jump correction). This is a trivial algebraic identity but it isolates the two contributions that appear in the Lévy–Itô decomposition: the first term is odd in \(z\) (detectable by the one-parameter derivative \(D_L\)), while the remainder involves the full nonlinear response of \(f\) to each jump and contributes to the Leibniz defect \(\Gamma _L\). </p>
+  <p>  \(f(v+z) - f(v) = f'(v)z + [f(v+z) - f(v) - f'(v)z]\): the linear part (odd in \(z\), detectable by \(D_L\)) plus the nonlinear remainder (contributing to \(\Gamma _L\)). </p>
 
   </div>
 </div>
@@ -382,7 +382,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   The finite telescope applied to the product \(h(x) = a(x) \cdot b(x)\) yields the Itô product rule for compound Poisson processes: the increment \((ab)(y_{i+1}) - (ab)(y_i)\) decomposes into a “Leibniz part” \(a(y_i)[b(y_{i+1}) - b(y_i)] + b(y_i)[a(y_{i+1}) - a(y_i)]\) plus a “defect part” \([a(y_{i+1}) - a(y_i)][b(y_{i+1}) - b(y_i)]\). Summing over all jumps via the telescope identity gives the product rule with jump defect (Theorem&#160;B) in the compound Poisson case. This algebraic decomposition is the finite-dimensional prototype of the infinite-dimensional Leibniz defect formula. </p>
+  <p>   Telescoping for \(h = ab\) gives the compound Poisson product rule: a Leibniz part plus a defect \([a(y_{i+1}) - a(y_i)][b(y_{i+1}) - b(y_i)]\). This is the finite-dimensional prototype of the Leibniz defect formula. </p>
 
   </div>
 </div>
@@ -425,7 +425,7 @@
         </div>
   </div>
   <div class="defn_thmcontent">
-  <p>  The compound Poisson integral is the finite random sum \(\sum _{i=1}^{N} h(s_i, z_i)\) minus its compensator \(\mathbb {E}[\sum _i h(s_i, z_i)]\), where \((s_i, z_i)\) are the jump times and sizes of a compound Poisson process with Lévy measure \(\nu _\gamma ^M\) (restricted to \(\{ |z| \leq M\} \)). Since the truncated Lévy measure has finite total mass, there are a.s. finitely many jumps, making the sum well-defined pointwise. This object serves as the \(\varepsilon \)-level approximation \(I_1^{\varepsilon ,M}(h)\) in the construction of the compensated integral, and its linearity (<span class="ttfamily">random_sum_linear</span>) is inherited by the limit. </p>
+  <p>  The finite random sum \(\sum _{i=1}^{N} h(s_i, z_i) - \mathrm{compensator}\), well-defined pointwise since \(\nu _\gamma ^M\) has finite total mass. Serves as the \(\varepsilon \)-level approximation in the compensated integral construction. </p>
 
   </div>
 </div>
@@ -489,7 +489,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   The compound Poisson integral is linear: \(\sum (c \cdot h_1 + h_2) = c \cdot \sum h_1 + \sum h_2\) for any constant \(c\) and integrands \(h_1, h_2\). This follows from the linearity of finite sums and the linearity of expectation for the compensator. Linearity of the finite-sum approximation is the starting point for proving linearity of the full compensated integral \(I_1^M(h)\): since the limit of linear maps (in \(L^2\)) is linear, the constructed integral inherits this property from its approximations. </p>
+  <p>   \(\sum (ch_1 + h_2) = c\sum h_1 + \sum h_2\), from linearity of finite sums. The constructed integral \(I_1^M\) inherits linearity from these approximations. </p>
 
   </div>
 </div>
@@ -552,7 +552,7 @@
         </div>
   </div>
   <div class="defn_thmcontent">
-  <p>   The compensated integral \(I_1^M(h) = \lim _{\varepsilon \to 0} I_1^{\varepsilon ,M}(h)\) is constructed as the \(L^2\) limit of compound Poisson finite sums as the lower truncation \(\varepsilon \to 0^+\). The \(L^2\) Cauchy property of the approximations is guaranteed by the estimate \(\| I_1^{\varepsilon _1,M}(h) - I_1^{\varepsilon _2,M}(h)\| _2^2 \leq C \cdot \varepsilon ^{2-\gamma }/(2-\gamma ) \to 0\). This construction avoids axiomatizing the stochastic integral: centering and isometry are <em>derived</em> from the corresponding properties of the finite-sum approximations via <span class="ttfamily">tendsto_nhds_unique</span>, making them proved theorems rather than assumptions. </p>
+  <p>   \(I_1^M(h) = \lim _{\varepsilon \to 0} I_1^{\varepsilon ,M}(h)\) in \(L^2\), constructed from compound Poisson finite sums. The \(L^2\) Cauchy estimate \(\varepsilon ^{2-\gamma }/(2-\gamma ) \to 0\) guarantees convergence. Centering and isometry are <em>derived</em> via <span class="ttfamily">tendsto_nhds_unique</span>. </p>
 
   </div>
 </div>
@@ -616,7 +616,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   The constructed compensated integral is centered: \(\mathbb {E}[I_1^M(h)] = 0\). The proof proceeds by passing centering through the limit: each finite-sum approximation \(I_1^{\varepsilon ,M}(h)\) is centered (by construction, as a compensated sum), and since \(I_1^{\varepsilon ,M}(h) \to I_1^M(h)\) in \(L^2\) (hence in \(L^1\)), the expectation \(\mathbb {E}[I_1^M(h)] = \lim \mathbb {E}[I_1^{\varepsilon ,M}(h)] = 0\) by <span class="ttfamily">tendsto_nhds_unique</span>. This derived centering feeds into the abstract framework’s hypothesis (H1): \(\mathbb {E}[\delta _L(u)] = 0\) for all integrands \(u\). </p>
+  <p>   \(\mathbb {E}[I_1^M(h)] = 0\): each approximation is centered (compensated sum), and centering passes to the \(L^2\) limit. Feeds into hypothesis (H1). </p>
 
   </div>
 </div>
@@ -680,7 +680,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   The constructed compensated integral satisfies the \(L^2\) isometry: \(\mathbb {E}[|I_1^M(h)|^2] = \| h\| _{L^2(dt \otimes \nu _\gamma ^M)}^2\). As with centering, this is derived from the isometry of the finite-sum approximations: each \(I_1^{\varepsilon ,M}(h)\) satisfies an exact \(L^2\) isometry (a standard property of compensated Poisson integrals on finite measures), and the isometry identity is preserved in the \(L^2\) limit. This provides the norm equivalence needed for the truncated integral and feeds into the BDG-type bound for \(\delta _L^M\). </p>
+  <p>   \(\mathbb {E}[|I_1^M(h)|^2] = \| h\| _{L^2(\nu _\gamma ^M \otimes dt)}^2\): the \(L^2\) isometry of finite-sum approximations is preserved in the limit. </p>
 
   </div>
 </div>
@@ -744,7 +744,7 @@
         </div>
   </div>
   <div class="defn_thmcontent">
-  <p>   This bridge packages the constructed compensated integral (with its derived centering and isometry properties) into the axiomatic interface expected by the Lévy–Itô decomposition layer. The bridge converts proved properties of the \(L^2\)-limit construction into the structure fields required by <span class="ttfamily">LevyItoDecomposition</span>, ensuring that the downstream abstract framework (truncation convergence, chaos orthogonality, predictable module structure) receives its inputs as derived theorems rather than independent axioms. This architectural choice minimizes the number of primitive assumptions in the formalization. </p>
+  <p>   Packages the constructed integral into the axiomatic interface for <span class="ttfamily">LevyItoDecomposition</span>, converting proved properties into structure fields. </p>
 
   </div>
 </div>
@@ -807,7 +807,7 @@
         </div>
   </div>
   <div class="defn_thmcontent">
-  <p>   The Lévy–Itô decomposition splits the stable process into small and large jumps: \(L_T = X_T^{\mathrm{small}} + Y_T^{\mathrm{large}}\), where \(X_T^{\mathrm{small}} = \int _0^T \int _{|z|\leq 1} z\, \widetilde{N}(ds,dz)\) captures compensated small jumps and \(Y_T^{\mathrm{large}} = \sum _{|\Delta L_s|{\gt}1} \Delta L_s\) captures large jumps. In the formalization, this structure packages the compensated integral construction together with its derived properties (truncation convergence, centering of truncated integrals, chaos orthogonality, and predictable module structure) into a single interface that the abstract Banach energy space framework can consume. </p>
+  <p>   \(L_T = X_T^{\mathrm{small}} + Y_T^{\mathrm{large}}\): compensated small jumps plus compound Poisson large jumps. Packages the constructed integral with its derived properties into the interface consumed by the Banach framework. </p>
 
   </div>
 </div>
@@ -871,7 +871,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   The truncated pairings converge: \(\mathbb {E}[F \cdot \delta ^M(u)] \to \mathbb {E}[F \cdot \delta (u)]\) as \(M \to \infty \). This is derived from the \(I_1\)-convergence of the constructed compensated integral: as the upper truncation \(M\) increases, the truncated integral \(\delta _L^M(u) = \int \! \int _{|z|\leq M} u_t\, z\, \widetilde{N}(dt,dz)\) converges to the full integral \(\delta _L(u)\) in \(L^p\), and Hölder’s inequality transfers this to convergence of the pairing with any \(F \in L^q\). This convergence is essential for the chaos characterization (Theorem&#160;C): it allows passage from the \(L^2\) isometry (valid for truncated integrals) to statements about the full integral \(\delta _L\). </p>
+  <p>   \(\mathbb {E}[F \cdot \delta ^M(u)] \to \mathbb {E}[F \cdot \delta (u)]\) as \(M \to \infty \), derived from \(I_1\)-convergence. Essential for the chaos characterization (Theorem&#160;C). </p>
 
   </div>
 </div>
@@ -935,7 +935,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   The truncated integral is centered: \(\mathbb {E}[\delta ^M(u)] = 0\) for all \(M {\gt} 0\) and all integrands \(u\). This is derived from the centering of the constructed compensated integral \(I_1^M\): the truncated integral \(\delta ^M(u) = I_1^M(u \cdot z_M)\) inherits centering from \(I_1^M\). Centering of truncated integrals is used in the chaos orthogonality argument: it ensures that constant functionals (\(F = c\)) pair trivially with \(\delta ^M(u)\), isolating the non-constant chaos components. </p>
+  <p>   \(\mathbb {E}[\delta ^M(u)] = 0\), inherited from centering of \(I_1^M\). </p>
 
   </div>
 </div>
@@ -999,7 +999,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   If the truncated chaos pairing \(\Phi _M(F) = \int _{|z|\leq M} f_1(s,z)\, z\, \nu _\gamma (dz)\) vanishes (i.e., \(\Phi _M \equiv 0\)), then \(\mathbb {E}[F \cdot \delta ^M(u)] = 0\) for all deterministic integrands \(u\). This is derived from the chaos identity \(\mathbb {E}[I_1(f_1) \cdot I_1(u \cdot z_M)] = \int _0^T u(s)\, \Phi _M(s)\, ds\) (the \(L^2\) isometry for Poisson integrals) together with <span class="ttfamily">zero_mul</span>. The vanishing condition \(\Phi _M \equiv 0\) holds whenever the first-chaos kernel \(f_1\) is even in \(z\), since the factor \(z\) makes the integrand odd and the symmetric measure \(\nu _\gamma \) annihilates odd integrands. This is the mechanism by which even functionals (like the centered jump count) are orthogonal to all one-parameter stochastic integrals. </p>
+  <p>   If the first-chaos kernel \(\Phi _M \equiv 0\), then \(\mathbb {E}[F \cdot \delta ^M(u)] = 0\) for all deterministic \(u\). The vanishing holds for even kernels (the integrand \(f_1 \cdot z\) is odd and \(\nu _\gamma \) is symmetric), explaining why even functionals are invisible to \(D_L\). </p>
 
   </div>
 </div>
@@ -1063,7 +1063,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   The truncated pairing respects scalar multiplication: \(\mathbb {E}[(cF) \cdot \delta ^M(u)] = c \cdot \mathbb {E}[F \cdot \delta ^M(u)]\) for any constant \(c\). This is derived from the linearity of the truncated integral and the linearity of expectation. The predictable module property ensures that the derivative \(D_L\) respects the module structure of \(L^q(\Omega )\) over \(\mathbb {R}\): \(D_L(cF) = c \cdot D_L(F)\). While seemingly elementary, this property must be verified for each layer of the construction (finite sums, then limits) to ensure the abstract framework’s linearity axioms are satisfied. </p>
+  <p>   \(\mathbb {E}[(cF) \cdot \delta ^M(u)] = c \cdot \mathbb {E}[F \cdot \delta ^M(u)]\), ensuring \(D_L(cF) = c \cdot D_L(F)\). </p>
 
   </div>
 </div>
@@ -1106,7 +1106,7 @@
         </div>
   </div>
   <div class="defn_thmcontent">
-  <p>  The Poisson inner product on functions \(f, g : \mathbb {N} \to \mathbb {R}\) is defined as \(\langle f, g \rangle _r = \sum _{n=0}^{\infty } f(n)\, g(n)\, P_r(n)\), where \(P_r(n) = e^{-r} r^n / n!\) is the Poisson PMF with parameter \(r {\gt} 0\). This is the \(L^2\) inner product on the canonical Poisson space \((\mathbb {N}, \mathrm{poissonMeasure}(r))\). The inner product provides the concrete realization of the first Poisson chaos: functions of the jump count are expanded in an orthogonal basis with respect to this pairing, and the first-chaos projection is governed by the centered variable \(\chi (n) = n - r\). </p>
+  <p>  \(\langle f, g \rangle _r = \sum _n f(n)\, g(n)\, P_r(n)\): the \(L^2\) inner product on \((\mathbb {N}, \mathrm{poissonMeasure}(r))\). </p>
 
   </div>
 </div>
@@ -1148,7 +1148,7 @@
         </div>
   </div>
   <div class="defn_thmcontent">
-  <p>  The centered Poisson variable \(\chi : \mathbb {N} \to \mathbb {R}\) is defined by \(\chi (n) = n - r\), where \(r\) is the Poisson parameter. This is the canonical first-chaos element on the Poisson space: it spans the one-dimensional first chaos \(\mathcal{C}_1\) of the large-jump count. Any function \(f\) on \(\mathbb {N}\) with \(\langle f, \chi \rangle _r = 0\) is orthogonal to the entire first chaos, meaning it has no “linear in jump count” component. The centered witness \(G_0 - \mathbb {E}[G_0]\) for the representability obstruction is precisely \(\chi \) evaluated on the canonical Poisson space with \(r = \lambda T\). </p>
+  <p>  \(\chi (n) = n - r\): the first-chaos generator on the Poisson space. The centered witness \(G_0 - \mathbb {E}[G_0]\) is \(\chi \) with \(r = \lambda T\). </p>
 
   </div>
 </div>
@@ -1214,7 +1214,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   The centered Poisson variable has zero expectation: \(\mathbb {E}[\chi ] = \sum _n (n - r) P_r(n) = \mathbb {E}[N] - r = r - r = 0\). This follows directly from the Poisson mean identity \(\mathbb {E}[N] = r\). Centering of \(\chi \) is required for the obstruction argument: the witness \(G = G_0 - \mathbb {E}[G_0]\) must be centered to apply the representability obstruction theorem, which requires \(\mathbb {E}[G] = 0\). </p>
+  <p>   \(\mathbb {E}[\chi ] = r - r = 0\), from the Poisson mean identity. </p>
 
   </div>
 </div>
@@ -1280,7 +1280,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   The \(L^2\) norm of the centered Poisson variable equals the parameter: \(\| \chi \| ^2 = \sum _n (n-r)^2 P_r(n) = \mathrm{Var}(N) = r\). This follows from the Poisson variance identity. Since \(r = \lambda T {\gt} 0\) (as \(\lambda {\gt} 0\) and \(T {\gt} 0\)), we have \(\| \chi \| ^2 {\gt} 0\), which implies \(\chi \neq 0\) in \(L^2\). This is the quantitative content behind the statement that the centered witness is nonzero: it has positive \(L^2\) norm equal to \(\lambda T\). </p>
+  <p>   \(\| \chi \| ^2 = \mathrm{Var}(N) = r {\gt} 0\), from the Poisson variance identity. Implies \(\chi \neq 0\) in \(L^2\). </p>
 
   </div>
 </div>
@@ -1346,7 +1346,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   If \(\langle f, \chi \rangle _r = 0\) then \(\langle f, a\chi \rangle _r = 0\) for any scalar \(a \in \mathbb {R}\). The proof is immediate from bilinearity: \(\langle f, a\chi \rangle = a \langle f, \chi \rangle = a \cdot 0 = 0\), proved via <span class="ttfamily">tsum_mul_left</span>. This result shows that orthogonality to \(\chi \) implies orthogonality to the entire one-dimensional first chaos \(\mathrm{span}(\chi )\). It is the concrete realization of the chaos orthogonality principle: a functional \(F\) with \(\langle F, \chi \rangle = 0\) has zero first-chaos coefficient and is therefore invisible to the one-parameter derivative \(D_L\). </p>
+  <p>   \(\langle f, \chi \rangle = 0 \Rightarrow \langle f, a\chi \rangle = 0\) for all \(a\), by bilinearity (<span class="ttfamily">tsum_mul_left</span>). Orthogonality to \(\chi \) implies orthogonality to the entire first chaos \(\mathrm{span}(\chi )\). </p>
 
   </div>
 </div>
@@ -1410,7 +1410,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   Zero first-chaos coefficient implies orthogonality to the entire first chaos: if \(f\) has \(\langle f, \chi \rangle _r = 0\), then \(f\) is orthogonal to every element of \(\mathrm{span}(\chi )\). This is the concrete instantiation of the abstract chaos orthogonality theorem on the canonical Poisson space. It provides the bridge between the Poisson-space computation (working with functions on \(\mathbb {N}\)) and the abstract Banach framework (working with \(L^q\) functionals on \(\Omega \)): a functional whose first-chaos coefficient vanishes lies in \(\ker (D_L)\), confirming that it cannot be represented as a one-parameter stochastic integral \(\delta _L(u)\). </p>
+  <p>   Zero first-chaos coefficient implies orthogonality to \(\mathrm{span}(\chi )\): the concrete Poisson-space realization of abstract chaos orthogonality. </p>
 
   </div>
 </div>
@@ -1455,7 +1455,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>  The \(L^2\) Cauchy estimate for the compensated integral approximation is \(\| I_1^{\varepsilon _1,M}(h) - I_1^{\varepsilon _2,M}(h)\| _2^2 \leq 2c_\gamma \varepsilon ^{2-\gamma }/(2-\gamma ) \to 0\) as \(\varepsilon \to 0^+\). This bound comes from the \(L^2\) isometry applied to the difference of truncated integrals, which involves \(\int _{\varepsilon _1}^{\varepsilon _2} z^2\, \nu _\gamma (dz) = 2c_\gamma (\varepsilon _2^{2-\gamma } - \varepsilon _1^{2-\gamma })/(2-\gamma )\). Since \(2 - \gamma {\gt} 0\), the right-hand side vanishes as both \(\varepsilon _i \to 0\). This estimate is the technical heart of the \(\varepsilon \to 0\) construction: it proves that the net of approximations is Cauchy in \(L^2\), guaranteeing convergence to the compensated integral \(I_1^M(h)\). </p>
+  <p>  \(2c_\gamma \varepsilon ^{2-\gamma }/(2-\gamma ) \to 0\) as \(\varepsilon \to 0^+\), since \(2 - \gamma {\gt} 0\). This bound on the \(L^2\) difference of truncated integrals proves the approximations are Cauchy, guaranteeing convergence to \(I_1^M(h)\). </p>
 
   </div>
 </div>
@@ -1499,7 +1499,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>  The power function \(\varepsilon ^\alpha \to 0\) as \(\varepsilon \to 0^+\) for any \(\alpha {\gt} 0\). This is a basic real-analysis fact used in the \(L^2\) Cauchy estimate: the bound \(2c_\gamma \varepsilon ^{2-\gamma }/(2-\gamma )\) involves the exponent \(2 - \gamma {\gt} 0\), so \(\varepsilon ^{2-\gamma } \to 0\) as \(\varepsilon \to 0^+\). The result is also used in the moment divergence/convergence analysis and whenever truncation parameters tend to boundary values. In the Lean formalization, this is proved using Mathlib’s <span class="ttfamily">Filter.Tendsto</span> API for limits at the boundary of the positive reals. </p>
+  <p>  \(\varepsilon ^\alpha \to 0\) as \(\varepsilon \to 0^+\) for \(\alpha {\gt} 0\), proved via Mathlib’s <span class="ttfamily">continuous_rpow_const</span> and <span class="ttfamily">zero_rpow</span>. </p>
 
   </div>
 </div>
@@ -1543,7 +1543,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>  The truncated second moment \(\int _{|z|\leq M} z^2\, \nu _\gamma (dz) = 2c_\gamma M^{2-\gamma }/(2-\gamma )\) is positive and finite for any fixed \(M {\gt} 0\). This explicit formula follows from the power-law computation \(\int _0^M z^{2-1-\gamma }\, dz = M^{2-\gamma }/(2-\gamma )\) with the factor of \(2\) from symmetry. The bound provides the isometry constant for the truncated compensated integral \(\delta _L^M\): the \(L^2\) isometry reads \(\mathbb {E}[|\delta _L^M(u)|^2] = \| u\| _2^2 \cdot \int _{|z|\leq M} z^2\, \nu _\gamma (dz)\). Finiteness ensures the isometry is well-defined; positivity ensures it is nondegenerate. </p>
+  <p>  \(2c_\gamma M^{2-\gamma }/(2-\gamma ) {\gt} 0\) for fixed \(M\): the isometry constant for \(\delta _L^M\) is positive and finite. </p>
 
   </div>
 </div>
@@ -1606,7 +1606,7 @@
         </div>
   </div>
   <div class="defn_thmcontent">
-  <p>   The compound Poisson path is the concrete stochastic process \(Y_t = \sum _{s_i \leq t} z_i\), where \(\{ (s_i, z_i)\} \) are the jump times and sizes of a compound Poisson process. This is a pure-jump càdlàg process that increases by \(z_i\) at each jump time \(s_i\). The path is defined as a deterministic function of the jump data (times and sizes), making it fully constructive. It serves as the concrete realization of both the small-jump component (with \(|z_i| \leq M\), after compensation) and the large-jump component (with \(|z_i| {\gt} 1\)) in the Lévy–Itô decomposition. </p>
+  <p>   \(Y_t = \sum _{s_i \leq t} z_i\): a pure-jump càdlàg path defined as a deterministic function of the jump data. </p>
 
   </div>
 </div>
@@ -1668,7 +1668,7 @@
         </div>
   </div>
   <div class="defn_thmcontent">
-  <p>   The stable large jump path is a compound Poisson path restricted to jumps with \(|z_i| {\gt} 1\): \(Y_t^{\mathrm{large}} = \sum _{s_i \leq t, |z_i| {\gt} 1} z_i\). Since the Lévy measure \(\nu _\gamma \) has finite mass on \(\{ |z| {\gt} 1\} \) (\(\nu _\gamma (\{ |z|{\gt}1\} ) = 2c_\gamma /\gamma {\lt} \infty \)), there are a.s. finitely many large jumps in \([0,T]\). The number of large jumps \(N_T = \# \{ s \leq T : |\Delta L_s| {\gt} 1\} \) is a Poisson random variable with parameter \(\lambda T = 2c_\gamma T/\gamma \), and the centered version \(N_T - \mathbb {E}[N_T]\) serves as the obstruction witness. </p>
+  <p>   Compound Poisson path restricted to \(|z_i| {\gt} 1\). The jump count \(N_T \sim \mathrm{Poisson}(\lambda T)\), and the centered version \(N_T - \mathbb {E}[N_T]\) is the obstruction witness. </p>
 
   </div>
 </div>
@@ -1732,7 +1732,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   The compound Poisson path satisfies \(Y_0 = 0\): at time \(t = 0\), the sum \(\sum _{s_i \leq 0} z_i\) is empty, giving zero. This is a standard initial condition for Lévy processes and is verified by showing that the sum over an empty index set vanishes. The result ensures that the Itô formula \(f(Y_T) - f(Y_0) = f(Y_T) - f(0)\) starts from the correct initial value, which is used in the telescoping proof of the compound Poisson Itô formula. </p>
+  <p>   \(Y_0 = 0\): the sum over an empty index set vanishes. </p>
 
   </div>
 </div>
@@ -1796,7 +1796,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   The terminal value of the compound Poisson path equals the sum of all jumps: \(Y_T = \sum _{i} z_i\). This is immediate from the definition \(Y_t = \sum _{s_i \leq t} z_i\) evaluated at \(t = T\), since all jump times satisfy \(s_i \leq T\) by construction. The terminal value identity connects the path-level description (a function of time) to the random-variable description (a sum of i.i.d. jump sizes), which is needed when applying the Itô formula to terminal functionals \(F = f(L_T)\). </p>
+  <p>   \(Y_T = \sum _i z_i\), since all jump times satisfy \(s_i \leq T\). </p>
 
   </div>
 </div>
