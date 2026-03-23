@@ -164,7 +164,7 @@
         </div>
   </div>
   <div class="defn_thmcontent">
-  <p>  The abstract Banach energy space with pairings, divergence \(\delta \), and expectation. </p>
+  <p>  The abstract Banach energy space packages the data needed for the operator factorization framework: a Banach integrand space \(H_X\), its dual \(H_X^*\), function spaces \(L^p(\Omega )\) and \(L^q(\Omega )\) with conjugate exponents, a bounded stochastic integral (divergence) \(\delta : H_X \to L^p(\Omega )\), bilinear duality pairings, an expectation functional, and a <span class="ttfamily">mk_dual</span> constructor that packages bounded linear functionals into elements of \(H_X^*\). Unlike the Hilbert framework of the companion paper, this structure does <em>not</em> assume a Riesz identification \(H_X^* \cong H_X\): the dual space is genuinely distinct from the integrand space when \(p \neq 2\). The framework isolates the stochastic-analysis content (integration, expectation) from the Banach-space algebra (duality, linearity), enabling a clean separation of concerns in the formalization. </p>
 
   </div>
 </div>
@@ -226,7 +226,7 @@
         </div>
   </div>
   <div class="defn_thmcontent">
-  <p>   \(\mathrm{center}(G_0) = G_0 - \mathrm{const}(\mathbb {E}[G_0])\). </p>
+  <p>   The centering operator maps a random variable \(G_0\) to its centered version: \(\mathrm{center}(G_0) = G_0 - \mathrm{const}(\mathbb {E}[G_0])\), where \(\mathrm{const}(c)\) denotes the constant random variable taking value \(c\). Centering removes the mean while preserving all other distributional properties (variance, symmetry, chaos decomposition beyond the zeroth chaos). In the obstruction argument, centering is applied to the large-jump count \(G_0\) to produce a centered, even, nonzero witness \(G = G_0 - \mathbb {E}[G_0]\) that lies in \(\ker (D_L) \setminus \{ 0\} \). </p>
 
   </div>
 </div>
@@ -290,7 +290,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(\mathbb {E}[\mathrm{center}(G_0)] = 0\). </p>
+  <p>   The centered version of any random variable has zero expectation: \(\mathbb {E}[\mathrm{center}(G_0)] = \mathbb {E}[G_0 - \mathrm{const}(\mathbb {E}[G_0])] = \mathbb {E}[G_0] - \mathbb {E}[G_0] = 0\). This is immediate from linearity of expectation and the property \(\mathbb {E}[\mathrm{const}(c)] = c\). The centered expectation is one of the three hypotheses of the representability obstruction theorem (the others being evenness and nonzeroness): only centered functionals can potentially lie in \(\mathrm{im}(\delta _L)\) (since all stochastic integrals are centered by (H1)), so centering is a necessary preparation for testing representability. </p>
 
   </div>
 </div>
@@ -353,7 +353,7 @@
         </div>
   </div>
   <div class="defn_thmcontent">
-  <p>   \(D(F) := \mathrm{mk\_ dual}(u \mapsto \mathbb {E}[F \cdot \delta (u)])\). Constructed, not axiomatized. </p>
+  <p>   The operator-covariant derivative is <em>constructed</em> (not axiomatized) as the Banach dual of the stochastic integral: \(D(F) := \mathrm{mk\_ dual}(u \mapsto \mathbb {E}[F \cdot \delta (u)])\). For each \(F \in L^q(\Omega )\), the map \(u \mapsto \mathbb {E}[F \cdot \delta (u)]\) defines a bounded linear functional on \(H_X\) (by Hölder’s inequality: \(|\mathbb {E}[F \cdot \delta (u)]| \leq \| F\| _q \cdot \| \delta (u)\| _p \leq \| F\| _q \cdot C_\delta \| u\| _{H_X}\)), so \(D(F) \in H_X^*\). This construction is the Banach-space generalization of the Hilbert derivative \(D_X = \delta _X^*\), with the crucial difference that \(D(F)\) lives in \(H_X^*\) (the dual space), not in \(H_X\) itself. The defining identity \(\langle DF, u\rangle = \mathbb {E}[F \cdot \delta (u)]\) is then a <em>theorem</em>, not a definition. </p>
 
   </div>
 </div>
@@ -417,7 +417,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(\langle DF, u \rangle = \mathbb {E}[F \cdot \delta (u)]\). </p>
+  <p>   The defining identity of the operator-covariant derivative is \(\langle DF, u \rangle = \mathbb {E}[F \cdot \delta (u)]\) for all \(F \in L^q(\Omega )\) and \(u \in H_X\). This identity is proved (in one line) from the construction of \(D\) via <span class="ttfamily">mk_dual</span>: the pairing of the packaged functional with \(u\) unfolds to the expectation. This identity is the starting point for all downstream results: linearity of \(D\), vanishing on constants, the kernel characterization, and the Leibniz defect formula all follow from manipulating this single pairing identity. </p>
 
   </div>
 </div>
@@ -481,7 +481,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(D(\alpha F + G) = \alpha DF + DG\). </p>
+  <p>   The derivative \(D\) is linear: \(D(\alpha F + G) = \alpha \cdot DF + DG\) for all \(\alpha \in \mathbb {R}\) and \(F, G \in L^q(\Omega )\). The proof evaluates both sides on an arbitrary test integrand \(u\) using the defining identity: \(\langle D(\alpha F + G), u \rangle = \mathbb {E}[(\alpha F + G) \cdot \delta (u)] = \alpha \mathbb {E}[F \cdot \delta (u)] + \mathbb {E}[G \cdot \delta (u)] = \alpha \langle DF, u \rangle + \langle DG, u \rangle \). Nondegeneracy of the pairing then gives equality in \(H_X^*\). Linearity of \(D\) is essential for interpreting \(\ker (D)\) as a linear subspace and \(D\) as a bounded linear operator \(L^q(\Omega ) \to H_X^*\). </p>
 
   </div>
 </div>
@@ -545,7 +545,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(D(\mathrm{const}(c)) = 0\). </p>
+  <p>   The derivative of a constant random variable vanishes: \(D(\mathrm{const}(c)) = 0\) for all \(c \in \mathbb {R}\). The proof uses the defining identity and (H1): \(\langle D(\mathrm{const}(c)), u \rangle = \mathbb {E}[c \cdot \delta (u)] = c \cdot \mathbb {E}[\delta (u)] = c \cdot 0 = 0\) for all \(u\), so \(D(\mathrm{const}(c)) = 0\) by nondegeneracy. This result, combined with linearity, shows that \(D\) factors through the centering map: \(D(F) = D(F - \mathbb {E}[F])\), so the derivative depends only on the fluctuation \(F - \mathbb {E}[F]\) and is blind to the mean. </p>
 
   </div>
 </div>
@@ -609,7 +609,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(DF = 0\) iff \(F\) annihilates \(\mathrm{im}(\delta )\). </p>
+  <p>   The kernel of \(D\) is characterized as the annihilator of \(\mathrm{im}(\delta )\): \(DF = 0\) if and only if \(\mathbb {E}[F \cdot \delta (u)] = 0\) for all \(u \in H_X\). The forward direction is immediate from the defining identity; the reverse uses nondegeneracy of the \(H_X^*\)–\(H_X\) pairing. This characterization reveals the operator-theoretic content of the kernel: \(F \in \ker (D)\) means \(F\) is \(L^q\)–\(L^p\)-orthogonal to every stochastic integral, i.e., \(F\) carries no information detectable by the one-parameter integral. For stable processes, \(\ker (D_L)\) is large (containing all even functionals and all higher Poisson chaoses), which is the source of the representability obstruction. </p>
 
   </div>
 </div>
@@ -676,7 +676,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \((F - \mathbb {E}F) = \delta (\delta ^{-1}(F - \mathbb {E}F))\) on \(\mathrm{im}(\delta )\). </p>
+  <p>   <b class="bfseries">(Theorem&#160;A.)</b> Under the representation hypothesis (H3), every centered functional factors through the stochastic integral: \((F - \mathbb {E}[F]) = \delta (\delta ^{-1}(F - \mathbb {E}[F]))\) for all \(F \in L^p(\Omega ) \cap L^q(\Omega )\). The proof is direct: (H3) gives \(F - \mathbb {E}[F] = \delta (v)\) for some predictable \(v\), and (H2) ensures \(v\) is unique, so \(v = \delta ^{-1}(F - \mathbb {E}[F])\). For symmetric \(\gamma \)-stable processes, (H3) fails globally (the one-parameter integral cannot represent even functionals), but the factorization still holds on the closed subspace \(\mathrm{im}(\delta _L) \subsetneq L^p_0(\Omega )\), characterizing exactly which functionals admit one-parameter representation. </p>
 
   </div>
 </div>
@@ -742,7 +742,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(\langle D F, u \rangle \) recovers the integrand. </p>
+  <p>   The duality recovery identity states that \(\langle DF, u \rangle = \mathbb {E}[\delta (v) \cdot \delta (u)]\) where \(v = \delta ^{-1}(F - \mathbb {E}[F])\) is the representing integrand. This shows that the derivative \(D\) <em>recovers</em> the integrand from the functional: the pairing \(\langle DF, u \rangle \) encodes the correlation structure of \(F\) with all stochastic integrals, and under (H3) this uniquely determines the representing integrand \(v\). The proof uses (H1) to eliminate the constant \(\mathbb {E}[F]\): \(\langle DF, u \rangle = \mathbb {E}[F \cdot \delta (u)] = \mathbb {E}[(F - \mathbb {E}[F]) \cdot \delta (u)] = \mathbb {E}[\delta (v) \cdot \delta (u)]\). </p>
 
   </div>
 </div>
@@ -805,7 +805,7 @@
         </div>
   </div>
   <div class="defn_thmcontent">
-  <p>   \(L \stackrel{d}{=} -L\): negation map on \(L^q\). </p>
+  <p>   Distributional symmetry is the property \(L \stackrel{d}{=} -L\): the process \(L\) and its negation \(-L\) have the same law. For symmetric \(\gamma \)-stable processes, this holds because \(\nu _\gamma \) is symmetric (\(\nu _\gamma (-dz) = \nu _\gamma (dz)\)) and the process has no drift. Distributional symmetry induces a negation map on \(L^q(\Omega )\) that preserves functionals depending only on \(|\Delta L_s|\) (even functionals) while flipping the sign of stochastic integrals \(\delta _L(u) = \int u_t\, dL_t\) (odd functionals). This parity mismatch is the mechanism behind the even annihilation lemma and, ultimately, the representability obstruction. </p>
 
   </div>
 </div>
@@ -871,7 +871,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   If \(G\) is even, \(\mathbb {E}[G \cdot \delta (u)] = 0\) for all \(u\). </p>
+  <p>   If \(G\) is even (i.e., \(G \circ \mathrm{neg} = G\), invariant under the distributional symmetry), then \(\mathbb {E}[G \cdot \delta (u)] = 0\) for all \(u \in H_X\). The proof uses the distributional symmetry \(L \stackrel{d}{=} -L\): under the sign flip, \(G\) is invariant while \(\delta (u)\) changes sign, so \(\mathbb {E}[G \cdot \delta (u)] = \mathbb {E}[G \cdot (-\delta (u))] = -\mathbb {E}[G \cdot \delta (u)]\), forcing the expectation to zero. This lemma is the heart of the obstruction: it shows that all even functionals lie in \(\ker (D_L)\), creating a large kernel that prevents (H3) from holding. </p>
 
   </div>
 </div>
@@ -937,7 +937,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   Even, centered, nonzero \(G\) \(\Rightarrow \) \(G \notin \mathrm{im}(\delta )\). </p>
+  <p>   <b class="bfseries">(Proposition 5.1.)</b> If \(G \in L^q(\Omega )\) is centered (\(\mathbb {E}[G] = 0\)), even (\(G \circ \mathrm{neg} = G\)), and nonzero, then \(G \notin \mathrm{im}(\delta _L)\). The proof is by contradiction: if \(G = \delta (u)\) for some \(u\), then the self-pairing \(\mathbb {E}[G \cdot G] = \mathbb {E}[G \cdot \delta (u)] = 0\) by the even annihilation lemma, which forces \(\| G\| _2 = 0\), hence \(G = 0\)—contradicting nonzeroness. This establishes that \(\mathrm{im}(\delta _L) \subsetneq L^p_0(\Omega )\): hypothesis (H3) fails for stable processes. The obstruction is structural, not technical: it reflects the mismatch between one-parameter integrands (linear in jump size \(z\)) and the full Poisson chaos (which includes nonlinear dependence on \(z\)). </p>
 
   </div>
 </div>
@@ -1000,7 +1000,7 @@
         </div>
   </div>
   <div class="defn_thmcontent">
-  <p>   \(\Gamma (F,G) := D(FG) - F \cdot DG - G \cdot DF\). </p>
+  <p>   The Leibniz defect measures the failure of the product rule for the derivative \(D\): \(\Gamma (F,G) := D(FG) - F \cdot DG - G \cdot DF\), viewed as an element of \(H_X^*\). When \(D\) is a derivation (satisfies the Leibniz rule), \(\Gamma = 0\); nonzero \(\Gamma \) is the algebraic signature of stochastic calculus. In the Brownian (Hilbert) setting, \(\Gamma \) encodes the carré du champ \(\int f'(B_t) g'(B_t) u_t\, dt\). In the stable (Banach) setting, \(\Gamma \) captures the full nonlinear jump residual, involving all orders of \(f\) and \(g\) via the product jump defect \(\Delta _s(f,g)\). The Leibniz defect is a standalone duality object: its computation requires only \(\langle D(FG), u \rangle = \mathbb {E}[FG \cdot \delta (u)]\), the Itô formula, and Hölder’s inequality—not the representation hypothesis (H3). </p>
 
   </div>
 </div>
@@ -1064,7 +1064,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(\langle \Gamma (F,G), u \rangle = \mathbb {E}[\sum \Delta _s(f,g) \cdot \delta (u)]\). </p>
+  <p>   <b class="bfseries">(Theorem&#160;B.)</b> For \(f, g \in C_b^2(\mathbb {R})\), \(F = f(L_T)\), \(G = g(L_T)\), the Leibniz defect is given by the product jump defects: \(\langle \Gamma (F,G), u \rangle = \mathbb {E}[\sum _{0 {\lt} s \leq T} \Delta _s(f,g) \cdot \delta (u)]\), where \(\Delta _s(f,g) = (fg)(L_s) - (fg)(L_{s-}) - [f'g + fg'](L_{s-}) \Delta L_s\). The proof applies the Lévy–Itô formula to \(h = fg\), multiplies by \(\delta _L(u)\), takes expectations, and identifies the Leibniz part with the predictable integrand \((f'g + fg')(L_{t-})\). The jump defect sum converges a.s. because small jumps contribute \(O(|\Delta L_s|^2)\) (summable since \(\gamma {\lt} 2\)) and large jumps are finitely many. This theorem demonstrates that the one-parameter derivative \(D_L\) <em>detects</em> the full nonlinear jump structure through its algebraic failure to satisfy the product rule, even though it cannot <em>represent</em> all centered functionals. </p>
 
   </div>
 </div>
@@ -1128,7 +1128,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   No jumps \(\Rightarrow \) \(\Gamma = 0\). </p>
+  <p>   In the absence of jumps (i.e., when the product jump defect \(\sum _s \Delta _s(f,g) = 0\)), the Leibniz defect vanishes: \(\Gamma (F,G) = 0\). This recovers the classical product rule \(D(FG) = F \cdot DG + G \cdot DF\) that holds for continuous processes (e.g., Brownian motion). The result confirms that the Leibniz defect is a <em>jump phenomenon</em>: it arises exclusively from the discontinuities of the driving process. In the Hilbert bridge (<span class="ttfamily">HilbertEnergyData</span>), this vanishing condition is the hypothesis that specializes the Banach framework back to the Hilbert theory. </p>
 
   </div>
 </div>
@@ -1193,7 +1193,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(DF = 0\) on deterministic integrands iff truncated pairings \(\to 0\). </p>
+  <p>   <b class="bfseries">(Theorem&#160;C.)</b> The derivative \(D_L F\) vanishes on deterministic integrands if and only if the truncated pairings \(\Phi _M(s) = \int _{|z|\leq M} f_1(s,z)\, z\, \nu _\gamma (dz) \to 0\) in \(L^q([0,T])\) as \(M \to \infty \), where \(f_1\) is the first-chaos kernel of \(F\). The proof uses the \(L^2\) isometry for truncated Poisson integrals to reduce \(\mathbb {E}[F \cdot \delta _L^M(u)] = \int _0^T u(s)\, \Phi _M(s)\, ds\) (chaos orthogonality eliminates all but the first chaos), then passes to \(M \to \infty \) via truncation convergence. The vanishing condition \(\Phi _M \to 0\) holds automatically for even kernels (\(f_1(s,-z) = f_1(s,z)\), since the integrand \(f_1 \cdot z\) is odd and \(\nu _\gamma \) is symmetric) and for all higher chaoses (\(n \geq 2\), by orthogonality). The annihilator of \(\mathrm{im}(\delta _L)\) is therefore infinite-dimensional, containing all higher chaoses and an infinite-dimensional subspace of the first chaos. </p>
 
   </div>
 </div>
@@ -1258,7 +1258,7 @@
         </div>
   </div>
   <div class="defn_thmcontent">
-  <p>   \(\gamma \in (1,2)\), symmetry, jump count, rate, terminal time. </p>
+  <p>   The stable noise data packages the concrete parameters of a symmetric \(\gamma \)-stable Lévy process into the abstract Banach energy space framework: the stability index \(\gamma \in (1,2)\), the distributional symmetry \(L \stackrel{d}{=} -L\), a jump count random variable \(G_0 = \# \{ |\Delta L_s| {\gt} 1, s \leq T\} \), the large-jump rate \(\lambda = 2c_\gamma /\gamma {\gt} 0\), and the terminal time \(T {\gt} 0\). The key structural properties are that \(G_0\) factors through absolute values of jumps (making \(\mathrm{center}(G_0)\) even) and that \(\lambda T {\gt} 0\) (making \(\mathrm{center}(G_0)\) nonzero via positive Poisson variance). These two properties, combined with centering, feed the three hypotheses of the abstract representability obstruction theorem. </p>
 
   </div>
 </div>
@@ -1322,7 +1322,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(\mathrm{Var}(G_0) = \lambda T {\gt} 0\) from \(\lambda {\gt} 0\), \(T {\gt} 0\). </p>
+  <p>   The variance of the large-jump count is strictly positive: \(\mathrm{Var}(G_0) = \lambda T {\gt} 0\), since \(\lambda = 2c_\gamma /\gamma {\gt} 0\) (from positivity of \(c_\gamma \) and \(\gamma \)) and \(T {\gt} 0\) (positive terminal time). The proof in Lean uses <span class="ttfamily">mul_pos</span> to combine the two positivity hypotheses. Positive variance is the quantitative statement that the centered witness \(G_0 - \mathbb {E}[G_0]\) is nonzero: \(\| G_0 - \mathbb {E}[G_0]\| _2^2 = \lambda T {\gt} 0\) implies \(G_0 - \mathbb {E}[G_0] \neq 0\) in \(L^2\). </p>
 
   </div>
 </div>
@@ -1388,7 +1388,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(\mathrm{center}(G_0)\) is even. </p>
+  <p>   The centered large-jump count \(\mathrm{center}(G_0) = G_0 - \mathbb {E}[G_0]\) is even under the distributional symmetry. The proof has two parts: (1) \(G_0\) is even because it counts jumps \(|\Delta L_s| {\gt} 1\), which depends only on absolute jump sizes and is invariant under \(L \mapsto -L\) (formalized via the <span class="ttfamily">jump_count_factors_through_abs</span> axiom and <span class="ttfamily">const_even</span>); (2) centering preserves evenness because \(\mathbb {E}[G_0]\) is a constant (hence even), and the difference of even functions is even (via <span class="ttfamily">neg_sub</span>). Evenness of the centered witness is one of the three hypotheses of the representability obstruction theorem. </p>
 
   </div>
 </div>
@@ -1452,7 +1452,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(\mathrm{center}(G_0) \neq 0\). </p>
+  <p>   The centered large-jump count is nonzero: \(\mathrm{center}(G_0) \neq 0\) in \(L^2\). This follows from the positive variance: \(\| \mathrm{center}(G_0)\| _2^2 = \mathrm{Var}(G_0) = \lambda T {\gt} 0\), so the \(L^2\) norm is strictly positive, which implies the function is nonzero. The derivation chain in Lean is: \(\lambda {\gt} 0\) and \(T {\gt} 0\) \(\Rightarrow \) \(\lambda T {\gt} 0\) (via <span class="ttfamily">mul_pos</span>) \(\Rightarrow \) \(\mathrm{Var}(G_0) {\gt} 0\) \(\Rightarrow \) \(\mathrm{center}(G_0) \neq 0\). This is the final ingredient needed for the stable obstruction: combined with centering and evenness, it triggers the abstract representability obstruction theorem. </p>
 
   </div>
 </div>
@@ -1522,7 +1522,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(G_0 - \mathbb {E}[G_0] \notin \mathrm{im}(\delta _L)\). </p>
+  <p>   The centered large-jump count is not representable as a one-parameter stochastic integral: \(G_0 - \mathbb {E}[G_0] \notin \mathrm{im}(\delta _L)\). This is the concrete instantiation of the abstract representability obstruction applied to the stable Lévy setting. The proof assembles three derived properties: (1)&#160;\(\mathrm{center}(G_0)\) is centered (from <span class="ttfamily">center_centered</span>), (2)&#160;\(\mathrm{center}(G_0)\) is even (from <span class="ttfamily">jump_count_center_even</span>), (3)&#160;\(\mathrm{center}(G_0) \neq 0\) (from <span class="ttfamily">jump_count_center_nonzero</span>). The abstract obstruction theorem then concludes \(G \notin \mathrm{im}(\delta _L)\). This is the paper’s central negative result: it shows that hypothesis (H3) fails for symmetric \(\gamma \)-stable processes, proving that the one-parameter factorization \((\mathrm{Id} - \mathbb {E}) = \delta _L \circ \delta _L^{-1} \circ (\mathrm{Id} - \mathbb {E})\) does not hold on all of \(L^p_0(\Omega )\). </p>
 
   </div>
 </div>
@@ -1587,7 +1587,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   In the Hilbert case (no jumps), \(\Gamma = 0\). </p>
+  <p>   In the Hilbert case (continuous processes with no jumps), the Leibniz defect vanishes: \(\Gamma (F,G) = 0\) for all \(F, G\). The <span class="ttfamily">HilbertEnergyData</span> bridge shows that every <span class="ttfamily">BanachEnergySpace</span> axiom is satisfied when the product jump defect \(\sum _s \Delta _s(f,g)\) is identically zero, recovering the Hilbert theory as a special case. This confirms that the Banach framework is a strict generalization: the Hilbert operator factorization of the companion paper is the specialization where \(p = q = 2\), \(H_X^* \cong H_X\) via Riesz, and \(\Gamma = 0\) because there are no jumps. The bridge validates the design of the Banach framework by ensuring backward compatibility with the previously verified Hilbert formalization. </p>
 
   </div>
 </div>

@@ -165,7 +165,7 @@
         </div>
   </div>
   <div class="defn_thmcontent">
-  <p>  The symmetric \(\gamma \)-stable Lévy measure density is \(\nu _\gamma (dz) = c_\gamma |z|^{-1-\gamma }\, dz\) on \(\mathbb {R} \setminus \{ 0\} \). </p>
+  <p>  The symmetric \(\gamma \)-stable Lévy measure density is \(\nu _\gamma (dz) = c_\gamma |z|^{-1-\gamma }\, dz\) on \(\mathbb {R} \setminus \{ 0\} \), where \(c_\gamma {\gt} 0\) depends on the stability index \(\gamma \in (1,2)\). This measure governs the jump intensity of a symmetric \(\gamma \)-stable Lévy process: small jumps are frequent (the density diverges at the origin) while large jumps are rare (the density decays polynomially). The singularity at the origin is strong enough that \(\int |z|^2\, \nu _\gamma (dz) = \infty \), which is why the process has infinite variance and the energy space is necessarily Banach rather than Hilbert. </p>
 
   </div>
 </div>
@@ -229,7 +229,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   The stable density is symmetric: \(\nu _\gamma (-z) = \nu _\gamma (z)\). </p>
+  <p>   The stable Lévy density is symmetric: \(\nu _\gamma (-z) = \nu _\gamma (z)\) for all \(z \neq 0\). This follows immediately from the absolute value in the definition \(c_\gamma |z|^{-1-\gamma }\). Symmetry of \(\nu _\gamma \) implies that the driving process \(L\) satisfies \(L \stackrel{d}{=} -L\) (distributional symmetry), which is the key ingredient in the even-annihilation argument underlying the representability obstruction. </p>
 
   </div>
 </div>
@@ -293,7 +293,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   The stable density is nonneg when \(c_\gamma \geq 0\). </p>
+  <p>   The stable Lévy density is nonneg when \(c_\gamma \geq 0\): since \(|z|^{-1-\gamma } {\gt} 0\) for \(z \neq 0\) and \(c_\gamma {\gt} 0\), the product \(c_\gamma |z|^{-1-\gamma }\) is strictly positive away from the origin. This ensures that \(\nu _\gamma \) is a valid (non-negative) measure on \(\mathbb {R} \setminus \{ 0\} \), as required for a Lévy measure. Nonnegativity is used throughout the moment computations to guarantee that integrals against \(\nu _\gamma \) have definite sign. </p>
 
   </div>
 </div>
@@ -338,7 +338,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>  \(\lambda = 2c_\gamma /\gamma {\gt} 0\). </p>
+  <p>  The rate of large jumps is \(\lambda = \nu _\gamma (\{ |z| {\gt} 1\} ) = 2c_\gamma /\gamma {\gt} 0\). This is computed by integrating the Lévy density over \(\{ |z| {\gt} 1\} \): \(\int _{|z|{\gt}1} c_\gamma |z|^{-1-\gamma }\, dz = 2c_\gamma \int _1^\infty z^{-1-\gamma }\, dz = 2c_\gamma /\gamma \). Positivity of \(\lambda \) is essential for the obstruction argument: it ensures that the Poisson random variable \(G_0 = \# \{ |\Delta L_s| {\gt} 1, s \leq T\} \) has parameter \(\lambda T {\gt} 0\), hence positive variance, which ultimately shows that the centered witness \(G_0 - \mathbb {E}[G_0]\) is nonzero. </p>
 
   </div>
 </div>
@@ -382,7 +382,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>  For \(\alpha {\gt} \gamma \): \(2c_\gamma /(\alpha - \gamma ) {\gt} 0\). </p>
+  <p>  For \(\alpha {\gt} \gamma \), the small-jump moment \(\int _{|z|\leq 1} |z|^\alpha \, \nu _\gamma (dz) = 2c_\gamma /(\alpha - \gamma )\) is finite and positive. The integral converges because the exponent \(\alpha - 1 - \gamma {\gt} -1\) at the origin makes the integrand integrable. This finiteness is needed in the truncated measure construction: the second moment \(\int _{|z|\leq M} z^2\, \nu _\gamma (dz) {\lt} \infty \) (the case \(\alpha = 2 {\gt} \gamma \)) ensures that compound Poisson approximations have finite variance, enabling the \(L^2\) isometry for truncated compensated integrals. </p>
 
   </div>
 </div>
@@ -426,7 +426,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>  For \(\alpha {\lt} \gamma \): \(\alpha - \gamma {\lt} 0\) (the integral diverges). </p>
+  <p>  For \(\alpha {\lt} \gamma \), the small-jump moment integral diverges: \(\alpha - \gamma {\lt} 0\), so \(\int _{|z|\leq 1} |z|^\alpha \, \nu _\gamma (dz) = \infty \). In particular, setting \(\alpha = \gamma \) gives \(\int |z|^\gamma \, \nu _\gamma (dz) = \infty \), confirming that \(L_t \notin L^\gamma (\Omega )\). This divergence is the fundamental reason why the integrand space \(H_L = L^p\) with \(p {\lt} \gamma {\lt} 2\) cannot be a Hilbert space: the \(L^2\) norm of the jump-size variable \(z\) under \(\nu _\gamma \) is infinite, forcing the entire framework into the Banach setting. </p>
 
   </div>
 </div>
@@ -469,7 +469,7 @@
         </div>
   </div>
   <div class="defn_thmcontent">
-  <p>  \((k+1) \cdot P(k+1) = r \cdot P(k)\). </p>
+  <p>  The Poisson PMF satisfies the recurrence relation \((k+1) \cdot P_r(k+1) = r \cdot P_r(k)\) for all \(k \geq 0\), where \(P_r(k) = e^{-r} r^k / k!\) is the Poisson probability mass function with parameter \(r {\gt} 0\). This identity is verified by direct algebraic manipulation of the factorial ratio \((k+1)! / k! = k+1\). The recurrence is the key computational tool for proving both the mean and second factorial moment of the Poisson distribution: it allows reindexing sums \(\sum k \cdot P_r(k)\) into sums of the form \(r \sum P_r(k)\), which reduce to \(r\) by PMF normalization. </p>
 
   </div>
 </div>
@@ -533,7 +533,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(\mathbb {E}[\mathrm{Poisson}(r)] = r\). </p>
+  <p>   The expected value of a Poisson random variable with parameter \(r\) equals \(r\): \(\sum _{n=0}^{\infty } n \cdot P_r(n) = r\). The proof uses the recurrence \((k+1)P_r(k+1) = r \cdot P_r(k)\) to reindex the series, reducing to the PMF normalization \(\sum P_r(n) = 1\) via <span class="ttfamily">HasSum</span> manipulation. This identity is a proved theorem in Lean (not axiomatized), and is used in the variance computation and to establish the centering of the large-jump count witness \(G_0 - \mathbb {E}[G_0]\) that drives the representability obstruction. </p>
 
   </div>
 </div>
@@ -597,7 +597,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(\sum n(n-1) P(n) = r^2\). </p>
+  <p>   The second factorial moment of a Poisson random variable with parameter \(r\) equals \(r^2\): \(\sum _{n=0}^{\infty } n(n-1) P_r(n) = r^2\). The proof applies the recurrence relation twice: first to remove one factor of \(n\) (reducing to \(r\) times the first moment sum), then again to evaluate the resulting sum. Combined with the mean identity, this yields the variance via \(\mathrm{Var} = \mathbb {E}[N(N-1)] + \mathbb {E}[N] - (\mathbb {E}[N])^2 = r^2 + r - r^2 = r\). </p>
 
   </div>
 </div>
@@ -663,7 +663,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(\mathrm{Var}(\mathrm{Poisson}(r)) = r\). </p>
+  <p>   The variance of a Poisson random variable with parameter \(r\) equals \(r\): \(\mathrm{Var}(\mathrm{Poisson}(r)) = r\). The proof combines the mean identity \(\mathbb {E}[N] = r\) and the second factorial moment \(\mathbb {E}[N(N-1)] = r^2\) via the algebraic identity \(\mathrm{Var}(N) = \mathbb {E}[N^2] - (\mathbb {E}[N])^2 = \mathbb {E}[N(N-1)] + \mathbb {E}[N] - (\mathbb {E}[N])^2 = r^2 + r - r^2 = r\). This is the critical link in the obstruction chain: positive variance \(\mathrm{Var}(G_0) = \lambda T {\gt} 0\) implies that the centered witness \(G_0 - \mathbb {E}[G_0]\) is nonzero in \(L^2\). </p>
 
   </div>
 </div>
@@ -708,7 +708,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>  \((V + Kz)^2 - V^2 - 2V(Kz) = (Kz)^2\). </p>
+  <p>  The quadratic defect identity states that \((V + Kz)^2 - V^2 - 2V(Kz) = (Kz)^2\) for all real numbers \(V\), \(K\), \(z\). This is a purely algebraic identity obtained by expanding the left-hand side: \((V + Kz)^2 = V^2 + 2V(Kz) + (Kz)^2\), so the first two terms cancel. The identity isolates the second-order remainder in the Taylor expansion of \(f(x) = x^2\) around \(x = V\) with increment \(Kz\), and serves as the prototype for the jump defect in the Itô formula for compound Poisson processes. </p>
 
   </div>
 </div>
@@ -772,7 +772,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(|g_f(V,K,z)| = (Kz)^2\) for \(f(x) = x^2\). </p>
+  <p>   For the quadratic function \(f(x) = x^2\), the jump remainder \(g_f(V,K,z) := f(V + Kz) - f(V) - f'(V) \cdot Kz\) equals exactly \((Kz)^2\). This sharpens the quadratic defect identity by identifying the remainder with the Itô correction term. The result shows that for quadratic functionals, the Leibniz defect \(\Gamma _L(F,F)\) is governed entirely by the sum of squared jumps \(\sum (\Delta L_s)^2\)—the quadratic variation, which is a.s. infinite for stable processes. This illustrates concretely why the classical Itô formula (which uses quadratic variation) breaks down for \(\gamma \)-stable processes. </p>
 
   </div>
 </div>
@@ -835,7 +835,7 @@
         </div>
   </div>
   <div class="defn_thmcontent">
-  <p>   Given \((c_\gamma , \gamma , T)\), construct the canonical Poisson space \((\mathbb {N}, \mathrm{poissonMeasure}(\lambda T))\). </p>
+  <p>   Given the stable parameters \((c_\gamma , \gamma , T)\), this constructs the canonical Poisson probability space \((\mathbb {N}, \mathrm{poissonMeasure}(\lambda T))\) where \(\lambda = 2c_\gamma /\gamma \) is the large-jump rate. The identity function \(G_0(n) = n\) on this space serves as the concrete realization of the large-jump count \(\# \{ s \in [0,T] : |\Delta L_s| {\gt} 1\} \). This construction is important because it provides an explicit, machine-checkable probability space on which the centered witness for the representability obstruction lives, avoiding the need for an abstract existence argument. </p>
 
   </div>
 </div>
@@ -899,7 +899,7 @@
         </div>
   </div>
   <div class="theorem_thmcontent">
-  <p>   \(G_0 \sim \mathrm{Poisson}(\lambda T)\) by \(\mathrm{Measure.map\_ id}\). </p>
+  <p>   The random variable \(G_0\) on the canonical Poisson space has distribution \(\mathrm{Poisson}(\lambda T)\): \(\mathrm{Measure.map}\; G_0\; \mu = \mathrm{poissonMeasure}(\lambda T)\). The proof is trivial by \(\mathrm{Measure.map\_ id}\), since \(G_0\) is the identity function on \(\mathbb {N}\) and the base measure is already \(\mathrm{poissonMeasure}(\lambda T)\). This seemingly tautological result is nonetheless essential in the formalization: it provides the type-theoretic bridge between the abstract Poisson distribution and the concrete random variable used in the obstruction argument. </p>
 
   </div>
 </div>
