@@ -10,7 +10,7 @@ $\nu_\gamma(dz) = c_\gamma |z|^{-1-\gamma}\,dz$ on $\mathbb{R} \setminus \{0\}$,
 where $c_\gamma > 0$ and $\gamma \in (1,2)$.
 The singularity at the origin is strong enough that
 $\int |z|^2\,\nu_\gamma(dz) = \infty$, forcing the energy space to be Banach rather than Hilbert.
-This density is the starting point for the entire Lévy--Itô construction and all moment estimates that follow.
+This density is the starting point for the entire Lévy--Itô construction and all moment estimates that follow; see [4, 5] for background on stable processes.
 \end{defn}
 
 \begin{theorem}[Density symmetry]\label{thm:density_sym}
@@ -256,7 +256,7 @@ By \texttt{tendsto\_nhds\_unique}, $\mathbb{E}[I_1^M(h)] = 0$.
 \uses{def:cci}
 $\mathbb{E}[|I_1^M(h)|^2] = \|h\|_{L^2(\nu_\gamma^M \otimes dt)}^2$:
 the isometry of finite-sum approximations is preserved in the limit.
-This identity is the analogue of the classical Itô isometry for the compensated Poisson setting.
+This identity is the analogue of the classical It\^o isometry [4, Theorem 4.2.3] for the compensated Poisson setting.
 \end{theorem}
 \begin{proof}\leanok Same pattern as centering: each approximation satisfies the isometry exactly,
 so the constant sequence converges to the limit isometry by \texttt{tendsto\_nhds\_unique}.\end{proof}
@@ -482,7 +482,7 @@ One of the three hypotheses of the representability obstruction, ensuring the wi
 \uses{def:banach_space}
 Constructed as $D(F) := \mathrm{mk\_dual}(u \mapsto \mathbb{E}[F \cdot \delta(u)])$.
 Bounded linearity on $H_X$ follows from Hölder, so $D(F) \in H_X^*$.
-This operator generalizes the Malliavin derivative to the non-Hilbert setting.
+This operator generalizes the Malliavin derivative [3] to the non-Hilbert setting.
 \end{defn}
 
 \begin{theorem}[$D$ defining identity]\label{thm:D_def}
@@ -566,7 +566,7 @@ This vanishing is the mechanism by which distributional symmetry produces the ob
 \leanok
 \uses{thm:even_annihilates, thm:center_centered}
 \textbf{Proposition 5.1.} Centered, even, nonzero $G \Rightarrow G \notin \mathrm{im}(\delta_L)$.
-This is the abstract engine of the main theorem: three checkable properties yield non-representability.
+This is the abstract engine of the main theorem [1, Proposition 5.1]: three checkable properties yield non-representability.
 \end{theorem}
 \begin{proof}\leanok By contradiction: assume $G = \delta(u)$. Then $\|G\|_2^2 = \mathbb{E}[G \cdot G] = \mathbb{E}[G \cdot \delta(u)] = 0$ by even annihilation. So $G = 0$, contradicting $G \neq 0$.\end{proof}
 
@@ -586,7 +586,7 @@ $\Gamma = 0$ iff $D$ is a derivation, which holds precisely when the driving pro
 \uses{def:leibniz}
 \textbf{Theorem~B.}
 $\langle \Gamma(F,G), u \rangle = \mathbb{E}[\sum_s \Delta_s(f,g) \cdot \delta(u)]$.
-The defect is entirely determined by the jump structure of the process.
+The defect is entirely determined by the jump structure of the process [1, Theorem B].
 \end{theorem}
 \begin{proof}\leanok Apply the Itô formula to $fg$, multiply by $\delta(u)$, take expectations. The Leibniz part cancels, leaving the jump residual $\sum_s \Delta_s(f,g)$. Uses \texttt{product\_ito\_paired\_derived}.\end{proof}
 
@@ -607,7 +607,7 @@ This recovers the Hilbert setting as a special case, confirming consistency with
 \uses{thm:D_def}
 \textbf{Theorem~C.} $D_L F = 0$ on deterministic integrands iff $\Phi_M \to 0$ as $M \to \infty$.
 Even kernels and higher chaoses satisfy the vanishing condition, making $\ker(D_L)$ infinite-dimensional.
-This characterization shows that the kernel of $D_L$ captures precisely the chaos-orthogonal functionals.
+This characterization shows that the kernel of $D_L$ captures precisely the chaos-orthogonal functionals [1, Theorem C]; cf.\ [9, 10] for the Poisson chaos expansion.
 \end{theorem}
 \begin{proof}\leanok The $L^2$ isometry reduces $\mathbb{E}[F \cdot \delta_L^M(u)] = \int u \cdot \Phi_M\,ds$. Truncation convergence passes $M \to \infty$. The conclusion follows from nondegeneracy of the $L^q$-$L^p$ pairing.\end{proof}
 
