@@ -61,7 +61,9 @@ jobs:
         run: sudo apt-get install -y graphviz libgraphviz-dev
 
       - name: Install blueprint dependencies
-        run: pip install leanblueprint
+        run: |
+          pip install plasTeX==3.1
+          pip install leanblueprint
 
       - name: Build blueprint
         run: leanblueprint web

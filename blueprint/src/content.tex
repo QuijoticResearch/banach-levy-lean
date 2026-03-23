@@ -2,42 +2,42 @@
 
 \section{Stable Lévy Measure}
 
-\begin{definition}[Stable Lévy density]\label{def:stable-density}
+\begin{definition}[Stable Lévy density]\label{def:stable_density}
 \lean{stableLevyDensity}
 \leanok
 The symmetric $\gamma$-stable Lévy measure density is
 $\nu_\gamma(dz) = c_\gamma |z|^{-1-\gamma}\,dz$ on $\mathbb{R} \setminus \{0\}$.
 \end{definition}
 
-\begin{theorem}[Density symmetry]\label{thm:density-sym}
+\begin{theorem}[Density symmetry]\label{thm:density_sym}
 \lean{stableLevyDensity_symmetric}
 \leanok
-\uses{def:stable-density}
+\uses{def:stable_density}
 The stable density is symmetric: $\nu_\gamma(-z) = \nu_\gamma(z)$.
 \end{theorem}
 
-\begin{theorem}[Density nonnegativity]\label{thm:density-nonneg}
+\begin{theorem}[Density nonnegativity]\label{thm:density_nonneg}
 \lean{stableLevyDensity_nonneg}
 \leanok
-\uses{def:stable-density}
+\uses{def:stable_density}
 The stable density is nonneg when $c_\gamma \geq 0$.
 \end{theorem}
 
 \section{Moment Computations}
 
-\begin{theorem}[Large jump rate positive]\label{thm:large-jump-rate}
+\begin{theorem}[Large jump rate positive]\label{thm:large_jump_rate}
 \lean{stable_large_jump_rate_pos}
 \leanok
 $\lambda = 2c_\gamma/\gamma > 0$.
 \end{theorem}
 
-\begin{theorem}[Small jump moment finite]\label{thm:small-jump-finite}
+\begin{theorem}[Small jump moment finite]\label{thm:small_jump_finite}
 \lean{stable_small_jump_moment_finite}
 \leanok
 For $\alpha > \gamma$: $2c_\gamma/(\alpha - \gamma) > 0$.
 \end{theorem}
 
-\begin{theorem}[Small jump moment diverges]\label{thm:small-jump-diverges}
+\begin{theorem}[Small jump moment diverges]\label{thm:small_jump_diverges}
 \lean{stable_small_jump_moment_diverges}
 \leanok
 For $\alpha < \gamma$: $\alpha - \gamma < 0$ (the integral diverges).
@@ -45,61 +45,61 @@ For $\alpha < \gamma$: $\alpha - \gamma < 0$ (the integral diverges).
 
 \section{Poisson Identities}
 
-\begin{lemma}[Poisson recurrence]\label{lem:poisson-recurrence}
+\begin{lemma}[Poisson recurrence]\label{lem:poisson_recurrence}
 \lean{poissonPMFReal_succ_mul}
 \leanok
 $(k+1) \cdot P(k+1) = r \cdot P(k)$.
 \end{lemma}
 
-\begin{theorem}[Poisson mean]\label{thm:poisson-mean}
+\begin{theorem}[Poisson mean]\label{thm:poisson_mean}
 \lean{poisson_mean_identity}
 \leanok
-\uses{lem:poisson-recurrence}
+\uses{lem:poisson_recurrence}
 $\mathbb{E}[\mathrm{Poisson}(r)] = r$.
 \end{theorem}
 
-\begin{theorem}[Poisson second factorial moment]\label{thm:poisson-second-fact}
+\begin{theorem}[Poisson second factorial moment]\label{thm:poisson_second_fact}
 \lean{poisson_second_factorial_hassum}
 \leanok
-\uses{lem:poisson-recurrence}
+\uses{lem:poisson_recurrence}
 $\sum n(n-1) P(n) = r^2$.
 \end{theorem}
 
-\begin{theorem}[Poisson variance]\label{thm:poisson-variance}
+\begin{theorem}[Poisson variance]\label{thm:poisson_variance}
 \lean{poisson_variance_identity}
 \leanok
-\uses{thm:poisson-mean, thm:poisson-second-fact}
+\uses{thm:poisson_mean, thm:poisson_second_fact}
 $\mathrm{Var}(\mathrm{Poisson}(r)) = r$.
 \end{theorem}
 
 \section{Quadratic Defect}
 
-\begin{theorem}[Quadratic defect exact]\label{thm:quad-exact}
+\begin{theorem}[Quadratic defect exact]\label{thm:quad_exact}
 \lean{quadratic_defect_exact}
 \leanok
 $(V + Kz)^2 - V^2 - 2V(Kz) = (Kz)^2$.
 \end{theorem}
 
-\begin{theorem}[Quadratic defect sharp]\label{thm:quad-sharp}
+\begin{theorem}[Quadratic defect sharp]\label{thm:quad_sharp}
 \lean{quadratic_defect_sharp}
 \leanok
-\uses{thm:quad-exact}
+\uses{thm:quad_exact}
 $|g_f(V,K,z)| = (Kz)^2$ for $f(x) = x^2$.
 \end{theorem}
 
 \section{Canonical Poisson Construction}
 
-\begin{definition}[Concrete stable jump count]\label{def:concrete-jump}
+\begin{definition}[Concrete stable jump count]\label{def:concrete_jump}
 \lean{ConcreteStableJumpCount}
 \leanok
-\uses{thm:large-jump-rate}
+\uses{thm:large_jump_rate}
 Given $(c_\gamma, \gamma, T)$, construct the canonical Poisson space $(\mathbb{N}, \mathrm{poissonMeasure}(\lambda T))$.
 \end{definition}
 
-\begin{theorem}[$G_0$ has Poisson distribution]\label{thm:G0-poisson}
+\begin{theorem}[$G_0$ has Poisson distribution]\label{thm:G0_poisson}
 \lean{ConcreteStableJumpCount.G₀_poisson}
 \leanok
-\uses{def:concrete-jump}
+\uses{def:concrete_jump}
 $G_0 \sim \mathrm{Poisson}(\lambda T)$ by $\mathrm{Measure.map\_id}$.
 \end{theorem}
 
@@ -108,16 +108,16 @@ $G_0 \sim \mathrm{Poisson}(\lambda T)$ by $\mathrm{Measure.map\_id}$.
 
 \section{Truncated Measures}
 
-\begin{definition}[Truncated stable measure]\label{def:trunc-measure}
+\begin{definition}[Truncated stable measure]\label{def:trunc_measure}
 \lean{TruncatedStableMeasure}
 \leanok
 $\nu_\gamma$ restricted to $|z| \leq M$.
 \end{definition}
 
-\begin{theorem}[Truncated second moment positive]\label{thm:trunc-second}
+\begin{theorem}[Truncated second moment positive]\label{thm:trunc_second}
 \lean{TruncatedStableMeasure.second_moment_pos}
 \leanok
-\uses{def:trunc-measure}
+\uses{def:trunc_measure}
 $\int_{|z|\leq M} z^2\,\nu_\gamma(dz) > 0$.
 \end{theorem}
 
@@ -129,13 +129,13 @@ $\int_{|z|\leq M} z^2\,\nu_\gamma(dz) > 0$.
 $f(y_n) - f(y_0) = \sum_{i=0}^{n-1} [f(y_{i+1}) - f(y_i)]$.
 \end{theorem}
 
-\begin{theorem}[Jump linear plus remainder]\label{thm:jump-decomp}
+\begin{theorem}[Jump linear plus remainder]\label{thm:jump_decomp}
 \lean{jump_linear_plus_remainder}
 \leanok
 $f(v+z) - f(v) = f'(v)z + [f(v+z) - f(v) - f'(v)z]$.
 \end{theorem}
 
-\begin{theorem}[Product telescope]\label{thm:product-telescope}
+\begin{theorem}[Product telescope]\label{thm:product_telescope}
 \lean{product_telescope}
 \leanok
 \uses{thm:telescope}
@@ -150,7 +150,7 @@ Telescoping for the product $a \cdot b$.
 Finite sum $\sum_i h(s_i, z_i) - \mathrm{compensator}$.
 \end{definition}
 
-\begin{theorem}[Random sum linear]\label{thm:random-sum-linear}
+\begin{theorem}[Random sum linear]\label{thm:random_sum_linear}
 \lean{CompoundPoissonIntegral.random_sum_linear}
 \leanok
 \uses{def:cpi}
@@ -166,14 +166,14 @@ $\sum(ch_1 + h_2) = c\sum h_1 + \sum h_2$.
 $I_1^M(h) = \lim_{\varepsilon \to 0} I_1^{\varepsilon,M}(h)$ in $L^2$.
 \end{definition}
 
-\begin{theorem}[$I_1$ centering from approximation]\label{thm:I1-centered}
+\begin{theorem}[$I_1$ centering from approximation]\label{thm:I1_centered}
 \lean{ConstructedCompensatedIntegral.I₁_centered_from_approx}
 \leanok
 \uses{def:cci}
 $\mathbb{E}[I_1^M(h)] = 0$ (from centering of approximations + limit).
 \end{theorem}
 
-\begin{theorem}[$I_1$ isometry from approximation]\label{thm:I1-isometry}
+\begin{theorem}[$I_1$ isometry from approximation]\label{thm:I1_isometry}
 \lean{ConstructedCompensatedIntegral.I₁_isometry_from_approx}
 \leanok
 \uses{def:cci}
@@ -183,104 +183,104 @@ $\mathbb{E}[|I_1^M(h)|^2] = \|h\|^2$ (from isometry of approximations + limit).
 \begin{definition}[Bridge: construction to axioms]\label{def:toAxioms}
 \lean{ConstructedCompensatedIntegral.toAxioms}
 \leanok
-\uses{thm:I1-centered, thm:I1-isometry}
+\uses{thm:I1_centered, thm:I1_isometry}
 Converts the construction into the axiom interface.
 \end{definition}
 
 \section{Lévy--Itô Decomposition}
 
-\begin{definition}[Lévy--Itô decomposition]\label{def:levy-ito}
+\begin{definition}[Lévy--Itô decomposition]\label{def:levy_ito}
 \lean{LevyItoDecomposition}
 \leanok
 \uses{def:toAxioms}
 $L_T = X_T^{\mathrm{small}} + Y_T^{\mathrm{large}}$.
 \end{definition}
 
-\begin{theorem}[Truncation convergence]\label{thm:trunc-conv}
+\begin{theorem}[Truncation convergence]\label{thm:trunc_conv}
 \lean{LevyItoDecomposition.trunc_convergence}
 \leanok
-\uses{def:levy-ito}
+\uses{def:levy_ito}
 $\mathbb{E}[F \cdot \delta^M(u)] \to \mathbb{E}[F \cdot \delta(u)]$ as $M \to \infty$.
 \end{theorem}
 
-\begin{theorem}[$\delta^M$ centered]\label{thm:delta-centered}
+\begin{theorem}[$\delta^M$ centered]\label{thm:delta_centered}
 \lean{LevyItoDecomposition.δ_trunc_centered}
 \leanok
-\uses{def:levy-ito}
+\uses{def:levy_ito}
 $\mathbb{E}[\delta^M(u)] = 0$.
 \end{theorem}
 
-\begin{theorem}[Chaos orthogonality]\label{thm:chaos-orth}
+\begin{theorem}[Chaos orthogonality]\label{thm:chaos_orth}
 \lean{LevyItoDecomposition.chaos_orthogonality_from_kernel_vanishing}
 \leanok
-\uses{def:levy-ito}
+\uses{def:levy_ito}
 $\Phi_M(F) = 0 \Rightarrow \mathbb{E}[F \cdot \delta^M(u)] = 0$.
 \end{theorem}
 
-\begin{theorem}[Predictable module]\label{thm:pred-module}
+\begin{theorem}[Predictable module]\label{thm:pred_module}
 \lean{LevyItoDecomposition.predictable_module_from_linearity}
 \leanok
-\uses{def:levy-ito}
+\uses{def:levy_ito}
 $\mathbb{E}[(cF) \cdot \delta^M(u)] = c \cdot \mathbb{E}[F \cdot \delta^M(u)]$.
 \end{theorem}
 
 \section{Poisson Chaos}
 
-\begin{definition}[Poisson inner product]\label{def:poisson-inner}
+\begin{definition}[Poisson inner product]\label{def:poisson_inner}
 \lean{poisson_inner}
 \leanok
 $\langle f, g \rangle_r = \sum_n f(n) g(n) P_r(n)$.
 \end{definition}
 
-\begin{definition}[Centered Poisson variable]\label{def:poisson-chi}
+\begin{definition}[Centered Poisson variable]\label{def:poisson_chi}
 \lean{poisson_chi}
 \leanok
 $\chi(n) = n - r$.
 \end{definition}
 
-\begin{theorem}[$\chi$ centered]\label{thm:chi-centered}
+\begin{theorem}[$\chi$ centered]\label{thm:chi_centered}
 \lean{poisson_chi_centered}
 \leanok
-\uses{def:poisson-chi, thm:poisson-mean}
+\uses{def:poisson_chi, thm:poisson_mean}
 $\mathbb{E}[\chi] = 0$.
 \end{theorem}
 
-\begin{theorem}[$\chi$ norm squared]\label{thm:chi-norm}
+\begin{theorem}[$\chi$ norm squared]\label{thm:chi_norm}
 \lean{poisson_chi_norm_sq}
 \leanok
-\uses{def:poisson-chi, thm:poisson-variance}
+\uses{def:poisson_chi, thm:poisson_variance}
 $\|\chi\|^2 = r$.
 \end{theorem}
 
-\begin{theorem}[First chaos orthogonal]\label{thm:first-chaos}
+\begin{theorem}[First chaos orthogonal]\label{thm:first_chaos}
 \lean{first_chaos_orthogonal}
 \leanok
-\uses{def:poisson-inner, def:poisson-chi}
+\uses{def:poisson_inner, def:poisson_chi}
 If $\langle f, \chi \rangle = 0$ then $\langle f, a\chi \rangle = 0$.
 \end{theorem}
 
-\begin{theorem}[Chaos orthogonality concrete]\label{thm:chaos-concrete}
+\begin{theorem}[Chaos orthogonality concrete]\label{thm:chaos_concrete}
 \lean{chaos_orthogonality_concrete}
 \leanok
-\uses{thm:first-chaos}
+\uses{thm:first_chaos}
 Zero first chaos coefficient $\Rightarrow$ orthogonal to entire first chaos.
 \end{theorem}
 
 \section{$L^2$ Estimates}
 
-\begin{theorem}[$L^2$ Cauchy estimate]\label{thm:l2-cauchy}
+\begin{theorem}[$L^2$ Cauchy estimate]\label{thm:l2_cauchy}
 \lean{l2_cauchy_vanishes}
 \leanok
 $2c_\gamma \varepsilon^{2-\gamma}/(2-\gamma) \to 0$ as $\varepsilon \to 0^+$.
 \end{theorem}
 
-\begin{theorem}[rpow tends to zero]\label{thm:rpow-zero}
+\begin{theorem}[rpow tends to zero]\label{thm:rpow_zero}
 \lean{rpow_tendsto_zero_at_zero_right}
 \leanok
 $\varepsilon^\alpha \to 0$ as $\varepsilon \to 0^+$ for $\alpha > 0$.
 \end{theorem}
 
-\begin{theorem}[Truncated moment bounded]\label{thm:trunc-bounded}
+\begin{theorem}[Truncated moment bounded]\label{thm:trunc_bounded}
 \lean{truncated_moment_bounded}
 \leanok
 $2c_\gamma M^{2-\gamma}/(2-\gamma) > 0$ for fixed $M$.
@@ -288,7 +288,7 @@ $2c_\gamma M^{2-\gamma}/(2-\gamma) > 0$ for fixed $M$.
 
 \section{Compound Poisson Path}
 
-\begin{definition}[Compound Poisson path]\label{def:cp-path}
+\begin{definition}[Compound Poisson path]\label{def:cp_path}
 \lean{compound_poisson_path}
 \leanok
 \uses{def:cpi}
@@ -302,17 +302,17 @@ $Y_t = \sum_{s_i \leq t} z_i$.
 Compound Poisson path with large jumps $|z_i| > 1$.
 \end{definition}
 
-\begin{theorem}[Path starts at zero]\label{thm:path-zero}
+\begin{theorem}[Path starts at zero]\label{thm:path_zero}
 \lean{StableLargeJumpPath.path_zero}
 \leanok
-\uses{def:cp-path}
+\uses{def:cp_path}
 $Y_0 = 0$.
 \end{theorem}
 
-\begin{theorem}[Path terminal value]\label{thm:path-terminal}
+\begin{theorem}[Path terminal value]\label{thm:path_terminal}
 \lean{StableLargeJumpPath.path_terminal}
 \leanok
-\uses{def:cp-path}
+\uses{def:cp_path}
 $Y_T = \sum_i z_i$.
 \end{theorem}
 
@@ -321,7 +321,7 @@ $Y_T = \sum_i z_i$.
 
 \section{Abstract Framework}
 
-\begin{definition}[Banach energy space]\label{def:banach-space}
+\begin{definition}[Banach energy space]\label{def:banach_space}
 \lean{BanachEnergySpace}
 \leanok
 The abstract Banach energy space with pairings, divergence $\delta$, and expectation.
@@ -330,11 +330,11 @@ The abstract Banach energy space with pairings, divergence $\delta$, and expecta
 \begin{definition}[Centering]\label{def:center}
 \lean{BanachEnergySpace.center}
 \leanok
-\uses{def:banach-space}
+\uses{def:banach_space}
 $\mathrm{center}(G_0) = G_0 - \mathrm{const}(\mathbb{E}[G_0])$.
 \end{definition}
 
-\begin{theorem}[Center is centered]\label{thm:center-centered}
+\begin{theorem}[Center is centered]\label{thm:center_centered}
 \lean{BanachEnergySpace.center_centered}
 \leanok
 \uses{def:center}
@@ -346,35 +346,35 @@ $\mathbb{E}[\mathrm{center}(G_0)] = 0$.
 \begin{definition}[Operator-covariant derivative]\label{def:D}
 \lean{BanachEnergySpace.D}
 \leanok
-\uses{def:banach-space}
+\uses{def:banach_space}
 $D(F) := \mathrm{mk\_dual}(u \mapsto \mathbb{E}[F \cdot \delta(u)])$. Constructed, not axiomatized.
 \end{definition}
 
-\begin{theorem}[$D$ defining identity]\label{thm:D-def}
+\begin{theorem}[$D$ defining identity]\label{thm:D_def}
 \lean{BanachEnergySpace.D_def}
 \leanok
 \uses{def:D}
 $\langle DF, u \rangle = \mathbb{E}[F \cdot \delta(u)]$.
 \end{theorem}
 
-\begin{theorem}[$D$ linear]\label{thm:D-linear}
+\begin{theorem}[$D$ linear]\label{thm:D_linear}
 \lean{BanachEnergySpace.D_linear}
 \leanok
-\uses{thm:D-def}
+\uses{thm:D_def}
 $D(\alpha F + G) = \alpha DF + DG$.
 \end{theorem}
 
-\begin{theorem}[$D$ on constants]\label{thm:D-const}
+\begin{theorem}[$D$ on constants]\label{thm:D_const}
 \lean{BanachEnergySpace.D_const}
 \leanok
-\uses{thm:D-def}
+\uses{thm:D_def}
 $D(\mathrm{const}(c)) = 0$.
 \end{theorem}
 
-\begin{theorem}[$\ker(D)$ characterization]\label{thm:ker-D}
+\begin{theorem}[$\ker(D)$ characterization]\label{thm:ker_D}
 \lean{BanachEnergySpace.ker_D_iff_annihilates_im_delta}
 \leanok
-\uses{thm:D-def}
+\uses{thm:D_def}
 $DF = 0$ iff $F$ annihilates $\mathrm{im}(\delta)$.
 \end{theorem}
 
@@ -383,37 +383,37 @@ $DF = 0$ iff $F$ annihilates $\mathrm{im}(\delta)$.
 \begin{theorem}[Fluctuation factorization]\label{thm:factorization}
 \lean{BanachEnergySpace.fluctuation_factorization}
 \leanok
-\uses{def:D, def:banach-space}
+\uses{def:D, def:banach_space}
 $(F - \mathbb{E}F) = \delta(\delta^{-1}(F - \mathbb{E}F))$ on $\mathrm{im}(\delta)$.
 \end{theorem}
 
-\begin{theorem}[Duality recovery]\label{thm:duality-recovery}
+\begin{theorem}[Duality recovery]\label{thm:duality_recovery}
 \lean{BanachEnergySpace.duality_recovery}
 \leanok
-\uses{thm:factorization, thm:D-def}
+\uses{thm:factorization, thm:D_def}
 $\langle D F, u \rangle$ recovers the integrand.
 \end{theorem}
 
 \section{Representability Obstruction}
 
-\begin{definition}[Distributional symmetry]\label{def:dist-sym}
+\begin{definition}[Distributional symmetry]\label{def:dist_sym}
 \lean{BanachEnergySpace.DistributionalSymmetry}
 \leanok
-\uses{def:banach-space}
+\uses{def:banach_space}
 $L \stackrel{d}{=} -L$: negation map on $L^q$.
 \end{definition}
 
-\begin{theorem}[Even annihilates $\mathrm{im}(\delta)$]\label{thm:even-annihilates}
+\begin{theorem}[Even annihilates $\mathrm{im}(\delta)$]\label{thm:even_annihilates}
 \lean{BanachEnergySpace.even_annihilates_im_delta}
 \leanok
-\uses{def:dist-sym, thm:D-def}
+\uses{def:dist_sym, thm:D_def}
 If $G$ is even, $\mathbb{E}[G \cdot \delta(u)] = 0$ for all $u$.
 \end{theorem}
 
 \begin{theorem}[Representability obstruction]\label{thm:obstruction}
 \lean{BanachEnergySpace.representability_obstruction}
 \leanok
-\uses{thm:even-annihilates, thm:center-centered}
+\uses{thm:even_annihilates, thm:center_centered}
 Even, centered, nonzero $G$ $\Rightarrow$ $G \notin \mathrm{im}(\delta)$.
 \end{theorem}
 
@@ -426,14 +426,14 @@ Even, centered, nonzero $G$ $\Rightarrow$ $G \notin \mathrm{im}(\delta)$.
 $\Gamma(F,G) := D(FG) - F \cdot DG - G \cdot DF$.
 \end{definition}
 
-\begin{theorem}[Product rule with jump defect]\label{thm:product-rule}
+\begin{theorem}[Product rule with jump defect]\label{thm:product_rule}
 \lean{BanachEnergySpace.product_rule_with_jump_defect}
 \leanok
 \uses{def:leibniz}
 $\langle \Gamma(F,G), u \rangle = \mathbb{E}[\sum \Delta_s(f,g) \cdot \delta(u)]$.
 \end{theorem}
 
-\begin{theorem}[Defect vanishes without jumps]\label{thm:defect-vanishes}
+\begin{theorem}[Defect vanishes without jumps]\label{thm:defect_vanishes}
 \lean{BanachEnergySpace.defect_vanishes_without_jumps}
 \leanok
 \uses{def:leibniz}
@@ -442,53 +442,53 @@ No jumps $\Rightarrow$ $\Gamma = 0$.
 
 \section{Chaos Characterization (Theorem C)}
 
-\begin{theorem}[Chaos kernel characterization]\label{thm:chaos-char}
+\begin{theorem}[Chaos kernel characterization]\label{thm:chaos_char}
 \lean{BanachEnergySpace.chaos_kernel_characterization}
 \leanok
-\uses{thm:D-def}
+\uses{thm:D_def}
 $DF = 0$ on deterministic integrands iff truncated pairings $\to 0$.
 \end{theorem}
 
 \section{Stable Lévy Instantiation}
 
-\begin{definition}[Stable noise data]\label{def:stable-noise}
+\begin{definition}[Stable noise data]\label{def:stable_noise}
 \lean{StableNoiseData}
 \leanok
-\uses{def:banach-space, def:dist-sym}
+\uses{def:banach_space, def:dist_sym}
 $\gamma \in (1,2)$, symmetry, jump count, rate, terminal time.
 \end{definition}
 
-\begin{theorem}[Variance positive]\label{thm:var-pos}
+\begin{theorem}[Variance positive]\label{thm:var_pos}
 \lean{jump_count_variance_pos}
 \leanok
-\uses{def:stable-noise}
+\uses{def:stable_noise}
 $\mathrm{Var}(G_0) = \lambda T > 0$ from $\lambda > 0$, $T > 0$.
 \end{theorem}
 
-\begin{theorem}[Centered witness even]\label{thm:witness-even}
+\begin{theorem}[Centered witness even]\label{thm:witness_even}
 \lean{jump_count_center_even}
 \leanok
-\uses{def:stable-noise, thm:center-centered}
+\uses{def:stable_noise, thm:center_centered}
 $\mathrm{center}(G_0)$ is even.
 \end{theorem}
 
-\begin{theorem}[Centered witness nonzero]\label{thm:witness-nonzero}
+\begin{theorem}[Centered witness nonzero]\label{thm:witness_nonzero}
 \lean{jump_count_center_nonzero}
 \leanok
-\uses{thm:var-pos}
+\uses{thm:var_pos}
 $\mathrm{center}(G_0) \neq 0$.
 \end{theorem}
 
-\begin{theorem}[Stable obstruction]\label{thm:stable-obstruction}
+\begin{theorem}[Stable obstruction]\label{thm:stable_obstruction}
 \lean{stable_levy_obstruction}
 \leanok
-\uses{thm:obstruction, thm:witness-even, thm:witness-nonzero, thm:center-centered}
+\uses{thm:obstruction, thm:witness_even, thm:witness_nonzero, thm:center_centered}
 $G_0 - \mathbb{E}[G_0] \notin \mathrm{im}(\delta_L)$.
 \end{theorem}
 
 \section{Hilbert Bridge}
 
-\begin{theorem}[Leibniz defect vanishes]\label{thm:hilbert-bridge}
+\begin{theorem}[Leibniz defect vanishes]\label{thm:hilbert_bridge}
 \lean{HilbertEnergyData.leibniz_defect_vanishes}
 \leanok
 \uses{def:leibniz}
