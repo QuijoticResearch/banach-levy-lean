@@ -4,6 +4,8 @@ Lean 4 / Mathlib formalization of:
 
 > R. Fontes, "Operator Factorization Beyond Hilbert Spaces: Representability Obstructions and Leibniz Defects for Stable Levy Processes," Quijotic Research, 2026.
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18625711.svg)](https://doi.org/10.5281/zenodo.18625711)
+
 **2,499 lines. 0 sorry. 0 axioms.**
 
 ## What This Formalizes
