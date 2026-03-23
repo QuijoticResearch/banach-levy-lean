@@ -61,36 +61,7 @@ jobs:
         run: sudo apt-get install -y graphviz libgraphviz-dev
 
       - name: Install blueprint dependencies
-        run: |
-          pip install leanblueprint
-          # Fix plasTeX 3.x unhashable type bug in dynamically created theorem envs.
-          # plasTeX's newtheorem creates classes via type() that inherit __eq__
-          # but not __hash__, making them unhashable in Python 3.
-          # Patch: add __hash__ = id to the data dict before class creation.
-          python3 << 'PATCH'
-          import plasTeX.Packages.amsthm as amsthm
-          import inspect, os, glob
-          src_path = inspect.getsourcefile(amsthm)
-          txt = open(src_path).read()
-          old = "th = type(name, (Environment,), data)"
-          new = "data['__hash__'] = lambda self: id(self)\n        th = type(name, (Environment,), data)"
-          if '__hash__' not in txt:
-              txt = txt.replace(old, new)
-              open(src_path, 'w').write(txt)
-              print(f'Patched {src_path}')
-          else:
-              print('Already patched')
-          # Delete .pyc cache so Python uses the patched source
-          cache_dir = os.path.join(os.path.dirname(src_path), '__pycache__')
-          if os.path.isdir(cache_dir):
-              for f in glob.glob(os.path.join(cache_dir, 'amsthm*')):
-                  os.remove(f)
-                  print(f'Removed cache: {f}')
-          # Verify patch
-          txt2 = open(src_path).read()
-          assert '__hash__' in txt2, 'Patch verification failed!'
-          print('Patch verified')
-          PATCH
+        run: pip install leanblueprint
 
       - name: Build blueprint
         run: leanblueprint web

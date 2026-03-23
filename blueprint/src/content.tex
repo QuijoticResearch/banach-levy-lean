@@ -2,12 +2,12 @@
 
 \section{Stable Lévy Measure}
 
-\begin{definition}[Stable Lévy density]\label{def:stable_density}
+\begin{defn}[Stable Lévy density]\label{def:stable_density}
 \lean{stableLevyDensity}
 \leanok
 The symmetric $\gamma$-stable Lévy measure density is
 $\nu_\gamma(dz) = c_\gamma |z|^{-1-\gamma}\,dz$ on $\mathbb{R} \setminus \{0\}$.
-\end{definition}
+\end{defn}
 
 \begin{theorem}[Density symmetry]\label{thm:density_sym}
 \lean{stableLevyDensity_symmetric}
@@ -45,11 +45,11 @@ For $\alpha < \gamma$: $\alpha - \gamma < 0$ (the integral diverges).
 
 \section{Poisson Identities}
 
-\begin{definition}[Poisson recurrence]\label{lem:poisson_recurrence}
+\begin{defn}[Poisson recurrence]\label{lem:poisson_recurrence}
 \lean{poissonPMFReal_succ_mul}
 \leanok
 $(k+1) \cdot P(k+1) = r \cdot P(k)$.
-\end{definition}
+\end{defn}
 
 \begin{theorem}[Poisson mean]\label{thm:poisson_mean}
 \lean{poisson_mean_identity}
@@ -89,12 +89,12 @@ $|g_f(V,K,z)| = (Kz)^2$ for $f(x) = x^2$.
 
 \section{Canonical Poisson Construction}
 
-\begin{definition}[Concrete stable jump count]\label{def:concrete_jump}
+\begin{defn}[Concrete stable jump count]\label{def:concrete_jump}
 \lean{ConcreteStableJumpCount}
 \leanok
 \uses{thm:large_jump_rate}
 Given $(c_\gamma, \gamma, T)$, construct the canonical Poisson space $(\mathbb{N}, \mathrm{poissonMeasure}(\lambda T))$.
-\end{definition}
+\end{defn}
 
 \begin{theorem}[$G_0$ has Poisson distribution]\label{thm:G0_poisson}
 \lean{ConcreteStableJumpCount.G₀_poisson}
@@ -108,11 +108,11 @@ $G_0 \sim \mathrm{Poisson}(\lambda T)$ by $\mathrm{Measure.map\_id}$.
 
 \section{Truncated Measures}
 
-\begin{definition}[Truncated stable measure]\label{def:trunc_measure}
+\begin{defn}[Truncated stable measure]\label{def:trunc_measure}
 \lean{TruncatedStableMeasure}
 \leanok
 $\nu_\gamma$ restricted to $|z| \leq M$.
-\end{definition}
+\end{defn}
 
 \begin{theorem}[Truncated second moment positive]\label{thm:trunc_second}
 \lean{TruncatedStableMeasure.second_moment_pos}
@@ -144,11 +144,11 @@ Telescoping for the product $a \cdot b$.
 
 \section{Compound Poisson Integral}
 
-\begin{definition}[Compound Poisson integral]\label{def:cpi}
+\begin{defn}[Compound Poisson integral]\label{def:cpi}
 \lean{CompoundPoissonIntegral}
 \leanok
 Finite sum $\sum_i h(s_i, z_i) - \mathrm{compensator}$.
-\end{definition}
+\end{defn}
 
 \begin{theorem}[Random sum linear]\label{thm:random_sum_linear}
 \lean{CompoundPoissonIntegral.random_sum_linear}
@@ -159,12 +159,12 @@ $\sum(ch_1 + h_2) = c\sum h_1 + \sum h_2$.
 
 \section{Compensated Integral Construction}
 
-\begin{definition}[Constructed compensated integral]\label{def:cci}
+\begin{defn}[Constructed compensated integral]\label{def:cci}
 \lean{ConstructedCompensatedIntegral}
 \leanok
 \uses{def:cpi}
 $I_1^M(h) = \lim_{\varepsilon \to 0} I_1^{\varepsilon,M}(h)$ in $L^2$.
-\end{definition}
+\end{defn}
 
 \begin{theorem}[$I_1$ centering from approximation]\label{thm:I1_centered}
 \lean{ConstructedCompensatedIntegral.I₁_centered_from_approx}
@@ -180,21 +180,21 @@ $\mathbb{E}[I_1^M(h)] = 0$ (from centering of approximations + limit).
 $\mathbb{E}[|I_1^M(h)|^2] = \|h\|^2$ (from isometry of approximations + limit).
 \end{theorem}
 
-\begin{definition}[Bridge: construction to axioms]\label{def:toAxioms}
+\begin{defn}[Bridge: construction to axioms]\label{def:toAxioms}
 \lean{ConstructedCompensatedIntegral.toAxioms}
 \leanok
 \uses{thm:I1_centered, thm:I1_isometry}
 Converts the construction into the axiom interface.
-\end{definition}
+\end{defn}
 
 \section{Lévy--Itô Decomposition}
 
-\begin{definition}[Lévy--Itô decomposition]\label{def:levy_ito}
+\begin{defn}[Lévy--Itô decomposition]\label{def:levy_ito}
 \lean{LevyItoDecomposition}
 \leanok
 \uses{def:toAxioms}
 $L_T = X_T^{\mathrm{small}} + Y_T^{\mathrm{large}}$.
-\end{definition}
+\end{defn}
 
 \begin{theorem}[Truncation convergence]\label{thm:trunc_conv}
 \lean{LevyItoDecomposition.trunc_convergence}
@@ -226,17 +226,17 @@ $\mathbb{E}[(cF) \cdot \delta^M(u)] = c \cdot \mathbb{E}[F \cdot \delta^M(u)]$.
 
 \section{Poisson Chaos}
 
-\begin{definition}[Poisson inner product]\label{def:poisson_inner}
+\begin{defn}[Poisson inner product]\label{def:poisson_inner}
 \lean{poisson_inner}
 \leanok
 $\langle f, g \rangle_r = \sum_n f(n) g(n) P_r(n)$.
-\end{definition}
+\end{defn}
 
-\begin{definition}[Centered Poisson variable]\label{def:poisson_chi}
+\begin{defn}[Centered Poisson variable]\label{def:poisson_chi}
 \lean{poisson_chi}
 \leanok
 $\chi(n) = n - r$.
-\end{definition}
+\end{defn}
 
 \begin{theorem}[$\chi$ centered]\label{thm:chi_centered}
 \lean{poisson_chi_centered}
@@ -288,19 +288,19 @@ $2c_\gamma M^{2-\gamma}/(2-\gamma) > 0$ for fixed $M$.
 
 \section{Compound Poisson Path}
 
-\begin{definition}[Compound Poisson path]\label{def:cp_path}
+\begin{defn}[Compound Poisson path]\label{def:cp_path}
 \lean{compound_poisson_path}
 \leanok
 \uses{def:cpi}
 $Y_t = \sum_{s_i \leq t} z_i$.
-\end{definition}
+\end{defn}
 
-\begin{definition}[Stable large jump path]\label{def:sljp}
+\begin{defn}[Stable large jump path]\label{def:sljp}
 \lean{StableLargeJumpPath}
 \leanok
 \uses{def:cpi}
 Compound Poisson path with large jumps $|z_i| > 1$.
-\end{definition}
+\end{defn}
 
 \begin{theorem}[Path starts at zero]\label{thm:path_zero}
 \lean{StableLargeJumpPath.path_zero}
@@ -321,18 +321,18 @@ $Y_T = \sum_i z_i$.
 
 \section{Abstract Framework}
 
-\begin{definition}[Banach energy space]\label{def:banach_space}
+\begin{defn}[Banach energy space]\label{def:banach_space}
 \lean{BanachEnergySpace}
 \leanok
 The abstract Banach energy space with pairings, divergence $\delta$, and expectation.
-\end{definition}
+\end{defn}
 
-\begin{definition}[Centering]\label{def:center}
+\begin{defn}[Centering]\label{def:center}
 \lean{BanachEnergySpace.center}
 \leanok
 \uses{def:banach_space}
 $\mathrm{center}(G_0) = G_0 - \mathrm{const}(\mathbb{E}[G_0])$.
-\end{definition}
+\end{defn}
 
 \begin{theorem}[Center is centered]\label{thm:center_centered}
 \lean{BanachEnergySpace.center_centered}
@@ -343,12 +343,12 @@ $\mathbb{E}[\mathrm{center}(G_0)] = 0$.
 
 \section{The Derivative $D$}
 
-\begin{definition}[Operator-covariant derivative]\label{def:D}
+\begin{defn}[Operator-covariant derivative]\label{def:D}
 \lean{BanachEnergySpace.D}
 \leanok
 \uses{def:banach_space}
 $D(F) := \mathrm{mk\_dual}(u \mapsto \mathbb{E}[F \cdot \delta(u)])$. Constructed, not axiomatized.
-\end{definition}
+\end{defn}
 
 \begin{theorem}[$D$ defining identity]\label{thm:D_def}
 \lean{BanachEnergySpace.D_def}
@@ -396,12 +396,12 @@ $\langle D F, u \rangle$ recovers the integrand.
 
 \section{Representability Obstruction}
 
-\begin{definition}[Distributional symmetry]\label{def:dist_sym}
+\begin{defn}[Distributional symmetry]\label{def:dist_sym}
 \lean{BanachEnergySpace.DistributionalSymmetry}
 \leanok
 \uses{def:banach_space}
 $L \stackrel{d}{=} -L$: negation map on $L^q$.
-\end{definition}
+\end{defn}
 
 \begin{theorem}[Even annihilates $\mathrm{im}(\delta)$]\label{thm:even_annihilates}
 \lean{BanachEnergySpace.even_annihilates_im_delta}
@@ -419,12 +419,12 @@ Even, centered, nonzero $G$ $\Rightarrow$ $G \notin \mathrm{im}(\delta)$.
 
 \section{Leibniz Defect (Theorem B)}
 
-\begin{definition}[Leibniz defect]\label{def:leibniz}
+\begin{defn}[Leibniz defect]\label{def:leibniz}
 \lean{BanachEnergySpace.leibniz_defect}
 \leanok
 \uses{def:D}
 $\Gamma(F,G) := D(FG) - F \cdot DG - G \cdot DF$.
-\end{definition}
+\end{defn}
 
 \begin{theorem}[Product rule with jump defect]\label{thm:product_rule}
 \lean{BanachEnergySpace.product_rule_with_jump_defect}
@@ -451,12 +451,12 @@ $DF = 0$ on deterministic integrands iff truncated pairings $\to 0$.
 
 \section{Stable Lévy Instantiation}
 
-\begin{definition}[Stable noise data]\label{def:stable_noise}
+\begin{defn}[Stable noise data]\label{def:stable_noise}
 \lean{StableNoiseData}
 \leanok
 \uses{def:banach_space, def:dist_sym}
 $\gamma \in (1,2)$, symmetry, jump count, rate, terminal time.
-\end{definition}
+\end{defn}
 
 \begin{theorem}[Variance positive]\label{thm:var_pos}
 \lean{jump_count_variance_pos}
