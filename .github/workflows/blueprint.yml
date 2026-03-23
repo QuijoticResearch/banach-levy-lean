@@ -69,7 +69,7 @@ jobs:
           # Patch: add __hash__ = id to the data dict before class creation.
           python3 << 'PATCH'
           import plasTeX.Packages.amsthm as amsthm
-          import inspect
+          import inspect, os, glob
           src_path = inspect.getsourcefile(amsthm)
           txt = open(src_path).read()
           old = "th = type(name, (Environment,), data)"
@@ -80,6 +80,16 @@ jobs:
               print(f'Patched {src_path}')
           else:
               print('Already patched')
+          # Delete .pyc cache so Python uses the patched source
+          cache_dir = os.path.join(os.path.dirname(src_path), '__pycache__')
+          if os.path.isdir(cache_dir):
+              for f in glob.glob(os.path.join(cache_dir, 'amsthm*')):
+                  os.remove(f)
+                  print(f'Removed cache: {f}')
+          # Verify patch
+          txt2 = open(src_path).read()
+          assert '__hash__' in txt2, 'Patch verification failed!'
+          print('Patch verified')
           PATCH
 
       - name: Build blueprint
