@@ -1,0 +1,32 @@
+name = "BanachLevy"
+version = "0.1.0"
+keywords = ["math"]
+defaultTargets = ["BanachLevy"]
+
+[leanOptions]
+pp.unicode.fun = true # pretty-prints `fun a ↦ b`
+relaxedAutoImplicit = false
+weak.linter.mathlibStandardSet = true
+maxSynthPendingDepth = 3
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.28.0"
+
+[[require]]
+name = "checkdecls"
+scope = "PatrickMassot"
+rev = "master"
+
+[[lean_lib]]
+name = "BanachLevy"
+
+[[lean_lib]]
+name = "PoissonLevy"
+
+[[lean_lib]]
+name = "LevyIto"
+
+[[lean_lib]]
+name = "BanachLevyComplete"
