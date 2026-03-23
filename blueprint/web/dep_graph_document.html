@@ -1,0 +1,1560 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dependency graph</title>
+  <meta name="generator" content="plasTeX" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles/theme-white.css" />
+  <link rel="stylesheet" href="styles/dep_graph.css" />
+  
+  <script type="text/x-mathjax-config">
+  
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  
+  </script>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+
+
+<link rel="stylesheet" href="styles/extra_styles.css" />
+
+</head>
+
+<body>
+<header>
+  <a class="toc" href="index.html">Home</a>
+  <h1 id="doc_title">Dependencies</h1>
+</header>
+<div class="wrapper">
+<div class="content">
+  <div id="Legend">
+    <span id="legend_title" class="title">Legend
+    <div class="btn">
+       <div class="bar"></div>
+       <div class="bar"></div>
+       <div class="bar"></div>
+    </div></span> 
+    <dl class="legend">
+      
+      <dt>Boxes</dt><dd>definitions</dd>
+      
+      <dt>Ellipses</dt><dd>theorems and lemmas</dd>
+      
+      <dt>Blue border</dt><dd>the <em>statement</em> of this result is ready to be formalized; all prerequisites are done</dd>
+      
+      <dt>Orange border</dt><dd>the <em>statement</em> of this result is not ready to be formalized; the blueprint needs more work</dd>
+      
+      <dt>Blue background</dt><dd>the <em>proof</em> of this result is ready to be formalized; all prerequisites are done</dd>
+      
+      <dt>Green border</dt><dd>the <em>statement</em> of this result is formalized</dd>
+      
+      <dt>Green background</dt><dd>the <em>proof</em> of this result is formalized</dd>
+      
+      <dt>Dark green background</dt><dd>the <em>proof</em> of this result and all its ancestors are formalized</dd>
+      
+      <dt>Dark green border</dt><dd>this is in Mathlib</dd>
+      
+    </dl>
+  </div>
+    <div id="graph"></div>
+<div id="statements">
+
+    
+    <div class="dep-modal-container" id="thm:center_centered_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:center_centered" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">46</span><span class="theorem_thmtitle">Center is centered</span></div>
+    <div class="thm_thmcontent"><p>   \(\mathbb {E}[\mathrm{center}(G_0)] = 0\). </p>
+</div>
+
+    <a class="latex_link" href="sect0003.html#thm:center_centered">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/BanachEnergySpace.center_centered">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:chaos_char_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:chaos_char" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">60</span><span class="theorem_thmtitle">Chaos kernel characterization</span></div>
+    <div class="thm_thmcontent"><p>   \(DF = 0\) on deterministic integrands iff truncated pairings \(\to 0\). </p>
+</div>
+
+    <a class="latex_link" href="sect0003.html#thm:chaos_char">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/BanachEnergySpace.chaos_kernel_characterization">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:chaos_concrete_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:chaos_concrete" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">36</span><span class="theorem_thmtitle">Chaos orthogonality concrete</span></div>
+    <div class="thm_thmcontent"><p>   Zero first chaos coefficient \(\Rightarrow \) orthogonal to entire first chaos. </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#thm:chaos_concrete">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/chaos_orthogonality_concrete">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:chaos_orth_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:chaos_orth" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">29</span><span class="theorem_thmtitle">Chaos orthogonality</span></div>
+    <div class="thm_thmcontent"><p>   \(\Phi _M(F) = 0 \Rightarrow \mathbb {E}[F \cdot \delta ^M(u)] = 0\). </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#thm:chaos_orth">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/LevyItoDecomposition.chaos_orthogonality_from_kernel_vanishing">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:chi_centered_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:chi_centered" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">33</span><span class="theorem_thmtitle">\(\chi \) centered</span></div>
+    <div class="thm_thmcontent"><p>   \(\mathbb {E}[\chi ] = 0\). </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#thm:chi_centered">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/poisson_chi_centered">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:chi_norm_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:chi_norm" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">34</span><span class="theorem_thmtitle">\(\chi \) norm squared</span></div>
+    <div class="thm_thmcontent"><p>   \(\| \chi \| ^2 = r\). </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#thm:chi_norm">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/poisson_chi_norm_sq">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:D_const_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:D_const" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">50</span><span class="theorem_thmtitle">\(D\) on constants</span></div>
+    <div class="thm_thmcontent"><p>   \(D(\mathrm{const}(c)) = 0\). </p>
+</div>
+
+    <a class="latex_link" href="sect0003.html#thm:D_const">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/BanachEnergySpace.D_const">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:D_def_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:D_def" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">48</span><span class="theorem_thmtitle">\(D\) defining identity</span></div>
+    <div class="thm_thmcontent"><p>   \(\langle DF, u \rangle = \mathbb {E}[F \cdot \delta (u)]\). </p>
+</div>
+
+    <a class="latex_link" href="sect0003.html#thm:D_def">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/BanachEnergySpace.D_def">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:D_linear_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:D_linear" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">49</span><span class="theorem_thmtitle">\(D\) linear</span></div>
+    <div class="thm_thmcontent"><p>   \(D(\alpha F + G) = \alpha DF + DG\). </p>
+</div>
+
+    <a class="latex_link" href="sect0003.html#thm:D_linear">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/BanachEnergySpace.D_linear">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:defect_vanishes_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:defect_vanishes" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">59</span><span class="theorem_thmtitle">Defect vanishes without jumps</span></div>
+    <div class="thm_thmcontent"><p>   No jumps \(\Rightarrow \) \(\Gamma = 0\). </p>
+</div>
+
+    <a class="latex_link" href="sect0003.html#thm:defect_vanishes">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/BanachEnergySpace.defect_vanishes_without_jumps">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:delta_centered_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:delta_centered" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">28</span><span class="theorem_thmtitle">\(\delta ^M\) centered</span></div>
+    <div class="thm_thmcontent"><p>   \(\mathbb {E}[\delta ^M(u)] = 0\). </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#thm:delta_centered">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/LevyItoDecomposition.δ_trunc_centered">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:density_nonneg_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:density_nonneg" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">3</span><span class="theorem_thmtitle">Density nonnegativity</span></div>
+    <div class="thm_thmcontent"><p>   The stable density is nonneg when \(c_\gamma \geq 0\). </p>
+</div>
+
+    <a class="latex_link" href="sect0001.html#thm:density_nonneg">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/stableLevyDensity_nonneg">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:density_sym_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:density_sym" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">2</span><span class="theorem_thmtitle">Density symmetry</span></div>
+    <div class="thm_thmcontent"><p>   The stable density is symmetric: \(\nu _\gamma (-z) = \nu _\gamma (z)\). </p>
+</div>
+
+    <a class="latex_link" href="sect0001.html#thm:density_sym">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/stableLevyDensity_symmetric">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:duality_recovery_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:duality_recovery" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">53</span><span class="theorem_thmtitle">Duality recovery</span></div>
+    <div class="thm_thmcontent"><p>   \(\langle D F, u \rangle \) recovers the integrand. </p>
+</div>
+
+    <a class="latex_link" href="sect0003.html#thm:duality_recovery">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/BanachEnergySpace.duality_recovery">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:even_annihilates_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:even_annihilates" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">55</span><span class="theorem_thmtitle">Even annihilates \(\mathrm{im}(\delta )\)</span></div>
+    <div class="thm_thmcontent"><p>   If \(G\) is even, \(\mathbb {E}[G \cdot \delta (u)] = 0\) for all \(u\). </p>
+</div>
+
+    <a class="latex_link" href="sect0003.html#thm:even_annihilates">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/BanachEnergySpace.even_annihilates_im_delta">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:factorization_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:factorization" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">52</span><span class="theorem_thmtitle">Fluctuation factorization</span></div>
+    <div class="thm_thmcontent"><p>   \((F - \mathbb {E}F) = \delta (\delta ^{-1}(F - \mathbb {E}F))\) on \(\mathrm{im}(\delta )\). </p>
+</div>
+
+    <a class="latex_link" href="sect0003.html#thm:factorization">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/BanachEnergySpace.fluctuation_factorization">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:first_chaos_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:first_chaos" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">35</span><span class="theorem_thmtitle">First chaos orthogonal</span></div>
+    <div class="thm_thmcontent"><p>   If \(\langle f, \chi \rangle = 0\) then \(\langle f, a\chi \rangle = 0\). </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#thm:first_chaos">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/first_chaos_orthogonal">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:G0_poisson_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:G0_poisson" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">14</span><span class="theorem_thmtitle">\(G_0\) has Poisson distribution</span></div>
+    <div class="thm_thmcontent"><p>   \(G_0 \sim \mathrm{Poisson}(\lambda T)\) by \(\mathrm{Measure.map\_ id}\). </p>
+</div>
+
+    <a class="latex_link" href="sect0001.html#thm:G0_poisson">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/ConcreteStableJumpCount.G₀_poisson">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:hilbert_bridge_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:hilbert_bridge" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">66</span><span class="theorem_thmtitle">Leibniz defect vanishes</span></div>
+    <div class="thm_thmcontent"><p>   In the Hilbert case (no jumps), \(\Gamma = 0\). </p>
+</div>
+
+    <a class="latex_link" href="sect0003.html#thm:hilbert_bridge">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/HilbertEnergyData.leibniz_defect_vanishes">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:I1_centered_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:I1_centered" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">23</span><span class="theorem_thmtitle">\(I_1\) centering from approximation</span></div>
+    <div class="thm_thmcontent"><p>   \(\mathbb {E}[I_1^M(h)] = 0\) (from centering of approximations + limit). </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#thm:I1_centered">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/ConstructedCompensatedIntegral.I₁_centered_from_approx">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:I1_isometry_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:I1_isometry" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">24</span><span class="theorem_thmtitle">\(I_1\) isometry from approximation</span></div>
+    <div class="thm_thmcontent"><p>   \(\mathbb {E}[|I_1^M(h)|^2] = \| h\| ^2\) (from isometry of approximations + limit). </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#thm:I1_isometry">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/ConstructedCompensatedIntegral.I₁_isometry_from_approx">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:jump_decomp_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:jump_decomp" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">18</span><span class="theorem_thmtitle">Jump linear plus remainder</span></div>
+    <div class="thm_thmcontent"><p>  \(f(v+z) - f(v) = f'(v)z + [f(v+z) - f(v) - f'(v)z]\). </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#thm:jump_decomp">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/jump_linear_plus_remainder">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:ker_D_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:ker_D" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">51</span><span class="theorem_thmtitle">\(\ker (D)\) characterization</span></div>
+    <div class="thm_thmcontent"><p>   \(DF = 0\) iff \(F\) annihilates \(\mathrm{im}(\delta )\). </p>
+</div>
+
+    <a class="latex_link" href="sect0003.html#thm:ker_D">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/BanachEnergySpace.ker_D_iff_annihilates_im_delta">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:l2_cauchy_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:l2_cauchy" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">37</span><span class="theorem_thmtitle">\(L^2\) Cauchy estimate</span></div>
+    <div class="thm_thmcontent"><p>  \(2c_\gamma \varepsilon ^{2-\gamma }/(2-\gamma ) \to 0\) as \(\varepsilon \to 0^+\). </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#thm:l2_cauchy">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/l2_cauchy_vanishes">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:large_jump_rate_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:large_jump_rate" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">4</span><span class="theorem_thmtitle">Large jump rate positive</span></div>
+    <div class="thm_thmcontent"><p>  \(\lambda = 2c_\gamma /\gamma {\gt} 0\). </p>
+</div>
+
+    <a class="latex_link" href="sect0001.html#thm:large_jump_rate">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/stable_large_jump_rate_pos">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:obstruction_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:obstruction" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">56</span><span class="theorem_thmtitle">Representability obstruction</span></div>
+    <div class="thm_thmcontent"><p>   Even, centered, nonzero \(G\) \(\Rightarrow \) \(G \notin \mathrm{im}(\delta )\). </p>
+</div>
+
+    <a class="latex_link" href="sect0003.html#thm:obstruction">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/BanachEnergySpace.representability_obstruction">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:path_terminal_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:path_terminal" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">43</span><span class="theorem_thmtitle">Path terminal value</span></div>
+    <div class="thm_thmcontent"><p>   \(Y_T = \sum _i z_i\). </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#thm:path_terminal">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/StableLargeJumpPath.path_terminal">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:path_zero_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:path_zero" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">42</span><span class="theorem_thmtitle">Path starts at zero</span></div>
+    <div class="thm_thmcontent"><p>   \(Y_0 = 0\). </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#thm:path_zero">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/StableLargeJumpPath.path_zero">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:poisson_mean_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:poisson_mean" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">8</span><span class="theorem_thmtitle">Poisson mean</span></div>
+    <div class="thm_thmcontent"><p>   \(\mathbb {E}[\mathrm{Poisson}(r)] = r\). </p>
+</div>
+
+    <a class="latex_link" href="sect0001.html#thm:poisson_mean">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/poisson_mean_identity">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:poisson_second_fact_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:poisson_second_fact" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">9</span><span class="theorem_thmtitle">Poisson second factorial moment</span></div>
+    <div class="thm_thmcontent"><p>   \(\sum n(n-1) P(n) = r^2\). </p>
+</div>
+
+    <a class="latex_link" href="sect0001.html#thm:poisson_second_fact">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/poisson_second_factorial_hassum">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:poisson_variance_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:poisson_variance" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">10</span><span class="theorem_thmtitle">Poisson variance</span></div>
+    <div class="thm_thmcontent"><p>   \(\mathrm{Var}(\mathrm{Poisson}(r)) = r\). </p>
+</div>
+
+    <a class="latex_link" href="sect0001.html#thm:poisson_variance">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/poisson_variance_identity">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:pred_module_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:pred_module" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">30</span><span class="theorem_thmtitle">Predictable module</span></div>
+    <div class="thm_thmcontent"><p>   \(\mathbb {E}[(cF) \cdot \delta ^M(u)] = c \cdot \mathbb {E}[F \cdot \delta ^M(u)]\). </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#thm:pred_module">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/LevyItoDecomposition.predictable_module_from_linearity">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:product_rule_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:product_rule" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">58</span><span class="theorem_thmtitle">Product rule with jump defect</span></div>
+    <div class="thm_thmcontent"><p>   \(\langle \Gamma (F,G), u \rangle = \mathbb {E}[\sum \Delta _s(f,g) \cdot \delta (u)]\). </p>
+</div>
+
+    <a class="latex_link" href="sect0003.html#thm:product_rule">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/BanachEnergySpace.product_rule_with_jump_defect">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:product_telescope_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:product_telescope" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">19</span><span class="theorem_thmtitle">Product telescope</span></div>
+    <div class="thm_thmcontent"><p>   Telescoping for the product \(a \cdot b\). </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#thm:product_telescope">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/product_telescope">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:quad_exact_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:quad_exact" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">11</span><span class="theorem_thmtitle">Quadratic defect exact</span></div>
+    <div class="thm_thmcontent"><p>  \((V + Kz)^2 - V^2 - 2V(Kz) = (Kz)^2\). </p>
+</div>
+
+    <a class="latex_link" href="sect0001.html#thm:quad_exact">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/quadratic_defect_exact">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:quad_sharp_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:quad_sharp" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">12</span><span class="theorem_thmtitle">Quadratic defect sharp</span></div>
+    <div class="thm_thmcontent"><p>   \(|g_f(V,K,z)| = (Kz)^2\) for \(f(x) = x^2\). </p>
+</div>
+
+    <a class="latex_link" href="sect0001.html#thm:quad_sharp">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/quadratic_defect_sharp">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:random_sum_linear_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:random_sum_linear" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">21</span><span class="theorem_thmtitle">Random sum linear</span></div>
+    <div class="thm_thmcontent"><p>   \(\sum (ch_1 + h_2) = c\sum h_1 + \sum h_2\). </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#thm:random_sum_linear">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/CompoundPoissonIntegral.random_sum_linear">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:rpow_zero_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:rpow_zero" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">38</span><span class="theorem_thmtitle">rpow tends to zero</span></div>
+    <div class="thm_thmcontent"><p>  \(\varepsilon ^\alpha \to 0\) as \(\varepsilon \to 0^+\) for \(\alpha {\gt} 0\). </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#thm:rpow_zero">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/rpow_tendsto_zero_at_zero_right">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:small_jump_diverges_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:small_jump_diverges" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">6</span><span class="theorem_thmtitle">Small jump moment diverges</span></div>
+    <div class="thm_thmcontent"><p>  For \(\alpha {\lt} \gamma \): \(\alpha - \gamma {\lt} 0\) (the integral diverges). </p>
+</div>
+
+    <a class="latex_link" href="sect0001.html#thm:small_jump_diverges">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/stable_small_jump_moment_diverges">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:small_jump_finite_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:small_jump_finite" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">5</span><span class="theorem_thmtitle">Small jump moment finite</span></div>
+    <div class="thm_thmcontent"><p>  For \(\alpha {\gt} \gamma \): \(2c_\gamma /(\alpha - \gamma ) {\gt} 0\). </p>
+</div>
+
+    <a class="latex_link" href="sect0001.html#thm:small_jump_finite">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/stable_small_jump_moment_finite">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:stable_obstruction_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:stable_obstruction" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">65</span><span class="theorem_thmtitle">Stable obstruction</span></div>
+    <div class="thm_thmcontent"><p>   \(G_0 - \mathbb {E}[G_0] \notin \mathrm{im}(\delta _L)\). </p>
+</div>
+
+    <a class="latex_link" href="sect0003.html#thm:stable_obstruction">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/stable_levy_obstruction">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:telescope_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:telescope" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">17</span><span class="theorem_thmtitle">Finite telescope</span></div>
+    <div class="thm_thmcontent"><p>  \(f(y_n) - f(y_0) = \sum _{i=0}^{n-1} [f(y_{i+1}) - f(y_i)]\). </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#thm:telescope">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/finite_telescope">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:trunc_bounded_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:trunc_bounded" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">39</span><span class="theorem_thmtitle">Truncated moment bounded</span></div>
+    <div class="thm_thmcontent"><p>  \(2c_\gamma M^{2-\gamma }/(2-\gamma ) {\gt} 0\) for fixed \(M\). </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#thm:trunc_bounded">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/truncated_moment_bounded">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:trunc_conv_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:trunc_conv" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">27</span><span class="theorem_thmtitle">Truncation convergence</span></div>
+    <div class="thm_thmcontent"><p>   \(\mathbb {E}[F \cdot \delta ^M(u)] \to \mathbb {E}[F \cdot \delta (u)]\) as \(M \to \infty \). </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#thm:trunc_conv">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/LevyItoDecomposition.trunc_convergence">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:trunc_second_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:trunc_second" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">16</span><span class="theorem_thmtitle">Truncated second moment positive</span></div>
+    <div class="thm_thmcontent"><p>   \(\int _{|z|\leq M} z^2\, \nu _\gamma (dz) {\gt} 0\). </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#thm:trunc_second">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/TruncatedStableMeasure.second_moment_pos">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:var_pos_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:var_pos" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">62</span><span class="theorem_thmtitle">Variance positive</span></div>
+    <div class="thm_thmcontent"><p>   \(\mathrm{Var}(G_0) = \lambda T {\gt} 0\) from \(\lambda {\gt} 0\), \(T {\gt} 0\). </p>
+</div>
+
+    <a class="latex_link" href="sect0003.html#thm:var_pos">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/jump_count_variance_pos">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:witness_even_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:witness_even" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">63</span><span class="theorem_thmtitle">Centered witness even</span></div>
+    <div class="thm_thmcontent"><p>   \(\mathrm{center}(G_0)\) is even. </p>
+</div>
+
+    <a class="latex_link" href="sect0003.html#thm:witness_even">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/jump_count_center_even">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:witness_nonzero_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:witness_nonzero" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">64</span><span class="theorem_thmtitle">Centered witness nonzero</span></div>
+    <div class="thm_thmcontent"><p>   \(\mathrm{center}(G_0) \neq 0\). </p>
+</div>
+
+    <a class="latex_link" href="sect0003.html#thm:witness_nonzero">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="/find/#doc/jump_count_center_nonzero">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+</div>
+</div> <!-- content -->
+</div> <!-- wrapper -->
+<script src="js/jquery.min.js" type="text/javascript"></script>
+
+<script src="js/d3.min.js"></script>
+<script src="js/hpcc.min.js"></script>
+<script src="js/d3-graphviz.js"></script>
+
+<script type="text/javascript">
+const graphContainer = d3.select("#graph");
+const width = graphContainer.node().clientWidth;
+const height = graphContainer.node().clientHeight;
+
+
+graphContainer.graphviz({useWorker: true})
+    .width(width)
+    .height(height)
+    .fit(true)
+    .renderDot(`digraph {}`)
+    .on("end", interactive);
+
+latexLabelEscaper = function(label) {
+  return label.replace(/\./g, '\\.').replace(/:/g, '\\:')
+}
+
+clickNode = function() {
+  $("#statements div").hide()
+  var node_id = $('text', this).text();
+  $('.thm').hide();
+  $('#'+latexLabelEscaper(node_id)).show().children().show();
+}
+function interactive() {
+    $("span#legend_title").on("click", function () {
+           $(this).siblings('dl').toggle();
+        })
+
+    d3.selectAll('.node')
+        .attr('pointer-events', 'fill')
+        .on('click', function () {
+           var title = d3.select(this).selectAll('title').text().trim();
+           $('#statements > div').hide()
+           $('.thm').hide();
+           $('#'+latexLabelEscaper(title)+'_modal').show().children().show().children().show();
+           $('#statements').show()
+        });
+
+    d3.selectAll('.dep-closebtn').on('click', function() {
+        var modal =
+            d3.select(this).node().parentNode.parentNode.parentNode ;
+        d3.select(modal).style('display', 'none');
+    });
+}
+
+</script>
+
+</body>
+</html>
