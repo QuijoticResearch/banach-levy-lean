@@ -29,7 +29,23 @@ div.thm_header_extras {
 	display: none;
 }
 
-/* Remove italic from theorem body text */
+/* Remove all spurious italics */
 div.theorem-style-plain div[class$='_thmcontent'] {
+	font-style: normal;
+}
+
+span[class$='_thmtitle'] {
+	font-style: normal;
+}
+
+em {
+	font-style: normal;
+}
+
+dfn {
+	font-style: normal;
+}
+
+.itshape, .textit, .it, .cal {
 	font-style: normal;
 }
