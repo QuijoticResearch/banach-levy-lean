@@ -34,11 +34,23 @@ jobs:
       - name: Build project
         run: lake build BanachLevyComplete
 
-      - name: Build checkdecls
-        run: lake build checkdecls
-
       - name: Check declarations
-        run: lake exe checkdecls blueprint/lean_decls
+        run: |
+          # Temporarily strip other lean_libs so checkdecls only loads BanachLevyComplete
+          # (avoids name collisions between the component files)
+          cp lakefile.toml lakefile.toml.bak
+          python3 -c "
+          lines = open('lakefile.toml').read()
+          # Keep only BanachLevyComplete lean_lib
+          import re
+          parts = lines.split('[[lean_lib]]')
+          header = parts[0]
+          kept = [p for p in parts[1:] if 'BanachLevyComplete' in p]
+          open('lakefile.toml','w').write(header + ''.join(['[[lean_lib]]' + p for p in kept]))
+          "
+          lake build checkdecls
+          lake exe checkdecls blueprint/lean_decls
+          mv lakefile.toml.bak lakefile.toml
 
       - name: Install Python
         uses: actions/setup-python@v5
@@ -46,8 +58,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install blueprint dependencies
-        run: |
-          pip install leanblueprint
+        run: pip install leanblueprint
 
       - name: Build blueprint
         run: leanblueprint web
