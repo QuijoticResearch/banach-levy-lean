@@ -62,8 +62,25 @@ jobs:
 
       - name: Install blueprint dependencies
         run: |
-          pip install plasTeX==3.1
           pip install leanblueprint
+          # Fix plasTeX 3.x unhashable type bug in dynamically created theorem envs.
+          # plasTeX's newtheorem creates classes via type() that inherit __eq__
+          # but not __hash__, making them unhashable in Python 3.
+          # Patch: add __hash__ = id to the data dict before class creation.
+          python3 << 'PATCH'
+          import plasTeX.Packages.amsthm as amsthm
+          import inspect
+          src_path = inspect.getsourcefile(amsthm)
+          txt = open(src_path).read()
+          old = "th = type(name, (Environment,), data)"
+          new = "data['__hash__'] = lambda self: id(self)\n        th = type(name, (Environment,), data)"
+          if '__hash__' not in txt:
+              txt = txt.replace(old, new)
+              open(src_path, 'w').write(txt)
+              print(f'Patched {src_path}')
+          else:
+              print('Already patched')
+          PATCH
 
       - name: Build blueprint
         run: leanblueprint web
