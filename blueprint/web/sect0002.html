@@ -131,6 +131,7 @@
 <h1 id="a0000000003">2 Lévy–Itô Framework</h1>
 <p>This chapter constructs the jump-side stochastic calculus from first principles. The strategy is to avoid axiomatizing the compensated Poisson integral: instead, we build it as the \(L^2\) limit of compound Poisson finite sums (which require only elementary summation, not measure-theoretic integration). The finite telescoping identity replaces the Itô formula, the \(L^2\) Cauchy estimate \(\varepsilon ^{2-\gamma } \to 0\) guarantees convergence, and centering and isometry are derived (not assumed) via <span class="ttfamily">tendsto_nhds_unique</span>. The chapter also develops the Poisson chaos orthogonality on the canonical space and constructs the compound Poisson path as an explicit càdlàg function. </p>
 <h1 id="a0000000022">2.1 Truncated Measures</h1>
+<p>The stable Lévy measure is restricted to \(\{ |z| \leq M\} \) to produce a finite measure suitable for compound Poisson approximation. </p>
 <div class="defn_thmwrapper theorem-style-definition" id="def:trunc_measure">
   <div class="defn_thmheading">
     <span class="defn_thmcaption">
@@ -255,6 +256,7 @@
   </div>
 </div>
 <h1 id="a0000000023">2.2 Finite Telescoping</h1>
+<p>Finite telescoping identities replace the Itô formula in the compound Poisson setting, reducing path-level calculus to algebraic sums. </p>
 <div class="theorem_thmwrapper theorem-style-plain" id="thm:telescope">
   <div class="theorem_thmheading">
     <span class="theorem_thmcaption">
@@ -453,6 +455,7 @@
   </div>
 </div>
 <h1 id="a0000000024">2.3 Compound Poisson Integral</h1>
+<p>The compound Poisson integral is defined as a finite random sum with compensation, avoiding measure-theoretic convergence issues. </p>
 <div class="defn_thmwrapper theorem-style-definition" id="def:cpi">
   <div class="defn_thmheading">
     <span class="defn_thmcaption">
@@ -577,6 +580,7 @@
   </div>
 </div>
 <h1 id="a0000000025">2.4 Compensated Integral Construction</h1>
+<p>The compensated integral \(I_1^M(h)\) is built as an \(L^2\) limit of compound Poisson finite sums, with centering and isometry derived by passage to the limit. </p>
 <div class="defn_thmwrapper theorem-style-definition" id="def:cci">
   <div class="defn_thmheading">
     <span class="defn_thmcaption">
@@ -866,6 +870,7 @@
   </div>
 </div>
 <h1 id="a0000000026">2.5 Lévy–Itô Decomposition</h1>
+<p>The Lévy–Itô decomposition splits the process into compensated small jumps and compound Poisson large jumps, with truncation convergence enabling passage to the full divergence. </p>
 <div class="defn_thmwrapper theorem-style-definition" id="def:levy_ito">
   <div class="defn_thmheading">
     <span class="defn_thmcaption">
@@ -1247,6 +1252,7 @@
   </div>
 </div>
 <h1 id="a0000000027">2.6 Poisson Chaos</h1>
+<p>The Poisson inner product and centered variable \(\chi \) are defined on the canonical space, and chaos orthogonality is established for the witness argument. </p>
 <div class="defn_thmwrapper theorem-style-definition" id="def:poisson_inner">
   <div class="defn_thmheading">
     <span class="defn_thmcaption">
@@ -1658,6 +1664,7 @@
   </div>
 </div>
 <h1 id="a0000000028">2.7 \(L^2\) Estimates</h1>
+<p>The \(L^2\) Cauchy estimate \(\varepsilon ^{2-\gamma } \to 0\) and related bounds ensure convergence of the compound Poisson approximations to the compensated integral. </p>
 <div class="theorem_thmwrapper theorem-style-plain" id="thm:l2_cauchy">
   <div class="theorem_thmheading">
     <span class="theorem_thmcaption">
@@ -1836,6 +1843,7 @@
   </div>
 </div>
 <h1 id="a0000000029">2.8 Compound Poisson Path</h1>
+<p>The compound Poisson path \(Y_t = \sum _{s_i \leq t} z_i\) is constructed as an explicit càdlàg function, providing the large-jump component of the Lévy–Itô decomposition. </p>
 <div class="defn_thmwrapper theorem-style-definition" id="def:cp_path">
   <div class="defn_thmheading">
     <span class="defn_thmcaption">

@@ -10,6 +10,8 @@ a proved (not axiomatized) Poisson distribution.
 
 \section{Stable Lévy Measure}
 
+The stable density $\nu_\gamma$ and its basic properties (symmetry, nonnegativity) are established here.
+
 \begin{defn}[Stable Lévy density]\label{def:stable_density}
 \lean{stableLevyDensity}
 \leanok
@@ -42,6 +44,8 @@ Nonnegativity is required for the measure-theoretic construction of compound Poi
 
 \section{Moment Computations}
 
+We compute the large-jump rate and the small-jump moment integrals that determine whether the energy space is Hilbert or Banach.
+
 \begin{theorem}[Large jump rate positive]\label{thm:large_jump_rate}
 \lean{stable_large_jump_rate_pos}
 \leanok
@@ -72,6 +76,8 @@ ruling out the standard Hilbert-space energy framework.
 \begin{proof}\leanok The exponent $\alpha - \gamma < 0$ by \texttt{linarith}.\end{proof}
 
 \section{Poisson Identities}
+
+This section derives the Poisson mean, second factorial moment, and variance from a single recurrence relation.
 
 \begin{defn}[Poisson recurrence]\label{lem:poisson_recurrence}
 \lean{poissonPMFReal_succ_mul}
@@ -125,6 +131,8 @@ Use \texttt{convert} with \texttt{ext n; ring} for the summand and \texttt{ring}
 
 \section{Quadratic Defect}
 
+The exact quadratic Taylor remainder is computed, showing that the jump defect for $f(x) = x^2$ is sharp and cannot be improved.
+
 \begin{theorem}[Quadratic defect exact]\label{thm:quad_exact}
 \lean{quadratic_defect_exact}
 \leanok
@@ -143,6 +151,8 @@ This sharpness shows that the defect estimate cannot be improved for quadratic n
 \begin{proof}\leanok Rewrite via \texttt{quadratic\_defect\_exact}, then apply \texttt{abs\_of\_nonneg (sq\_nonneg \_)}.\end{proof}
 
 \section{Canonical Poisson Construction}
+
+An explicit probability space $(\mathbb{N}, \mathrm{poissonMeasure}(\lambda T))$ is constructed to realize the large-jump count as a concrete random variable with a proved Poisson distribution.
 
 \begin{defn}[Concrete stable jump count]\label{def:concrete_jump}
 \lean{ConcreteStableJumpCount}
@@ -178,6 +188,8 @@ the compound Poisson path as an explicit c\`adl\`ag function.
 
 \section{Truncated Measures}
 
+The stable L\'evy measure is restricted to $\{|z| \leq M\}$ to produce a finite measure suitable for compound Poisson approximation.
+
 \begin{defn}[Truncated stable measure]\label{def:trunc_measure}
 \lean{TruncatedStableMeasure}
 \leanok
@@ -196,6 +208,8 @@ Provides the nondegenerate isometry constant for $\delta_L^M$, ensuring that the
 \begin{proof}\leanok Apply \texttt{div\_pos} to the product $2c_\gamma \cdot M^{2-\gamma} > 0$ (from \texttt{mul\_pos} and \texttt{rpow\_pos\_of\_pos}) and the denominator $2 - \gamma > 0$ (from \texttt{linarith}).\end{proof}
 
 \section{Finite Telescoping}
+
+Finite telescoping identities replace the It\^o formula in the compound Poisson setting, reducing path-level calculus to algebraic sums.
 
 \begin{theorem}[Finite telescope]\label{thm:telescope}
 \lean{finite_telescope}
@@ -226,6 +240,8 @@ The defect term is the discrete analogue of the carré du champ operator.
 
 \section{Compound Poisson Integral}
 
+The compound Poisson integral is defined as a finite random sum with compensation, avoiding measure-theoretic convergence issues.
+
 \begin{defn}[Compound Poisson integral]\label{def:cpi}
 \lean{CompoundPoissonIntegral}
 \leanok
@@ -244,6 +260,8 @@ This ensures that the compound Poisson integral inherits linearity from ordinary
 \begin{proof}\leanok Unfold \texttt{random\_sum}, apply \texttt{Finset.sum\_add\_distrib} and \texttt{Finset.mul\_sum}.\end{proof}
 
 \section{Compensated Integral Construction}
+
+The compensated integral $I_1^M(h)$ is built as an $L^2$ limit of compound Poisson finite sums, with centering and isometry derived by passage to the limit.
 
 \begin{defn}[Constructed compensated integral]\label{def:cci}
 \lean{ConstructedCompensatedIntegral}
@@ -289,6 +307,8 @@ This bridge allows downstream results to use the abstract API without depending 
 \end{defn}
 
 \section{Lévy--Itô Decomposition}
+
+The L\'evy--It\^o decomposition splits the process into compensated small jumps and compound Poisson large jumps, with truncation convergence enabling passage to the full divergence.
 
 \begin{defn}[Lévy--Itô decomposition]\label{def:levy_ito}
 \lean{LevyItoDecomposition}
@@ -337,6 +357,8 @@ This scalar-linearity property ensures that $D_L$ extends to a module map over p
 \begin{proof}\leanok Rewrite $cF \cdot \delta = c(F \cdot \delta) + 0$ pointwise (by \texttt{ext; simp; ring}), then apply \texttt{$\mathbb{E}$\_linear} and \texttt{$\mathbb{E}$\_const}.\end{proof}
 
 \section{Poisson Chaos}
+
+The Poisson inner product and centered variable $\chi$ are defined on the canonical space, and chaos orthogonality is established for the witness argument.
 
 \begin{defn}[Poisson inner product]\label{def:poisson_inner}
 \lean{poisson_inner}
@@ -396,6 +418,8 @@ This is the concrete form of chaos orthogonality used in the Poisson witness arg
 
 \section{$L^2$ Estimates}
 
+The $L^2$ Cauchy estimate $\varepsilon^{2-\gamma} \to 0$ and related bounds ensure convergence of the compound Poisson approximations to the compensated integral.
+
 \begin{theorem}[$L^2$ Cauchy estimate]\label{thm:l2_cauchy}
 \lean{l2_cauchy_vanishes}
 \leanok
@@ -423,6 +447,8 @@ Finiteness at each truncation level is what makes the compound Poisson approxima
 \begin{proof}\leanok Same as \texttt{second\_moment\_pos}: \texttt{div\_pos} applied to positive numerator and positive denominator.\end{proof}
 
 \section{Compound Poisson Path}
+
+The compound Poisson path $Y_t = \sum_{s_i \leq t} z_i$ is constructed as an explicit c\`adl\`ag function, providing the large-jump component of the L\'evy--It\^o decomposition.
 
 \begin{defn}[Compound Poisson path]\label{def:cp_path}
 \lean{compound_poisson_path}
@@ -479,6 +505,8 @@ Hilbert formalization via the Hilbert bridge.
 
 \section{Abstract Framework}
 
+The Banach energy space axiomatizes the minimal structure---divergence, duality pairings, and expectation---needed to develop the operator theory without assuming a Hilbert space identification.
+
 \begin{defn}[Banach energy space]\label{def:banach_space}
 \lean{BanachEnergySpace}
 \leanok
@@ -507,6 +535,8 @@ One of the three hypotheses of the representability obstruction, ensuring the wi
 \begin{proof}\leanok Expand $\mathbb{E}[G_0 - \mathrm{const}(\mathbb{E}[G_0])]$ using linearity (\texttt{expect\_sub}) and $\mathbb{E}[\mathrm{const}(c)] = c$ (\texttt{expect\_const}), giving $\mathbb{E}[G_0] - \mathbb{E}[G_0] = 0$.\end{proof}
 
 \section{The Derivative $D$}
+
+The operator-covariant derivative $D$ is constructed via the Banach dual pairing, and its fundamental properties---linearity, vanishing on constants, and kernel characterization---are derived from a single defining identity.
 
 \begin{defn}[Operator-covariant derivative]\label{def:D}
 \lean{BanachEnergySpace.D}
@@ -556,6 +586,8 @@ This characterization reduces kernel membership to a testable orthogonality cond
 
 \section{Fluctuation Factorization (Theorem A)}
 
+Every centered functional is shown to be representable as a divergence, providing the factorization that the derivative $D$ inverts.
+
 \begin{theorem}[Fluctuation factorization]\label{thm:factorization}
 \lean{BanachEnergySpace.fluctuation_factorization}
 \leanok
@@ -575,6 +607,8 @@ This expresses the derivative purely in terms of the divergence operator, closin
 \begin{proof}\leanok Apply the defining identity $\langle DF, u \rangle = \mathbb{E}[F \cdot \delta(u)]$.\end{proof}
 
 \section{Representability Obstruction}
+
+The even-annihilation argument shows that centered, even, nonzero functionals cannot lie in $\mathrm{im}(\delta_L)$, providing the abstract engine for the main non-representability theorem.
 
 \begin{defn}[Distributional symmetry]\label{def:dist_sym}
 \lean{BanachEnergySpace.DistributionalSymmetry}
@@ -603,6 +637,8 @@ This is the abstract engine of the main theorem [1, Proposition 5.1]: three chec
 \begin{proof}\leanok By contradiction: assume $G = \delta(u)$. Then $\|G\|_2^2 = \mathbb{E}[G \cdot G] = \mathbb{E}[G \cdot \delta(u)] = 0$ by even annihilation. So $G = 0$, contradicting $G \neq 0$.\end{proof}
 
 \section{Leibniz Defect (Theorem B)}
+
+The Leibniz defect $\Gamma(F,G)$ measures the failure of the product rule for $D$, which is shown to be entirely determined by the jump structure of the driving process.
 
 \begin{defn}[Leibniz defect]\label{def:leibniz}
 \lean{BanachEnergySpace.leibniz_defect}
@@ -633,6 +669,8 @@ This recovers the Hilbert setting as a special case, confirming consistency with
 
 \section{Chaos Characterization (Theorem C)}
 
+The kernel of $D_L$ is characterized as the space of functionals whose chaos projections vanish, showing that even kernels and higher chaoses make $\ker(D_L)$ infinite-dimensional.
+
 \begin{theorem}[Chaos kernel characterization]\label{thm:chaos_char}
 \lean{BanachEnergySpace.chaos_kernel_characterization}
 \leanok
@@ -644,6 +682,8 @@ This characterization shows that the kernel of $D_L$ captures precisely the chao
 \begin{proof}\leanok The $L^2$ isometry reduces $\mathbb{E}[F \cdot \delta_L^M(u)] = \int u \cdot \Phi_M\,ds$. Truncation convergence passes $M \to \infty$. The conclusion follows from nondegeneracy of the $L^q$-$L^p$ pairing.\end{proof}
 
 \section{Stable Lévy Instantiation}
+
+The abstract Banach framework is instantiated for symmetric $\gamma$-stable processes, assembling the three witness properties to obtain the central non-representability result.
 
 \begin{defn}[Stable noise data]\label{def:stable_noise}
 \lean{StableNoiseData}
@@ -692,6 +732,8 @@ The three prerequisites---centered, even, nonzero---are verified for the stable 
 \begin{proof}\leanok Assemble the three properties---centered (\texttt{center\_centered}), even (\texttt{jump\_count\_center\_even}), nonzero (\texttt{jump\_count\_center\_nonzero})---and apply \texttt{representability\_obstruction}.\end{proof}
 
 \section{Hilbert Bridge}
+
+The Banach framework is shown to specialize to the Hilbert case when no jumps are present, confirming backward compatibility with the companion formalization.
 
 \begin{theorem}[Leibniz defect vanishes]\label{thm:hilbert_bridge}
 \lean{HilbertEnergyData.leibniz_defect_vanishes}
