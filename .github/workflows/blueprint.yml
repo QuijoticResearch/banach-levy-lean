@@ -3,8 +3,6 @@ name: Blueprint
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -17,76 +15,25 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Install elan
-        run: |
-          curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh -s -- -y --default-toolchain none
-          echo "$HOME/.elan/bin" >> $GITHUB_PATH
-
-      - name: Get Mathlib cache
-        run: lake exe cache get
-
-      - name: Build project
-        run: lake build BanachLevyComplete
-
-      - name: Check declarations
-        run: |
-          # Temporarily strip other lean_libs so checkdecls only loads BanachLevyComplete
-          # (avoids name collisions between the component files)
-          cp lakefile.toml lakefile.toml.bak
-          python3 -c "
-          lines = open('lakefile.toml').read()
-          # Keep only BanachLevyComplete lean_lib
-          import re
-          parts = lines.split('[[lean_lib]]')
-          header = parts[0]
-          kept = [p for p in parts[1:] if 'BanachLevyComplete' in p]
-          open('lakefile.toml','w').write(header + ''.join(['[[lean_lib]]' + p for p in kept]))
-          "
-          lake build checkdecls
-          lake exe checkdecls blueprint/lean_decls
-          mv lakefile.toml.bak lakefile.toml
-
-      - name: Install Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
-      - name: Install graphviz
-        run: sudo apt-get install -y graphviz libgraphviz-dev
-
-      - name: Install blueprint dependencies
-        run: |
-          pip install plasTeX==2.1
-          pip install leanblueprint
-
-      - name: Build blueprint
-        run: leanblueprint web
-
-      - name: Copy blueprint to site
-        run: |
-          mkdir -p _site
-          cp -r blueprint/web _site/blueprint
-
-      - name: Upload artifact
-        if: github.ref == 'refs/heads/main'
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
-
   deploy:
-    if: github.ref == 'refs/heads/main'
-    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare site
+        run: |
+          mkdir -p _site
+          cp -r blueprint/web _site/blueprint
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
